@@ -1,12 +1,36 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Menu, X } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import ScrollProgress from "./ScrollProgress";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  const { scrollY } = useScroll();
+  const headerBackground = useTransform(
+    scrollY,
+    [0, 100],
+    ["rgba(var(--background-rgb), 0.6)", "rgba(var(--background-rgb), 0.9)"]
+  );
+
+  const scaleY = useTransform(scrollY, [0, 100], [1, 0.95]);
+  const translateY = useTransform(scrollY, [0, 100], [0, -5]);
+  const logoScale = useSpring(useTransform(scrollY, [0, 100], [1, 0.9]), {
+    stiffness: 200,
+    damping: 20
+  });
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
@@ -19,20 +43,39 @@ const Header = () => {
   return (
     <>
       <ScrollProgress />
-      <header className="fixed top-0 left-0 right-0 z-50 glass-premium bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60 border-b border-white/20">
+    <motion.header 
+      style={{ 
+        background: headerBackground,
+        backdropFilter: 'blur(10px)',
+        y: translateY,
+        scaleY: scaleY
+      }}
+      className={`fixed top-0 left-0 right-0 z-50 border-b transition-all duration-300 ${
+        isScrolled ? 'border-primary/10 shadow-glow' : 'border-white/10'
+      }`}>
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             {/* Elegant Logo */}
             <motion.div 
               className="flex items-center space-x-3"
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 400 }}
+              style={{ scale: logoScale }}
+              whileHover={{ scale: 1.05, y: -2 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
               <motion.div 
                 className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary via-accent-purple/80 to-accent-cyan/60 flex items-center justify-center shadow-lg glow-primary"
                 whileHover={{ 
-                  rotate: 10,
+                  rotate: [0, -10, 10, 0],
+                  scale: 1.1,
                   boxShadow: "0 0 30px rgba(var(--accent-purple-rgb), 0.6)"
+                }}
+                animate={{
+                  rotate: [0, 5, -5, 0],
+                  transition: {
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: "linear"
+                  }
                 }}
                 transition={{ type: "spring", stiffness: 400 }}
               >
@@ -115,7 +158,19 @@ const Header = () => {
           </div>
 
           {/* Mobile Navigation */}
-          {isMobileMenuOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ 
+              height: isMobileMenuOpen ? "auto" : 0,
+              opacity: isMobileMenuOpen ? 1 : 0
+            }}
+            transition={{ 
+              type: "spring",
+              stiffness: 300,
+              damping: 30
+            }}
+            className="overflow-hidden md:hidden"
+          >
             <nav className="md:hidden mt-6 pb-6 border-t border-border/40 pt-6">
               <div className="flex flex-col space-y-4">
                 {[
@@ -129,14 +184,20 @@ const Header = () => {
                   <button
                     key={id}
                     onClick={() => scrollToSection(id)}
-                    className="text-left text-base font-medium text-muted-foreground hover:text-foreground transition-all duration-300 py-2"
+                    className="text-left text-base font-medium text-muted-foreground hover:text-foreground transition-all duration-300 py-2 relative overflow-hidden group"
                   >
+                    <motion.span
+                      className="absolute left-0 bottom-0 w-full h-0.5 bg-gradient-to-r from-primary/50 to-primary/0"
+                      initial={{ scaleX: 0, originX: 0 }}
+                      whileHover={{ scaleX: 1 }}
+                      transition={{ duration: 0.3 }}
+                    />
                     {label}
                   </button>
                 ))}
               </div>
             </nav>
-          )}
+          </motion.div>
         </div>
       </header>
     </>

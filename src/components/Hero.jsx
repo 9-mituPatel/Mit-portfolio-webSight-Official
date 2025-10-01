@@ -1,8 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Github, Linkedin, Mail, Download, Sparkles, Code2, Database, Server, Zap, Terminal, Globe, Layers } from "lucide-react";
-import { motion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
+import { motion, useScroll, useTransform, useMotionValue, useSpring, AnimatePresence } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import { useRef, useEffect, useState } from "react";
+import ParticleEffect from "./ParticleEffect";
+import { useInView } from "react-intersection-observer";
 
 const scrollToSection = (sectionId) => {
   const element = document.getElementById(sectionId);
@@ -12,6 +14,10 @@ const scrollToSection = (sectionId) => {
 };
 
 const Hero = () => {
+  const [ref, inView] = useInView({
+    threshold: 0.1,
+    triggerOnce: true
+  });
   const containerRef = useRef(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isLoaded, setIsLoaded] = useState(false);
@@ -105,9 +111,10 @@ const Hero = () => {
       id="hero"
       className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20"
       initial="hidden"
-      animate={isLoaded ? "visible" : "hidden"}
+      animate={isLoaded && inView ? "visible" : "hidden"}
       variants={containerVariants}
     >
+      <ParticleEffect />
       {/* Advanced Cinematic Background */}
       <motion.div 
         className="absolute inset-0"
@@ -442,34 +449,72 @@ const Hero = () => {
           >
 
             {/* Refined Typography */}
-            <div className="space-y-6">
+            <div className="space-y-6" ref={ref}>
               <motion.h1 
-                className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold text-foreground tracking-tight"
+                className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold tracking-tight relative z-10"
                 variants={itemVariants}
               >
-                Mit Bharodiya
+                <motion.span 
+                  className="inline-block bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent"
+                  animate={{
+                    backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+                  }}
+                  transition={{
+                    duration: 5,
+                    repeat: Infinity,
+                    ease: 'linear',
+                  }}
+                >
+                  Mit Bharodiya
+                </motion.span>
+                <motion.span
+                  className="absolute -inset-2 bg-gradient-to-r from-primary/20 via-accent-purple/20 to-accent-cyan/20 rounded-lg z-[-1] filter blur-xl"
+                  animate={{
+                    scale: [1, 1.1, 1],
+                    opacity: [0.3, 0.5, 0.3],
+                  }}
+                  transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: 'easeInOut',
+                  }}
+                />
               </motion.h1>
               
               <motion.div 
                 className="flex items-center justify-center"
                 variants={itemVariants}
               >
-                <TypeAnimation
-                  sequence={[
-                    'MERN Stack Developer',
-                    2500,
-                    'Backend Development Expert',
-                    2500,
-                    'Node.js Specialist',
-                    2500,
-                    'RESTful API Architect',
-                    2500,
-                  ]}
-                  wrapper="h2"
-                  speed={40}
-                  className="text-xl md:text-2xl lg:text-3xl font-body font-medium text-primary"
-                  repeat={Infinity}
-                />
+                <div className="relative">
+                  <TypeAnimation
+                    sequence={[
+                      'MERN Stack Developer',
+                      2500,
+                      'Backend Development Expert',
+                      2500,
+                      'Node.js Specialist',
+                      2500,
+                      'RESTful API Architect',
+                      2500,
+                    ]}
+                    wrapper="h2"
+                    speed={40}
+                    className="text-xl md:text-2xl lg:text-3xl font-body font-medium text-primary relative z-10"
+                    repeat={Infinity}
+                  />
+                  <motion.div
+                    className="absolute -inset-x-6 -inset-y-2 bg-primary/5 rounded-lg z-0"
+                    animate={{
+                      scale: [1, 1.05, 1],
+                      opacity: [0.5, 0.7, 0.5],
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      ease: 'easeInOut',
+                    }}
+                  />
+                </div>
               </motion.div>
             </div>
           </motion.div>
@@ -490,9 +535,9 @@ const Hero = () => {
             variants={itemVariants}
           >
             <motion.div
-              whileHover={{ y: -2 }}
-              whileTap={{ scale: 0.98 }}
-              transition={{ type: "spring", stiffness: 400 }}
+              whileHover={{ y: -4, scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
               <Button 
                 size="lg" 
