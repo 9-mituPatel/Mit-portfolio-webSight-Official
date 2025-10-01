@@ -52,7 +52,8 @@ const Header = () => {
       }}
       className={`fixed top-0 left-0 right-0 z-50 border-b transition-all duration-300 ${
         isScrolled ? 'border-primary/10 shadow-glow' : 'border-white/10'
-      }`}>
+      }`}
+    >
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             {/* Elegant Logo */}
@@ -199,7 +200,7 @@ const Header = () => {
             </nav>
           </motion.div>
         </div>
-      </header>
+      </motion.header>
     </>
   );
 };
