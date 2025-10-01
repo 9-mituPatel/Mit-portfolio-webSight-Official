@@ -1,0 +1,78 @@
+# ======================================
+# Node & Dependencies
+# ======================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# ======================================
+# Vite Build Output
+# ======================================
+dist/
+build/
+.vite/
+
+# ======================================
+# Environment Files
+# (store secrets like API keys locally, not in repo)
+# ======================================
+.env
+.env.local
+.env.*.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# ======================================
+# Logs
+# ======================================
+*.log
+logs/
+*.pid
+*.seed
+*.pid.lock
+
+# ======================================
+# OS / Editor / IDE files
+# ======================================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# ======================================
+# Testing
+# ======================================
+coverage/
+*.lcov
+
+# ======================================
+# Misc
+# ======================================
+*.tgz
+*.tar.gz
+*.zip
+
+# ======================================
+# Local environment overrides
+# ======================================
+.cache/
+.tmp/
+.eslintcache
+.stylelintcache
+
+# ======================================
+# Storybook (if you use it)
+# ======================================
+storybook-static/
+out/
