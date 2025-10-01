@@ -5,7 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "/Mit-portfolio-webSight-Official/",
+  base: mode === 'production' ? '/Mit-portfolio-webSight-Official/' : '/',
   server: {
     host: "::",
     port: 8080,
