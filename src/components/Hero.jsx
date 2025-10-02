@@ -451,7 +451,7 @@ const Hero = () => {
             {/* Refined Typography */}
             <div className="space-y-6" ref={ref}>
               <motion.h1 
-                className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold tracking-tight relative z-10"
+                className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold tracking-tight relative z-10 heading-gradient"
                 variants={itemVariants}
               >
                 <motion.span 
@@ -531,7 +531,7 @@ const Hero = () => {
           
           {/* Refined CTA Buttons */}
           <motion.div 
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6"
+              className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 animate-float"
             variants={itemVariants}
           >
             <motion.div
@@ -542,7 +542,7 @@ const Hero = () => {
               <Button 
                 size="lg" 
                 onClick={() => scrollToSection('projects')}
-                className="px-8 py-4 bg-primary hover:bg-primary/90 text-primary-foreground font-medium rounded-lg shadow-soft hover:shadow-elegant transition-all duration-300"
+                className="btn-premium px-8 py-4 text-primary-foreground font-medium rounded-lg shadow-soft hover:shadow-elegant transition-all duration-300"
               >
                 View My Work
               </Button>
@@ -556,8 +556,8 @@ const Hero = () => {
               <Button 
                 variant="outline" 
                 size="lg"
-                className="px-8 py-4 border-2 border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground font-medium rounded-lg shadow-soft hover:shadow-elegant transition-all duration-300"
-                onClick={() => window.open('https://youth-education-v2.s3.ap-south-1.amazonaws.com/1755278817314-673-Mit_Bharodiya_Backend_Developer_Resume.pdf', '_blank')}
+                className="gradient-border px-8 py-4 text-primary hover:text-primary-foreground font-medium rounded-lg shadow-soft hover:shadow-elegant transition-all duration-300"
+                onClick={() => window.open('https://youth-education-v2.s3.ap-south-1.amazonaws.com/1759394267576-870-MitBharodiya_resume.pdf', '_blank')}
               >
                 <Download className="w-4 h-4 mr-2" />
                 Download Resume
@@ -571,7 +571,7 @@ const Hero = () => {
             variants={itemVariants}
           >
             {[
-              { icon: Github, label: 'GitHub', url: '#' },
+              { icon: Github, label: 'GitHub', url: 'https://github.com/9-mituPatel' },
               { icon: Linkedin, label: 'LinkedIn', url: 'https://www.linkedin.com/in/mit-bharodiya-4a6007256' },
               { icon: Mail, label: 'Email', url: 'mailto:bharodiyamit@gmail.com' }
             ].map(({ icon: Icon, label, url }, index) => (
@@ -580,7 +580,7 @@ const Hero = () => {
                 href={url}
                 target={url.startsWith('http') ? '_blank' : '_self'}
                 rel={url.startsWith('http') ? 'noopener noreferrer' : undefined}
-                className="w-12 h-12 rounded-full bg-background border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 transition-all duration-300 shadow-subtle hover:shadow-soft"
+                className="w-12 h-12 rounded-full glass-effect flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 transition-all duration-300 shadow-subtle hover:shadow-soft"
                 whileHover={{ y: -3, scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 transition={{ type: "spring", stiffness: 400 }}

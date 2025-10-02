@@ -38,10 +38,14 @@ export default {
 					DEFAULT: 'hsl(var(--muted))',
 					foreground: 'hsl(var(--muted-foreground))'
 				},
-				accent: {
-					DEFAULT: 'hsl(var(--accent))',
-					foreground: 'hsl(var(--accent-foreground))'
-				},
+                accent: {
+                  DEFAULT: 'hsl(var(--accent))',
+                  foreground: 'hsl(var(--accent-foreground))',
+                  purple: 'hsl(var(--accent-purple))',
+                  cyan: 'hsl(var(--accent-cyan))',
+                  pink: 'hsl(var(--accent-pink))',
+                  orange: 'hsl(var(--accent-orange))'
+                },
 				popover: {
 					DEFAULT: 'hsl(var(--popover))',
 					foreground: 'hsl(var(--popover-foreground))'
@@ -101,10 +105,19 @@ export default {
 					}
 				}
 			},
-			animation: {
-				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
-			}
+            animation: {
+                'accordion-down': 'accordion-down 0.2s ease-out',
+                'accordion-up': 'accordion-up 0.2s ease-out',
+                'float': 'float 3s ease-in-out infinite',
+                'shine': 'shine 4s linear infinite',
+                'shimmer': 'shimmer 1.5s infinite'
+            },
+            boxShadow: {
+                'soft': 'var(--shadow-soft)',
+                'elegant': 'var(--shadow-elegant)',
+                'glow': 'var(--shadow-glow)',
+                'premium': '0 20px 60px -12px rgba(0, 0, 0, 0.15), 0 8px 30px -8px rgba(0, 0, 0, 0.08)'
+            }
 		}
 	},
 	plugins: [require("tailwindcss-animate")],

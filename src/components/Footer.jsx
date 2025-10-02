@@ -32,7 +32,7 @@ const Footer = () => {
             {/* Social Links */}
             <div className="flex items-center justify-center space-x-4 mb-8">
               {[
-                { icon: Github, url: '#', label: 'GitHub', color: 'hover:bg-gray-100 dark:hover:bg-gray-800' },
+                { icon: Github, url: 'https://github.com/9-mituPatel', label: 'GitHub', color: 'hover:bg-gray-100 dark:hover:bg-gray-800' },
                 { icon: Linkedin, url: 'https://www.linkedin.com/in/mit-bharodiya-4a6007256', label: 'LinkedIn', color: 'hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:text-blue-600' },
                 { icon: Mail, url: 'mailto:bharodiyamit@gmail.com', label: 'Email', color: 'hover:bg-red-50 dark:hover:bg-red-900/20 hover:text-red-600' }
               ].map(({ icon: Icon, url, label, color }) => (

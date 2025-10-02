@@ -1,6 +1,8 @@
-@import './styles/enhanced-button.css';
-
 @tailwind base;
+
+@import './styles/enhanced-button.css';
+@import './styles/enhanced-ui.css';
+
 @tailwind components;
 @tailwind utilities;
 
