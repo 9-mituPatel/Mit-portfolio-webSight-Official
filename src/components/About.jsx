@@ -109,7 +109,7 @@ const About = () => {
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-primary to-primary/50 mx-auto mb-6" />
             <p className="text-lg text-muted-foreground text-center max-w-2xl mx-auto">
-              I'm a results-driven MERN Stack Developer with 1.5 years of hands-on experience in designing and building scalable, 
+              I'm a results-driven MERN Stack Developer with 2+ years of hands-on experience in designing and building scalable, 
               high-performance web applications using MongoDB, Express.js, React.js, and Node.js. Proficient in crafting RESTful APIs 
               and implementing secure, maintainable full-stack systems.
             </p>
