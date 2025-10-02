@@ -542,7 +542,7 @@ const Hero = () => {
               <Button 
                 size="lg" 
                 onClick={() => scrollToSection('projects')}
-                className="btn-premium px-8 py-4 text-primary-foreground font-medium rounded-lg shadow-soft hover:shadow-elegant transition-all duration-300"
+className="btn-cta-primary px-8 py-4 font-medium"
               >
                 View My Work
               </Button>
@@ -556,7 +556,7 @@ const Hero = () => {
               <Button 
                 variant="outline" 
                 size="lg"
-                className="gradient-border px-8 py-4 text-primary hover:text-primary-foreground font-medium rounded-lg shadow-soft hover:shadow-elegant transition-all duration-300"
+className="btn-cta-outline px-8 py-4 font-medium"
                 onClick={() => window.open('https://youth-education-v2.s3.ap-south-1.amazonaws.com/1759394267576-870-MitBharodiya_resume.pdf', '_blank')}
               >
                 <Download className="w-4 h-4 mr-2" />

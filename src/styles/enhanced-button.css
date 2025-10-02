@@ -43,3 +43,72 @@
 .hover-glow:hover::before {
   opacity: 1;
 }
+
+/* Premium CTA Buttons (consistent hover for primary and outline) */
+.btn-cta-base {
+  position: relative;
+  border-radius: 0.75rem; /* matches --radius */
+  transition: transform 200ms cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 250ms ease,
+              filter 250ms ease,
+              background 250ms ease, color 250ms ease;
+  will-change: transform, box-shadow, filter;
+}
+
+.btn-cta-base:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/***** Primary CTA *****/
+.btn-cta-primary {
+  composes: btn-cta-base;
+  background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent-purple)) 100%);
+  color: hsl(var(--primary-foreground));
+  box-shadow: 0 10px 25px hsl(var(--primary)/0.25);
+}
+
+.btn-cta-primary:hover {
+  transform: translateY(-2px) scale(1.03);
+  filter: saturate(1.08);
+  box-shadow: 0 14px 30px hsl(var(--primary)/0.35), 0 0 24px hsl(var(--accent-purple)/0.25);
+}
+
+.btn-cta-primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(120px 60px at var(--mx, 50%) var(--my, 50%), hsl(var(--primary)/0.25), transparent 60%);
+  opacity: 0;
+  transition: opacity 200ms ease;
+  pointer-events: none;
+}
+
+.btn-cta-primary:hover::after { opacity: 1; }
+
+/***** Outline CTA *****/
+.btn-cta-outline {
+  composes: btn-cta-base;
+  color: hsl(var(--primary));
+  background: linear-gradient(var(--background), var(--background)) padding-box,
+             linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent-purple))) border-box;
+  border: 1px solid transparent;
+  box-shadow: 0 8px 18px hsl(var(--primary)/0.15);
+}
+
+.btn-cta-outline:hover {
+  transform: translateY(-2px) scale(1.03);
+  color: hsl(var(--primary-foreground));
+  background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent-purple))) border-box,
+             linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent-purple))) border-box;
+  box-shadow: 0 14px 30px hsl(var(--primary)/0.3), 0 0 24px hsl(var(--accent-purple)/0.25);
+}
+
+/* Smooth light follow effect using CSS variables set from JS if needed */
+@media (prefers-reduced-motion: reduce) {
+  .btn-cta-base,
+  .btn-cta-primary,
+  .btn-cta-outline {
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+}
