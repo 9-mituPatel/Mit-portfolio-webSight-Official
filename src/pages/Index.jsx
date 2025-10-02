@@ -9,6 +9,7 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import KeyboardNavigation from "@/components/KeyboardNavigation";
 import SimpleScrollButton from "@/components/SimpleScrollButton";
+import FileSearch from "@/components/FileSearch/FileSearch";
 
 const Index = () => {
   return (
@@ -24,6 +25,7 @@ const Index = () => {
       <Footer />
       <KeyboardNavigation />
       <SimpleScrollButton />
+      <FileSearch />
     </div>
   );
 };

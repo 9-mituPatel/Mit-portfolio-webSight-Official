@@ -5,20 +5,31 @@ import { Calendar, MapPin } from "lucide-react";
 const Experience = () => {
   const experiences = [
     {
-      title: "Backend Developer",
+      title: "Full Stack Developer & Tech Lead",
       company: "Braincuber Technologies Pvt Ltd",
       location: "Surat, Gujarat",
-      period: "Aug 2024 - Present",
+      period: "Aug 2024 - Present · 1 yr 3 mos",
       description: [
-        "Designed and developed scalable backend systems using Node.js, MongoDB, and Redis for high-performance applications",
-        "Led project development teams, ensuring timely delivery and quality control for multiple client projects",
-        "Interacted directly with clients to gather requirements, provide technical solutions, and coordinate project deliverables",
-        "Built RESTful APIs with role-based access control for admin, distributor, agent, and user dashboards",
-        "Implemented Redis caching strategies to optimize frequently accessed data and improve application performance",
-        "Integrated Elasticsearch for lightning-fast search functionality on customer and transaction data",
-        "Used PM2 for process management and ensuring zero-downtime deployments"
+        "Designed and developed scalable web applications using Node.js, Express.js, MongoDB, React.js, Next.js, and Tailwind CSS",
+        "Led a small team of developers, providing guidance, code reviews, and mentoring",
+        "Collaborated with clients to gather requirements, plan project timelines, and deliver high-quality solutions",
+        "Implemented CI/CD pipelines using Docker and managed deployments for zero-downtime releases",
+        "Integrated third-party services and optimized database operations for performance and scalability"
       ],
-      technologies: ["Node.js", "Express.js", "MongoDB", "Redis", "Elasticsearch", "BullMQ", "PM2", "JWT", "Amazon S3"]
+      technologies: ["Node.js", "Express.js", "MongoDB", "React.js", "Next.js", "Docker", "Redis", "AWS", "Tailwind CSS"]
+    },
+    {
+      title: "Backend & Full Stack Developer",
+      company: "Freelance / Relatives' Companies / Internships",
+      location: " Surat, India",
+      period: "~2022 - 2024 · Part-time / Internship",
+      description: [
+        "Worked part-time during graduation, gaining hands-on experience in web design and development",
+        "Built small to mid-scale projects, including frontend dashboards using React.js and Bootstrap, and backend APIs with Node.js, SQL & MongoDB",
+        "Learned end-to-end project development, client communication, and foundational full stack skills",
+        "Contributed to internships and small company projects, building a strong practical base over 2 years"
+      ],
+      technologies: ["Node.js", "Express.js", "React.js", "MongoDB", "MySQL", "Bootstrap", "RESTful APIs"]
     }
   ];
 

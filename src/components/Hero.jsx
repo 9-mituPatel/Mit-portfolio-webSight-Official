@@ -451,11 +451,11 @@ const Hero = () => {
             {/* Refined Typography */}
             <div className="space-y-6" ref={ref}>
               <motion.h1 
-                className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold tracking-tight relative z-10 heading-gradient"
+                className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold tracking-normal leading-[1.15] relative z-10 text-balance heading-gradient"
                 variants={itemVariants}
               >
                 <motion.span 
-                  className="inline-block bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent"
+                  className="inline-block bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent whitespace-nowrap pb-10"
                   animate={{
                     backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
                   }}
@@ -557,7 +557,7 @@ const Hero = () => {
                 variant="outline" 
                 size="lg"
                 className="gradient-border px-8 py-4 text-primary hover:text-primary-foreground font-medium rounded-lg shadow-soft hover:shadow-elegant transition-all duration-300"
-                onClick={() => window.open('https://youth-education-v2.s3.ap-south-1.amazonaws.com/1759394267576-870-MitBharodiya_resume.pdf', '_blank')}
+                onClick={() => window.open('https://s3.us-east-2.amazonaws.com/tekzico.in/Mit-Bharodiya-Resume-v3.pdf', '_blank')}
               >
                 <Download className="w-4 h-4 mr-2" />
                 Download Resume
