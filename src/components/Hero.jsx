@@ -557,7 +557,7 @@ const Hero = () => {
                 variant="outline" 
                 size="lg"
                 className="gradient-border px-8 py-4 text-primary hover:text-primary-foreground font-medium rounded-lg shadow-soft hover:shadow-elegant transition-all duration-300"
-                onClick={() => window.open('https://s3.us-east-2.amazonaws.com/tekzico.in/Mit-Bharodiya-Resume-v3.pdf', '_blank')}
+                onClick={() => window.open('https://youth-education-v2.s3.ap-south-1.amazonaws.com/1759394267576-870-MitBharodiya_resume.pdf', '_blank')}
               >
                 <Download className="w-4 h-4 mr-2" />
                 Download Resume
