@@ -524,7 +524,7 @@ const Hero = () => {
             className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto font-body"
             variants={itemVariants}
           >
-            Results-driven MERN Stack Developer with 1.5+ years of hands-on experience 
+            Results-driven MERN Stack Developer with 2+ years of hands-on experience 
             in designing and building scalable, high-performance web applications. 
             Specialized in crafting RESTful APIs and delivering elegant full-stack solutions.
           </motion.p>

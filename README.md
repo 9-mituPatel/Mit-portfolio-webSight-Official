@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-A modern, interactive portfolio website showcasing the work and expertise of Mit Bharodiya, a MERN Stack Developer with 1.5+ years of experience in backend development.
+A modern, interactive portfolio website showcasing the work and expertise of Mit Bharodiya, a MERN Stack Developer with 2+ years of experience in backend development.
 
 ## How can I edit this code?
 
