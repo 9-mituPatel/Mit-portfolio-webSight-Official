@@ -1,10 +1,10 @@
 export default {
 	darkMode: ["class"],
 	content: [
-		"./pages/**/*.{js,jsx}",
-		"./components/**/*.{js,jsx}",
-		"./app/**/*.{js,jsx}",
-		"./src/**/*.{js,jsx}",
+		"./pages/**/*.{js,jsx,ts,tsx}",
+		"./components/**/*.{js,jsx,ts,tsx}",
+		"./app/**/*.{js,jsx,ts,tsx}",
+		"./src/**/*.{js,jsx,ts,tsx}",
 	],
 	prefix: "",
 	theme: {
@@ -46,7 +46,11 @@ export default {
                   pink: 'hsl(var(--accent-pink))',
                   orange: 'hsl(var(--accent-orange))'
                 },
-				popover: {
+                gold: {
+                  DEFAULT: 'hsl(var(--accent-gold))',
+                  foreground: 'hsl(var(--accent-gold-foreground))'
+                },
+                popover: {
 					DEFAULT: 'hsl(var(--popover))',
 					foreground: 'hsl(var(--popover-foreground))'
 				},
