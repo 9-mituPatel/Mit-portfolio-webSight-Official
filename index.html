@@ -18,6 +18,20 @@
     <meta name="language" content="English" />
     <link rel="canonical" href="https://9-mitupatel.github.io/Mit-portfolio-webSight-Official/" />
     <link rel="alternate" href="https://9-mitupatel.github.io/Mit-portfolio-webSight-Official/" hreflang="en" />
+
+    <!-- GH Pages SPA deep-link restoration -->
+    <script>
+      (function() {
+        try {
+          var params = new URLSearchParams(window.location.search);
+          var p = params.get('p');
+          if (p) {
+            var newUrl = '/Mit-portfolio-webSight-Official' + p + window.location.hash;
+            window.history.replaceState({}, '', newUrl);
+          }
+        } catch (e) { /* no-op */ }
+      })();
+    </script>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -59,7 +73,7 @@
           "@type": "Person",
           "@id": "#MitBharodiya",
           "name": "Mit Bharodiya",
-          "alternateName": "Mit",
+          "alternateName": ["Mit", "Mit Bharodiya"],
           "givenName": "Mit",
           "familyName": "Bharodiya",
           "gender": "Male",
@@ -112,7 +126,12 @@
           "name": "Mit Bharodiya Portfolio",
           "url": "https://9-mitupatel.github.io/Mit-portfolio-webSight-Official/",
           "description": "Mit Bharodiya's professional portfolio showcasing MERN stack development expertise",
-          "author": { "@id": "#MitBharodiya" }
+          "author": { "@id": "#MitBharodiya" },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://www.google.com/search?q=site:9-mitupatel.github.io/Mit-portfolio-webSight-Official+{search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
         },
         {
           "@type": "ProfessionalService",
