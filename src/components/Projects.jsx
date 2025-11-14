@@ -281,7 +281,35 @@ const Projects = () => {
       ],
       githubUrl: "#",
       liveUrl: "https://www.linkedin.com/company/boundev/"
+    },
+    {
+      "title": "V-KYC Omni Card",
+      "description": "Self-hosted Video-KYC (V-CIP) demo: Angular frontend + Node.js backend, mediasoup WebRTC SFU, self-deployed TURN (coturn), client-side recording + server-side ffmpeg processing, AWS S3 (India) storage, and RBI-compliant V-CIP features (consent, geotagging, photo capture, record retention).",
+      "technologies": [
+        "Angular",
+        "Node.js (Express)",
+        "Socket.IO",
+        "Mediasoup",
+        "coturn (TURN)",
+        "ffmpeg",
+        "AWS S3 (ap-south-1)",
+        "MongoDB (Mongoose)",
+        "JWT",
+        "Docker / docker-compose"
+      ],
+      "features": [
+        "Live video KYC (two-party) using Mediasoup + Socket.IO",
+        "Self-hosted TURN server (coturn) for NAT traversal",
+        "Client-side MediaRecorder with geo-tagging & consent capture",
+        "Server-side ffmpeg pipeline for transcoding, timestamp overlay & QC",
+        "Recording metadata: geolocation, timestamp, photographer snapshot stored with recording",
+        "Record retention & storage located in India (RBI compliance)",
+        "Role-based JWT auth (user / verifier) and audit logs"
+      ],
+      "githubUrl": "https://github.com/your-org/v-kyc",
+      "liveUrl": "https://www.linkedin.com/company/boundev/"
     }
+
   ];
 
   const containerVariants = {
