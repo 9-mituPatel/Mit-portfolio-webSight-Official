@@ -9,7 +9,7 @@ import RippleButton from "@/components/RippleButton";
 
 const EnhancedProjectCard = ({ project, index }) => {
   const [isHovered, setIsHovered] = useState(false);
-  const rotateX = useMotionValue(0);
+  const rotateX = useMotionValue(0); 
   const rotateY = useMotionValue(0);
   const shadowBlur = useMotionValue(20);
   const shadowOpacity = useMotionValue(0.25);
