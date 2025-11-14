@@ -182,14 +182,15 @@ const EnhancedProjectCard = ({ project, index }) => {
                 Code
               </Button>
             </motion.div>
-            <motion.div 
+            <motion.div
               className="flex-1"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <Button 
-                size="sm" 
+              <Button
+                size="sm"
                 className="w-full bg-gradient-to-r from-primary to-accent-purple/80 hover:from-primary/90 hover:to-accent-purple/70 shadow-md hover:shadow-lg transition-all duration-300"
+                onClick={() => window.open(project.liveUrl, '_blank')}
               >
                 <ArrowUpRight className="w-4 h-4 mr-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
                 View Live
@@ -219,7 +220,7 @@ const Projects = () => {
         "React.js frontend integration"
       ],
       githubUrl: "#",
-      liveUrl: "#"
+      liveUrl: "http://omnifastaguat.website.s3-website.ap-south-1.amazonaws.com/"
     },
     {
       title: "YouthEducation",
@@ -234,7 +235,7 @@ const Projects = () => {
         "Performance optimizations with caching strategies"
       ],
       githubUrl: "#",
-      liveUrl: "#"
+      liveUrl: "https://play.google.com/store/apps/details?id=youth.ncert.papergeneration&hl=en_IN"
     },
     {
       title: "ECMS: Omni Card",
@@ -249,7 +250,7 @@ const Projects = () => {
         "Customer and transaction data management"
       ],
       githubUrl: "#",
-      liveUrl: "#"
+      liveUrl: "https://ecms.omnicard.in/"
     },
     {
       title: "Study Master",
@@ -264,7 +265,7 @@ const Projects = () => {
         "Student data security and privacy protocols"
       ],
       githubUrl: "#",
-      liveUrl: "#"
+      liveUrl: "https://play.google.com/store/apps/details?id=co.kevin.gnfgm&hl=en_IN"
     },
     {
       title: "BounDev",
@@ -279,7 +280,7 @@ const Projects = () => {
         "Content management workflow"
       ],
       githubUrl: "#",
-      liveUrl: "#"
+      liveUrl: "https://www.linkedin.com/company/boundev/"
     }
   ];
 
