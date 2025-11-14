@@ -16,47 +16,81 @@ const Skills = () => {
         { name: "Node.js", level: 92 },
         { name: "Express.js", level: 90 },
         { name: "RESTful APIs", level: 88 },
-        { name: "JWT Authentication", level: 85 }
+        { name: "JWT Authentication", level: 85 },
+        { name: "BullMQ", level: 82 },
+        { name: "Sequelize", level: 80 },
+        { name: "Strapi", level: 78 },
+        { name: "Microservices", level: 85 }
       ]
     },
     {
       title: "Databases & Caching",
       skills: [
         { name: "MongoDB", level: 89 },
+        { name: "Mongoose", level: 87 },
         { name: "MySQL", level: 87 },
         { name: "Redis", level: 85 },
-        { name: "Elasticsearch", level: 80 }
+        { name: "Elasticsearch", level: 80 },
+        { name: "Database Migrations", level: 83 }
       ]
     },
     {
       title: "Frontend & Styling",
       skills: [
         { name: "React.js", level: 85 },
+        { name: "Angular", level: 80 },
         { name: "HTML5 & CSS3", level: 88 },
         { name: "Bootstrap", level: 85 },
         { name: "jQuery", level: 78 }
       ]
     },
     {
-      title: "Tools & Cloud Services",
+      title: "Real-time & Media Technologies",
+      skills: [
+        { name: "Socket.IO", level: 82 },
+        { name: "Mediasoup", level: 78 },
+        { name: "WebRTC", level: 80 },
+        { name: "ffmpeg", level: 75 }
+      ]
+    },
+    {
+      title: "DevOps & Deployment",
+      skills: [
+        { name: "Docker", level: 85 },
+        { name: "PM2", level: 85 },
+        { name: "AWS S3", level: 82 },
+        { name: "coturn (TURN)", level: 75 }
+      ]
+    },
+    {
+      title: "Tools & Version Control",
       skills: [
         { name: "Git & GitHub", level: 87 },
-        { name: "Postman", level: 92 },
-        { name: "Amazon S3", level: 82 },
-        { name: "PM2", level: 85 }
+        { name: "Postman", level: 92 }
       ]
     }
   ];
 
   const certifications = [
     "MERN Stack Development Expert",
-    "Node.js Backend Specialist", 
+    "Node.js Backend Specialist",
     "MongoDB Database Operations",
     "Redis Caching & Performance",
     "RESTful API Design & Security",
     "Elasticsearch Integration",
     "JWT Authentication & Authorization",
-    "Team Leadership & Project Management"
+    "Team Leadership & Project Management",
+    "Microservices Architecture",
+    "Real-time Communication Systems",
+    "WebRTC & Video Processing",
+    "Background Job Processing (BullMQ)",
+    "Database Migrations & ORM",
+    "DevOps & Containerization (Docker)",
+    "Cloud Storage & Deployment (AWS)",
+    "Video KYC & Compliance Systems",
+    "Client Coordination & Requirements Gathering",
+    "Quality Control & Code Review",
+    "Full-stack Application Development"
   ];
 
   const getSkillColor = (level) => {
