@@ -23,12 +23,12 @@ export default {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				primary: {
-					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))'
+					DEFAULT: '#4353FF', // dev.co blue
+					foreground: '#F7F8F8'
 				},
 				secondary: {
-					DEFAULT: 'hsl(var(--secondary))',
-					foreground: 'hsl(var(--secondary-foreground))'
+					DEFAULT: '#080809', // dev.co card background
+					foreground: '#94A3B8'
 				},
 				destructive: {
 					DEFAULT: 'hsl(var(--destructive))',
@@ -39,38 +39,21 @@ export default {
 					foreground: 'hsl(var(--muted-foreground))'
 				},
                 accent: {
-                  DEFAULT: 'hsl(var(--accent))',
-                  foreground: 'hsl(var(--accent-foreground))',
-                  purple: 'hsl(var(--accent-purple))',
-                  cyan: 'hsl(var(--accent-cyan))',
-                  pink: 'hsl(var(--accent-pink))',
-                  orange: 'hsl(var(--accent-orange))'
-                },
-                gold: {
-                  DEFAULT: 'hsl(var(--accent-gold))',
-                  foreground: 'hsl(var(--accent-gold-foreground))'
+                  DEFAULT: '#4353FF',
+                  foreground: '#F7F8F8',
+                  purple: '#A855F7',
+                  cyan: '#22D3EE',
+                  pink: '#F472B6',
+                  orange: '#FB923C'
                 },
                 popover: {
 					DEFAULT: 'hsl(var(--popover))',
 					foreground: 'hsl(var(--popover-foreground))'
 				},
 				card: {
-					DEFAULT: 'hsl(var(--card))',
-					foreground: 'hsl(var(--card-foreground))'
+					DEFAULT: '#080809',
+					foreground: '#F7F8F8'
 				},
-			// Modern gradient accent colors
-			gradient: {
-				purple: 'hsl(var(--accent-purple))',
-				cyan: 'hsl(var(--accent-cyan))',
-				pink: 'hsl(var(--accent-pink))',
-				orange: 'hsl(var(--accent-orange))'
-			},
-			// Glassmorphism utilities
-			glass: {
-				DEFAULT: 'hsl(var(--glass))',
-				border: 'hsl(var(--glass-border))',
-				shadow: 'hsl(var(--glass-shadow))'
-			},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
@@ -83,8 +66,8 @@ export default {
 				}
 			},
 			fontFamily: {
-				'heading': ['Playfair Display', 'Georgia', 'serif'],
-				'body': ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+				'heading': ['Inter', 'SF Pro Display', 'sans-serif'],
+				'body': ['Inter', 'sans-serif'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -93,36 +76,39 @@ export default {
 			},
 			keyframes: {
 				'accordion-down': {
-					from: {
-						height: '0'
-					},
-					to: {
-						height: 'var(--radix-accordion-content-height)'
-					}
+					from: { height: '0' },
+					to: { height: 'var(--radix-accordion-content-height)' }
 				},
 				'accordion-up': {
-					from: {
-						height: 'var(--radix-accordion-content-height)'
-					},
-					to: {
-						height: '0'
-					}
-				}
+					from: { height: 'var(--radix-accordion-content-height)' },
+					to: { height: '0' }
+				},
+                'glow': {
+                    '0%, 100%': { opacity: 0.3, transform: 'scale(1)' },
+                    '50%': { opacity: 0.6, transform: 'scale(1.1)' }
+                },
+                'float': {
+                    '0%, 100%': { transform: 'translateY(0)' },
+                    '50%': { transform: 'translateY(-10px)' }
+                }
 			},
             animation: {
                 'accordion-down': 'accordion-down 0.2s ease-out',
                 'accordion-up': 'accordion-up 0.2s ease-out',
                 'float': 'float 3s ease-in-out infinite',
-                'shine': 'shine 4s linear infinite',
-                'shimmer': 'shimmer 1.5s infinite'
+                'glow': 'glow 8s ease-in-out infinite',
+                'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
             },
             boxShadow: {
-                'soft': 'var(--shadow-soft)',
-                'elegant': 'var(--shadow-elegant)',
-                'glow': 'var(--shadow-glow)',
-                'premium': '0 20px 60px -12px rgba(0, 0, 0, 0.15), 0 8px 30px -8px rgba(0, 0, 0, 0.08)'
+                'glow': '0 0 20px rgba(67, 83, 255, 0.3)',
+                'glow-strong': '0 0 40px rgba(67, 83, 255, 0.5)',
+                'premium': '0 20px 60px -12px rgba(0, 0, 0, 0.5)'
+            },
+            backgroundImage: {
+                'grid-pattern': "url(\"data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 40L40 0M0 0L40 40' fill='none' stroke='white' stroke-opacity='0.03' stroke-width='0.5'/%3E%3C/svg%3E\")",
             }
 		}
 	},
 	plugins: [require("tailwindcss-animate")],
 };
+

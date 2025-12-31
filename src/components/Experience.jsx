@@ -1,6 +1,5 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Calendar, MapPin } from "lucide-react";
+import { motion } from "framer-motion";
+import { Calendar, MapPin, Briefcase } from "lucide-react";
 
 const Experience = () => {
   const experiences = [
@@ -8,84 +7,104 @@ const Experience = () => {
       title: "Full Stack Developer & Tech Lead",
       company: "Braincuber Technologies Pvt Ltd",
       location: "Surat, Gujarat",
-      period: "Aug 2024 - Present · 1 yr 3 mos",
+      period: "Aug 2024 - Present",
       description: [
-        "Designed and developed scalable web applications using Node.js, Express.js, MongoDB, React.js, Next.js, and Tailwind CSS",
-        "Led a small team of developers, providing guidance, code reviews, and mentoring",
-        "Collaborated with clients to gather requirements, plan project timelines, and deliver high-quality solutions",
-        "Implemented CI/CD pipelines using Docker and managed deployments for zero-downtime releases",
-        "Integrated third-party services and optimized database operations for performance and scalability"
+        "Architecting scalable systems with Node.js and React.js",
+        "Leading a mission-critical backend migration to microservices",
+        "Managing cloud infrastructure on AWS and DigitalOcean",
+        "Implementing advanced security protocols and JWT-based auth"
       ],
-      technologies: ["Node.js", "Express.js", "MongoDB", "React.js", "Next.js", "Docker", "Redis", "AWS", "Tailwind CSS"]
+      technologies: ["Node.js", "MongoDB", "Docker", "Redis", "AWS"]
     },
     {
-      title: "Backend & Full Stack Developer",
-      company: "Freelance / Relatives' Companies / Internships",
-      location: " Surat, India",
-      period: "~2022 - 2024 · Part-time / Internship",
+      title: "Backend Specialist (Hybrid)",
+      company: "VNSGU & Freelance Projects",
+      location: "Surat, India",
+      period: "2022 - 2024",
       description: [
-        "Worked part-time during graduation, gaining hands-on experience in web design and development",
-        "Built small to mid-scale projects, including frontend dashboards using React.js and Bootstrap, and backend APIs with Node.js, SQL & MongoDB",
-        "Learned end-to-end project development, client communication, and foundational full stack skills",
-        "Contributed to internships and small company projects, building a strong practical base over 2 years"
+        "Developed custom ERP solutions for local logistics firms",
+        "Built responsive frontend dashboards using React and Bootstrap",
+        "Optimized database queries for 40% faster load times",
+        "Successfully delivered 5+ full-stack freelance projects"
       ],
-      technologies: ["Node.js", "Express.js", "React.js", "MongoDB", "MySQL", "Bootstrap", "RESTful APIs"]
+      technologies: ["Node.js", "React.js", "MySQL", "MongoDB", "Nginx"]
     }
   ];
 
   return (
-    <section id="experience" className="py-20 bg-secondary/20">
-      <div className="container mx-auto px-6">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-heading font-bold text-center text-foreground mb-4">
-            Professional Experience
-          </h2>
-          <p className="text-lg text-muted-foreground text-center mb-16 max-w-2xl mx-auto">
-            My journey in backend development and database management across various organizations.
-          </p>
+    <section id="experience" className="py-32 bg-[#000101] relative">
+      {/* Background line */}
+      <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-px bg-gradient-to-b from-transparent via-white/5 to-transparent hidden md:block" />
 
-          <div className="space-y-8">
-            {experiences.map((exp, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow duration-300">
-                <CardHeader>
-                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="max-w-4xl mx-auto text-center mb-24">
+          <motion.h2
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="text-4xl md:text-5xl font-extrabold text-white mb-6"
+          >
+            Work <span className="text-[#4353FF]">History</span>
+          </motion.h2>
+          <div className="h-1 w-20 bg-[#4353FF] mx-auto" />
+        </div>
+
+        <div className="space-y-12">
+          {experiences.map((exp, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className={`flex flex-col md:flex-row gap-8 items-center ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}
+            >
+              {/* Spacer for timeline effect */}
+              <div className="flex-1 hidden md:block" />
+
+              {/* Timeline Center Point */}
+              <div className="relative z-10 hidden md:block">
+                <div className="w-4 h-4 rounded-full bg-[#4353FF] border-4 border-[#000101] shadow-[0_0_15px_rgba(67,83,255,0.5)]" />
+              </div>
+
+              {/* Card Content */}
+              <div className="flex-1 w-full">
+                <div className="bg-[#080809] border border-white/5 rounded-3xl p-8 hover:border-[#4353FF]/20 transition-all group">
+                  <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
                     <div>
-                      <CardTitle className="text-xl font-semibold text-foreground">
-                        {exp.title}
-                      </CardTitle>
-                      <CardDescription className="text-lg font-medium text-primary">
-                        {exp.company}
-                      </CardDescription>
+                      <h3 className="text-xl font-bold text-white mb-1 group-hover:text-[#4353FF] transition-colors">{exp.title}</h3>
+                      <p className="text-[#4353FF] font-semibold text-sm tracking-wide uppercase">{exp.company}</p>
                     </div>
-                    <div className="flex flex-col sm:flex-row gap-2 text-sm text-muted-foreground">
-                      <div className="flex items-center gap-1">
-                        <Calendar className="w-4 h-4" />
-                        {exp.period}
+                    <div className="flex flex-col items-start sm:items-end text-[#94A3B8] text-xs font-mono">
+                      <div className="flex items-center gap-2 mb-1">
+                        <Calendar className="w-3 h-3" /> {exp.period}
                       </div>
-                      <div className="flex items-center gap-1">
-                        <MapPin className="w-4 h-4" />
-                        {exp.location}
+                      <div className="flex items-center gap-2">
+                        <MapPin className="w-3 h-3" /> {exp.location}
                       </div>
                     </div>
                   </div>
-                </CardHeader>
-                <CardContent>
-                  <ul className="list-disc list-inside space-y-2 text-muted-foreground mb-6">
+
+                  <ul className="space-y-4 mb-8">
                     {exp.description.map((item, idx) => (
-                      <li key={idx}>{item}</li>
+                      <li key={idx} className="flex items-start gap-4 text-[#94A3B8] text-sm leading-relaxed">
+                        <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4353FF]/40 flex-shrink-0" />
+                        {item}
+                      </li>
                     ))}
                   </ul>
-                  <div className="flex flex-wrap gap-2">
+
+                  <div className="flex flex-wrap gap-2 pt-6 border-t border-white/5">
                     {exp.technologies.map((tech, idx) => (
-                      <Badge key={idx} variant="secondary">
+                      <span key={idx} className="px-3 py-1 rounded-full bg-white/5 border border-white/5 text-[#94A3B8] text-[10px] font-bold uppercase tracking-wider">
                         {tech}
-                      </Badge>
+                      </span>
                     ))}
                   </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

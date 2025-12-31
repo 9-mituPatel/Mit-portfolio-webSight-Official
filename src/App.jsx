@@ -17,27 +17,27 @@ const SEO = lazy(() => import('./components/SEO'));
 const queryClient = new QueryClient();
 
 const App = () => (
-  <ThemeProvider defaultTheme="light" storageKey="portfolio-ui-theme">
+  <ThemeProvider defaultTheme="dark" storageKey="dev-co-portfolio-theme">
     <QueryClientProvider client={queryClient}>
       <LoadingProvider>
         <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter basename="/Mit-portfolio-webSight-Official">
-          <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><Loading size="lg" /></div>}>
-            <SEO />
-            <Routes>
-            <Route path={seoRoutes.home.path} element={<Index />} />
-            <Route path={seoRoutes.about.path} element={<Index />} />
-            <Route path={seoRoutes.experience.path} element={<Index />} />
-            <Route path={seoRoutes.projects.path} element={<Index />} />
-            <Route path={seoRoutes.skills.path} element={<Index />} />
-            <Route path={seoRoutes.education.path} element={<Index />} />
-            <Route path={seoRoutes.contact.path} element={<Index />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-          </Suspense>
-        </BrowserRouter>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter basename="/Mit-portfolio-webSight-Official">
+            <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><Loading size="lg" /></div>}>
+              <SEO />
+              <Routes>
+                <Route path={seoRoutes.home.path} element={<Index />} />
+                <Route path={seoRoutes.about.path} element={<Index />} />
+                <Route path={seoRoutes.experience.path} element={<Index />} />
+                <Route path={seoRoutes.projects.path} element={<Index />} />
+                <Route path={seoRoutes.skills.path} element={<Index />} />
+                <Route path={seoRoutes.education.path} element={<Index />} />
+                <Route path={seoRoutes.contact.path} element={<Index />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </Suspense>
+          </BrowserRouter>
         </TooltipProvider>
       </LoadingProvider>
     </QueryClientProvider>
