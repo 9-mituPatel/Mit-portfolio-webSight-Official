@@ -1,3 +1,4 @@
+import { SpotlightCard } from "@/components/ui/spotlight-card";
 import { motion } from "framer-motion";
 import { Calendar, MapPin, GraduationCap } from "lucide-react";
 
@@ -22,21 +23,42 @@ const Education = () => {
   ];
 
   return (
-    <section id="education" className="py-32 bg-[#000101] relative">
+    <section id="education" className="py-40 bg-[#000101] relative overflow-hidden">
+      <div className="absolute inset-0 bg-grid-modern opacity-10 pointer-events-none" />
+
       <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-4xl mx-auto text-center mb-24">
+        <div className="max-w-5xl mx-auto text-center mb-32">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="inline-block mb-6"
+          >
+            <span className="text-[#4353FF] font-black tracking-[0.4em] uppercase text-xs px-6 py-2 border border-[#4353FF]/20 rounded-full bg-[#4353FF]/5">
+              Academic
+            </span>
+          </motion.div>
+
           <motion.h2
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="text-6xl md:text-8xl font-black text-white mb-8 tracking-tighter"
+          >
+            Scholastic <span className="text-[#4353FF] text-glow">Background</span>
+          </motion.h2>
+
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-extrabold text-white mb-6"
+            className="text-white/50 text-xl font-medium max-w-2xl mx-auto"
           >
-            Academic <span className="text-[#4353FF]">Journey</span>
-          </motion.h2>
-          <div className="h-1 w-20 bg-[#4353FF] mx-auto" />
+            The foundation of my technical expertise and problem-solving mindset.
+          </motion.p>
         </div>
 
-        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10">
           {education.map((edu, index) => (
             <motion.div
               key={index}
@@ -44,38 +66,40 @@ const Education = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="bg-[#080809] border border-white/5 rounded-3xl p-8 hover:border-[#4353FF]/20 transition-all group"
+              className="group"
             >
-              <div className="flex items-center gap-4 mb-8">
-                <div className="w-12 h-12 bg-[#4353FF]/10 rounded-2xl flex items-center justify-center group-hover:bg-[#4353FF]/20 transition-colors">
-                  <GraduationCap className="w-6 h-6 text-[#4353FF]" />
+              <SpotlightCard className="p-10 border-gradient h-full">
+                <div className="flex items-center gap-6 mb-10 relative z-10">
+                  <div className="w-16 h-16 bg-[#4353FF]/10 rounded-2xl flex items-center justify-center border border-[#4353FF]/20 group-hover:scale-110 transition-transform duration-500">
+                    <GraduationCap className="w-8 h-8 text-[#4353FF]" />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-black text-white mb-2 group-hover:text-[#4353FF] transition-colors leading-tight uppercase tracking-tight">{edu.degree}</h3>
+                    <p className="text-[#4353FF] font-black text-[10px] tracking-[0.3em] uppercase">{edu.institution}</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-xl font-bold text-white mb-1 group-hover:text-[#4353FF] transition-colors">{edu.degree}</h3>
-                  <p className="text-[#94A3B8] text-sm">{edu.institution}</p>
-                </div>
-              </div>
 
-              <div className="flex items-center gap-6 text-[#94A3B8] text-xs font-mono mb-6">
-                <div className="flex items-center gap-2">
-                  <Calendar className="w-4 h-4" /> {edu.period}
+                <div className="flex flex-wrap gap-4 text-white/30 text-[10px] font-black uppercase tracking-widest bg-white/5 px-4 py-2 rounded-full border border-white/10 mb-8 relative z-10 w-fit">
+                  <div className="flex items-center gap-2">
+                    <Calendar className="w-3 h-3 text-[#4353FF]" /> {edu.period}
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <MapPin className="w-3 h-3 text-[#4353FF]" /> {edu.location}
+                  </div>
                 </div>
-                <div className="flex items-center gap-2">
-                  <MapPin className="w-4 h-4" /> {edu.location}
+
+                <p className="text-white/50 text-base leading-relaxed mb-10 font-medium relative z-10">
+                  {edu.description}
+                </p>
+
+                <div className="flex flex-wrap gap-2.5 pt-8 border-t border-white/5 relative z-10">
+                  {edu.subjects.map((sub, idx) => (
+                    <span key={idx} className="px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/30 text-[10px] font-black uppercase tracking-widest group-hover:text-[#4353FF] group-hover:border-[#4353FF]/20 transition-all duration-300">
+                      {sub}
+                    </span>
+                  ))}
                 </div>
-              </div>
-
-              <p className="text-[#94A3B8] text-sm leading-relaxed mb-8">
-                {edu.description}
-              </p>
-
-              <div className="flex flex-wrap gap-2 pt-6 border-t border-white/5">
-                {edu.subjects.map((sub, idx) => (
-                  <span key={idx} className="px-3 py-1 rounded-full bg-white/5 border border-white/5 text-[#94A3B8] text-[10px] font-bold uppercase tracking-wider">
-                    {sub}
-                  </span>
-                ))}
-              </div>
+              </SpotlightCard>
             </motion.div>
           ))}
         </div>

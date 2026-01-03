@@ -66,8 +66,8 @@ export default {
 				}
 			},
 			fontFamily: {
-				'heading': ['Inter', 'SF Pro Display', 'sans-serif'],
-				'body': ['Inter', 'sans-serif'],
+				'heading': ['Plus Jakarta Sans', 'sans-serif'],
+				'body': ['Plus Jakarta Sans', 'sans-serif'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

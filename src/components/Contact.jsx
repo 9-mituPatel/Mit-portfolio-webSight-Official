@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin, Send, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { motion } from "framer-motion";
-import emailjs from '@emailjs/browser';
+import { SpotlightCard } from "@/components/ui/spotlight-card";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -46,114 +46,146 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-32 bg-[#000101] relative overflow-hidden">
+    <section id="contact" className="py-40 bg-[#000101] relative overflow-hidden">
+      <div className="absolute inset-0 bg-grid-modern opacity-10 pointer-events-none" />
+
       <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-20">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-32">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="inline-block mb-6"
+            >
+              <span className="text-[#4353FF] font-black tracking-[0.4em] uppercase text-xs px-6 py-2 border border-[#4353FF]/20 rounded-full bg-[#4353FF]/5">
+                Communication
+              </span>
+            </motion.div>
+
             <motion.h2
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="text-4xl md:text-6xl font-extrabold text-white mb-6"
+              className="text-6xl md:text-8xl font-black text-white mb-8 tracking-tighter"
             >
-              Let's <span className="text-[#4353FF]">Connect</span>
+              Let's <span className="text-[#4353FF] text-glow">Connect</span>
             </motion.h2>
-            <p className="text-[#94A3B8] text-lg max-w-2xl mx-auto">
+
+            <p className="text-white/50 text-xl font-medium max-w-2xl mx-auto">
               Whether you have a project in mind or just want to say hi, my inbox is always open.
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-5 gap-16">
-            <div className="lg:col-span-2 space-y-12">
+          <div className="grid lg:grid-cols-5 gap-20">
+            <div className="lg:col-span-2 space-y-16">
               {[
-                { icon: Mail, title: "Email", value: "bharodiyamit@gmail.com", link: "mailto:bharodiyamit@gmail.com" },
-                { icon: Phone, title: "Phone", value: "+91-9409010977", link: "tel:+919409010977" },
-                { icon: MapPin, title: "Location", value: "Surat, Gujarat, India", link: null }
+                { icon: Mail, title: "Direct Email", value: "bharodiyamit@gmail.com", link: "mailto:bharodiyamit@gmail.com" },
+                { icon: Phone, title: "Direct Call", value: "+91-9409010977", link: "tel:+919409010977" },
+                { icon: MapPin, title: "Main Office", value: "Surat, Gujarat, India", link: null }
               ].map((item, i) => (
-                <div key={i} className="flex gap-6 group">
-                  <div className="w-14 h-14 bg-[#080809] border border-white/5 rounded-2xl flex items-center justify-center group-hover:border-[#4353FF]/30 transition-all">
-                    <item.icon className="w-6 h-6 text-[#4353FF]" />
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.1 }}
+                  viewport={{ once: true }}
+                  className="flex gap-8 group"
+                >
+                  <div className="w-16 h-16 bg-[#080809] border border-white/10 rounded-2xl flex items-center justify-center group-hover:border-[#4353FF]/50 group-hover:bg-[#4353FF]/10 transition-all duration-500 shadow-[0_0_20px_rgba(0,0,0,0.5)]">
+                    <item.icon className="w-7 h-7 text-[#4353FF]" />
                   </div>
                   <div>
-                    <h4 className="text-white font-bold mb-1">{item.title}</h4>
+                    <h4 className="text-white font-black uppercase tracking-widest text-xs mb-2 opacity-40">{item.title}</h4>
                     {item.link ? (
-                      <a href={item.link} className="text-[#94A3B8] hover:text-white transition-colors">{item.value}</a>
+                      <a href={item.link} className="text-2xl font-black text-white hover:text-[#4353FF] transition-colors duration-300 tracking-tight">{item.value}</a>
                     ) : (
-                      <p className="text-[#94A3B8]">{item.value}</p>
+                      <p className="text-2xl font-black text-white tracking-tight">{item.value}</p>
                     )}
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
 
             <div className="lg:col-span-3">
-              <form onSubmit={handleSubmit} className="space-y-6 bg-[#080809] p-8 md:p-10 rounded-3xl border border-white/5">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="text-xs font-bold uppercase tracking-widest text-[#94A3B8] ml-1">Name</label>
-                    <Input
-                      name="name"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      placeholder="John Doe"
-                      className="bg-[#000101] border-white/10 text-white h-12 focus:ring-[#4353FF] focus:border-[#4353FF] rounded-xl"
-                      required
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-xs font-bold uppercase tracking-widest text-[#94A3B8] ml-1">Email</label>
-                    <Input
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      placeholder="john@example.com"
-                      className="bg-[#000101] border-white/10 text-white h-12 focus:ring-[#4353FF] focus:border-[#4353FF] rounded-xl"
-                      required
-                    />
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase tracking-widest text-[#94A3B8] ml-1">Subject</label>
-                  <Input
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleInputChange}
-                    placeholder="Project Inquiry"
-                    className="bg-[#000101] border-white/10 text-white h-12 focus:ring-[#4353FF] focus:border-[#4353FF] rounded-xl"
-                    required
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase tracking-widest text-[#94A3B8] ml-1">Message</label>
-                  <Textarea
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    placeholder="Tell me more about your project..."
-                    className="bg-[#000101] border-white/10 text-white min-h-[150px] focus:ring-[#4353FF] focus:border-[#4353FF] rounded-xl"
-                    required
-                  />
-                </div>
-                <Button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full bg-[#4353FF] hover:bg-[#4353FF]/90 text-white h-14 rounded-xl font-bold text-lg shadow-glow transition-all"
-                >
-                  {isSubmitting ? (
-                    <Loader2 className="w-6 h-6 animate-spin" />
-                  ) : (
-                    <>
-                      <Send className="w-5 h-5 mr-3" />
-                      Send Message
-                    </>
-                  )}
-                </Button>
-              </form>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+              >
+                <SpotlightCard className="p-12 border-gradient">
+                  <form onSubmit={handleSubmit} className="space-y-8 relative z-10">
+                    <div className="absolute inset-0 bg-grid-modern opacity-[0.05] pointer-events-none" />
+
+                    <div className="grid md:grid-cols-2 gap-8 relative z-10">
+                      <div className="space-y-3">
+                        <label className="text-[10px] font-black uppercase tracking-[0.2em] text-white/30 ml-1">Full Name</label>
+                        <Input
+                          name="name"
+                          value={formData.name}
+                          onChange={handleInputChange}
+                          placeholder="John Doe"
+                          className="bg-[#000101] border-white/10 text-white h-16 focus:ring-[#4353FF] focus:border-[#4353FF] rounded-2xl font-bold px-6 text-lg"
+                          required
+                        />
+                      </div>
+                      <div className="space-y-3">
+                        <label className="text-[10px] font-black uppercase tracking-[0.2em] text-white/30 ml-1">Email Address</label>
+                        <Input
+                          name="email"
+                          type="email"
+                          value={formData.email}
+                          onChange={handleInputChange}
+                          placeholder="john@example.com"
+                          className="bg-[#000101] border-white/10 text-white h-16 focus:ring-[#4353FF] focus:border-[#4353FF] rounded-2xl font-bold px-6 text-lg"
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div className="space-y-3 relative z-10">
+                      <label className="text-[10px] font-black uppercase tracking-[0.2em] text-white/30 ml-1">Subject</label>
+                      <Input
+                        name="subject"
+                        value={formData.subject}
+                        onChange={handleInputChange}
+                        placeholder="Project Inquiry"
+                        className="bg-[#000101] border-white/10 text-white h-16 focus:ring-[#4353FF] focus:border-[#4353FF] rounded-2xl font-bold px-6 text-lg"
+                        required
+                      />
+                    </div>
+                    <div className="space-y-3 relative z-10">
+                      <label className="text-[10px] font-black uppercase tracking-[0.2em] text-white/30 ml-1">Your Message</label>
+                      <Textarea
+                        name="message"
+                        value={formData.message}
+                        onChange={handleInputChange}
+                        placeholder="Tell me more about your project..."
+                        className="bg-[#000101] border-white/10 text-white min-h-[180px] focus:ring-[#4353FF] focus:border-[#4353FF] rounded-2xl font-bold p-6 text-lg"
+                        required
+                      />
+                    </div>
+                    <Button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="w-full bg-[#4353FF] hover:bg-[#4353FF]/90 text-white h-18 py-8 rounded-2xl font-black uppercase tracking-widest text-lg shadow-[0_0_30px_rgba(67,83,255,0.3)] transition-all relative z-10 hover:scale-[1.02] active:scale-[0.98]"
+                    >
+                      {isSubmitting ? (
+                        <Loader2 className="w-8 h-8 animate-spin" />
+                      ) : (
+                        <>
+                          Send Message
+                          <Send className="w-5 h-5 ml-4" />
+                        </>
+                      )}
+                    </Button>
+                  </form>
+                </SpotlightCard>
+              </motion.div>
             </div>
           </div>
         </div>
       </div>
+
     </section>
   );
 };

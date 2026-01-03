@@ -1,3 +1,4 @@
+import { SpotlightCard } from "@/components/ui/spotlight-card";
 import { motion } from "framer-motion";
 import { useRef } from "react";
 import { useInView } from "framer-motion";
@@ -27,19 +28,21 @@ const SkillCategory = ({ title, icon: Icon, skills, delay }) => (
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.5, delay }}
     viewport={{ once: true }}
-    className="bg-[#080809] border border-white/5 rounded-3xl p-8 hover:border-[#4353FF]/20 transition-all group"
+    className="group h-full"
   >
-    <div className="flex items-center gap-4 mb-8">
-      <div className="w-12 h-12 bg-[#4353FF]/10 rounded-2xl flex items-center justify-center group-hover:bg-[#4353FF]/20 transition-colors">
-        <Icon className="w-6 h-6 text-[#4353FF]" />
+    <SpotlightCard className="p-8 h-full border-gradient">
+      <div className="flex items-center gap-4 mb-8 relative z-10">
+        <div className="w-12 h-12 bg-[#4353FF]/10 rounded-2xl flex items-center justify-center group-hover:bg-[#4353FF]/20 transition-colors">
+          <Icon className="w-6 h-6 text-[#4353FF]" />
+        </div>
+        <h3 className="text-xl font-bold text-white transition-colors">{title}</h3>
       </div>
-      <h3 className="text-xl font-bold text-white transition-colors">{title}</h3>
-    </div>
-    <div>
-      {skills.map((s, i) => (
-        <SkillBadge key={i} skill={s.name} level={s.level} />
-      ))}
-    </div>
+      <div className="relative z-10">
+        {skills.map((s, i) => (
+          <SkillBadge key={i} skill={s.name} level={s.level} />
+        ))}
+      </div>
+    </SpotlightCard>
   </motion.div>
 );
 
@@ -88,47 +91,66 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="py-32 bg-[#000101] relative">
-      <div className="container mx-auto px-6">
-        <div className="max-w-4xl mx-auto text-center mb-24">
+    <section id="skills" className="py-40 bg-[#000101] relative overflow-hidden">
+      <div className="absolute inset-0 bg-grid-modern opacity-10 pointer-events-none" />
+
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="max-w-5xl mx-auto text-center mb-32">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="inline-block mb-6"
+          >
+            <span className="text-[#4353FF] font-black tracking-[0.4em] uppercase text-xs px-6 py-2 border border-[#4353FF]/20 rounded-full bg-[#4353FF]/5">
+              Expertise
+            </span>
+          </motion.div>
+
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-extrabold text-white mb-6"
+            className="text-6xl md:text-8xl font-black text-white mb-8 tracking-tighter"
           >
-            Technical <span className="text-[#4353FF]">Stack</span>
+            Technical <span className="text-[#4353FF] text-glow">Arsenal</span>
           </motion.h2>
-          <div className="h-1 w-20 bg-[#4353FF] mx-auto mb-8" />
-          <p className="text-[#94A3B8] text-lg">
-            A comprehensive set of tools and technologies I've mastered to build
-            enterprise-grade digital products.
-          </p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-white/50 text-xl font-medium max-w-2xl mx-auto"
+          >
+            A comprehensive set of tools and technologies I've mastered to build enterprise-grade digital products.
+          </motion.p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {skillCategories.map((cat, i) => (
             <SkillCategory key={i} {...cat} delay={i * 0.1} />
           ))}
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
           viewport={{ once: true }}
-          className="mt-20 p-8 bg-[#080809] border border-white/5 rounded-3xl text-center"
+          className="mt-20 p-12 bg-[#080809] border border-white/5 rounded-[2.5rem] text-center border-gradient relative overflow-hidden"
         >
-          <h3 className="text-white font-bold text-xl mb-6">Cloud & Infrastructure</h3>
-          <div className="flex flex-wrap justify-center gap-4">
-            {["Amazon S3", "Redis", "BullMQ", "PM2", "Elasticsearch", "Nginx", "Docker Desktop", "Ubuntu Server"].map((item, i) => (
-              <span key={i} className="px-5 py-2 rounded-full border border-white/5 bg-white/5 text-[#94A3B8] text-sm hover:border-[#4353FF]/30 hover:text-white transition-all">
+          <div className="absolute inset-0 bg-grid-modern opacity-[0.05] pointer-events-none" />
+          <h3 className="text-white font-black text-2xl mb-10 tracking-tight uppercase">Infrastructure & <span className="text-[#4353FF]">Ecosystem</span></h3>
+          <div className="flex flex-wrap justify-center gap-4 relative z-10">
+            {["Amazon S3", "Redis Labs", "BullMQ", "PM2 Runtime", "Elastic Cloud", "NGINX Reverse Proxy", "Docker Swarm", "Ubuntu Core"].map((item, i) => (
+              <span key={i} className="px-6 py-2.5 rounded-full border border-white/10 bg-white/5 text-white/40 text-xs font-black uppercase tracking-widest hover:border-[#4353FF]/30 hover:text-[#4353FF] hover:bg-[#4353FF]/5 transition-all duration-300">
                 {item}
               </span>
             ))}
           </div>
         </motion.div>
       </div>
+
     </section>
   );
 };

@@ -1,8 +1,6 @@
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { ExternalLink, Github, Code, ArrowUpRight } from "lucide-react";
-import { motion, useInView } from "framer-motion";
+import { SpotlightCard } from "@/components/ui/spotlight-card";
+import { Code, ArrowUpRight } from "lucide-react";
+import { motion } from "framer-motion";
 import { useRef } from "react";
 
 const ProjectCard = ({ project, index }) => {
@@ -14,46 +12,41 @@ const ProjectCard = ({ project, index }) => {
       viewport={{ once: true }}
       className="group"
     >
-      <div className="relative h-full bg-[#080809] border border-white/5 rounded-3xl overflow-hidden transition-all duration-500 hover:border-[#4353FF]/30 hover:shadow-[0_0_30px_rgba(67,83,255,0.1)]">
-        {/* Glow effect */}
-        <div className="absolute top-0 left-0 w-full h-full bg-grid-pattern opacity-[0.03] pointer-events-none" />
-        <div className="absolute -top-24 -right-24 w-48 h-48 bg-[#4353FF]/10 blur-[60px] rounded-full group-hover:bg-[#4353FF]/20 transition-all duration-500" />
-
-        <div className="p-8 flex flex-col h-full relative z-10">
-          <div className="flex justify-between items-start mb-6">
-            <div className="p-3 bg-white/5 rounded-2xl border border-white/10 group-hover:border-[#4353FF]/30 transition-colors">
-              <Code className="w-6 h-6 text-[#4353FF]" />
-            </div>
-            <a
-              href={project.liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 text-[#94A3B8] hover:text-white transition-colors"
-            >
-              <ArrowUpRight className="w-6 h-6" />
-            </a>
+      <SpotlightCard className="p-10 flex flex-col h-full border-gradient">
+        <div className="flex justify-between items-start mb-8 relative z-10">
+          <div className="p-4 bg-[#4353FF]/10 rounded-2xl border border-[#4353FF]/20 group-hover:scale-110 transition-transform duration-500">
+            <Code className="w-8 h-8 text-[#4353FF]" />
           </div>
-
-          <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-[#4353FF] transition-colors">
-            {project.title}
-          </h3>
-
-          <p className="text-[#94A3B8] text-sm leading-relaxed mb-6 flex-grow">
-            {project.description}
-          </p>
-
-          <div className="flex flex-wrap gap-2 pt-4 border-t border-white/5">
-            {project.technologies.slice(0, 4).map((tech, idx) => (
-              <span
-                key={idx}
-                className="text-[10px] font-bold uppercase tracking-wider text-[#4353FF]/80 bg-[#4353FF]/5 px-3 py-1 rounded-full border border-[#4353FF]/10"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
+          <motion.a
+            href={project.liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-3 bg-white/5 hover:bg-white/10 rounded-full text-white/40 hover:text-white transition-all duration-300 pointer-events-auto"
+            whileHover={{ rotate: 45, scale: 1.1 }}
+          >
+            <ArrowUpRight className="w-6 h-6" />
+          </motion.a>
         </div>
-      </div>
+
+        <h3 className="text-3xl font-bold text-white mb-4 group-hover:text-[#4353FF] transition-colors duration-300 tracking-tight relative z-10">
+          {project.title}
+        </h3>
+
+        <p className="text-white/50 text-base leading-relaxed mb-8 flex-grow font-medium relative z-10">
+          {project.description}
+        </p>
+
+        <div className="flex flex-wrap gap-2.5 pt-6 border-t border-white/5 relative z-10">
+          {project.technologies.map((tech, idx) => (
+            <span
+              key={idx}
+              className="text-[11px] font-black uppercase tracking-widest text-white/40 bg-white/5 px-4 py-1.5 rounded-full border border-white/10 group-hover:border-[#4353FF]/20 group-hover:text-[#4353FF] transition-all duration-300"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+      </SpotlightCard>
     </motion.div>
   );
 };
@@ -93,51 +86,61 @@ const Projects = () => {
     {
       title: "BounDev CMS",
       description: "Comprehensive blog management API with role-based access control and JWT authentication using Strapi CMS.",
-      technologies: ["Node.js", "SQL", "Strapi", "JWT", "CMS"],
+      technologies: ["Node.js", "Strapi", "JWT", "PostgreSQL"],
       liveUrl: "https://www.linkedin.com/company/boundev/"
     }
   ];
 
   return (
-    <section id="projects" className="py-32 bg-[#000101] relative">
+    <section id="projects" className="py-40 bg-[#000101] relative overflow-hidden">
+      <div className="absolute inset-0 bg-grid-modern opacity-10 pointer-events-none" />
+
       <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-4xl mx-auto text-center mb-20">
+        <div className="max-w-5xl mx-auto text-center mb-32">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-block mb-6"
+          >
+            <span className="text-[#4353FF] font-black tracking-[0.3em] uppercase text-sm px-6 py-2 border border-[#4353FF]/20 rounded-full bg-[#4353FF]/5">
+              Portfolio
+            </span>
+          </motion.div>
+
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-extrabold text-white mb-6"
+            className="text-6xl md:text-8xl font-black text-white mb-8 tracking-tighter"
           >
-            Featured <span className="text-[#4353FF]">Work</span>
+            Selected <span className="text-[#4353FF] text-glow">Projects</span>
           </motion.h2>
-          <motion.div
-            initial={{ opacity: 0, width: 0 }}
-            whileInView={{ opacity: 1, width: 100 }}
-            viewport={{ once: true }}
-            className="h-1 bg-[#4353FF] mx-auto mb-8"
-          />
+
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-[#94A3B8] text-lg max-w-2xl mx-auto"
+            className="text-white/50 text-xl md:text-2xl max-w-3xl mx-auto font-medium"
           >
-            A compilation of projects where I've specialized in backend architecture,
-            API development, and cloud integrations.
+            A collection of high-impact backend systems and full-stack applications
+            engineered for performance and scale.
           </motion.p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-10 max-w-7xl mx-auto">
           {projects.map((project, index) => (
             <ProjectCard key={index} project={project} index={index} />
           ))}
         </div>
       </div>
 
-      {/* Background glow */}
-      <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#4353FF]/5 to-transparent pointer-events-none" />
+      {/* Decorative glows */}
+      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-1/4 h-1/2 bg-[#4353FF]/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-1/4 h-1/2 bg-[#4353FF]/5 blur-[120px] rounded-full pointer-events-none" />
     </section>
   );
 };
+
 
 export default Projects;

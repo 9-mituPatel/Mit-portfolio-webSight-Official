@@ -1,3 +1,4 @@
+import { SpotlightCard } from "@/components/ui/spotlight-card";
 import { motion } from "framer-motion";
 import { Calendar, MapPin, Briefcase } from "lucide-react";
 
@@ -32,29 +33,50 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="py-32 bg-[#000101] relative">
+    <section id="experience" className="py-40 bg-[#000101] relative overflow-hidden">
+      <div className="absolute inset-0 bg-grid-modern opacity-10 pointer-events-none" />
+
       {/* Background line */}
-      <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-px bg-gradient-to-b from-transparent via-white/5 to-transparent hidden md:block" />
+      <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-0.5 bg-gradient-to-b from-transparent via-white/5 to-transparent hidden md:block" />
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-4xl mx-auto text-center mb-24">
+        <div className="max-w-5xl mx-auto text-center mb-32">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="inline-block mb-6"
+          >
+            <span className="text-[#4353FF] font-black tracking-[0.4em] uppercase text-xs px-6 py-2 border border-[#4353FF]/20 rounded-full bg-[#4353FF]/5">
+              Path
+            </span>
+          </motion.div>
+
           <motion.h2
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-extrabold text-white mb-6"
+            className="text-6xl md:text-8xl font-black text-white mb-8 tracking-tighter"
           >
-            Work <span className="text-[#4353FF]">History</span>
+            Professional <span className="text-[#4353FF] text-glow">Journey</span>
           </motion.h2>
-          <div className="h-1 w-20 bg-[#4353FF] mx-auto" />
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-white/50 text-xl font-medium max-w-2xl mx-auto"
+          >
+            A track record of building robust systems and leading technical initiatives across diverse projects.
+          </motion.p>
         </div>
 
-        <div className="space-y-12">
+        <div className="space-y-24">
           {experiences.map((exp, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
               className={`flex flex-col md:flex-row gap-8 items-center ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}
@@ -64,44 +86,50 @@ const Experience = () => {
 
               {/* Timeline Center Point */}
               <div className="relative z-10 hidden md:block">
-                <div className="w-4 h-4 rounded-full bg-[#4353FF] border-4 border-[#000101] shadow-[0_0_15px_rgba(67,83,255,0.5)]" />
+                <div className="w-6 h-6 rounded-full bg-[#4353FF] border-[6px] border-[#000101] shadow-[0_0_20px_rgba(67,83,255,0.6)] group-hover:scale-125 transition-transform duration-500" />
               </div>
 
               {/* Card Content */}
               <div className="flex-1 w-full">
-                <div className="bg-[#080809] border border-white/5 rounded-3xl p-8 hover:border-[#4353FF]/20 transition-all group">
-                  <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
-                    <div>
-                      <h3 className="text-xl font-bold text-white mb-1 group-hover:text-[#4353FF] transition-colors">{exp.title}</h3>
-                      <p className="text-[#4353FF] font-semibold text-sm tracking-wide uppercase">{exp.company}</p>
-                    </div>
-                    <div className="flex flex-col items-start sm:items-end text-[#94A3B8] text-xs font-mono">
-                      <div className="flex items-center gap-2 mb-1">
-                        <Calendar className="w-3 h-3" /> {exp.period}
+                <SpotlightCard className="p-12 border-gradient relative overflow-hidden group">
+                  <div className="absolute inset-0 bg-grid-modern opacity-[0.05] pointer-events-none" />
+
+                  <div className="flex flex-col mb-10 gap-6 relative z-10">
+                    <div className="flex flex-col sm:flex-row justify-between items-start gap-4">
+                      <div className="space-y-2">
+                        <h3 className="text-3xl font-black text-white group-hover:text-[#4353FF] transition-colors duration-300 tracking-tight leading-none uppercase">
+                          {exp.title}
+                        </h3>
+                        <p className="text-[#4353FF] font-black text-xs tracking-[0.3em] uppercase">{exp.company}</p>
                       </div>
-                      <div className="flex items-center gap-2">
-                        <MapPin className="w-3 h-3" /> {exp.location}
+                      <div className="flex flex-wrap gap-4 text-white/30 text-[10px] font-black uppercase tracking-widest bg-white/5 px-4 py-2 rounded-full border border-white/10">
+                        <div className="flex items-center gap-2">
+                          <Calendar className="w-3 h-3 text-[#4353FF]" /> {exp.period}
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <MapPin className="w-3 h-3 text-[#4353FF]" /> {exp.location}
+                        </div>
                       </div>
                     </div>
                   </div>
 
-                  <ul className="space-y-4 mb-8">
+                  <ul className="space-y-5 mb-12 relative z-10">
                     {exp.description.map((item, idx) => (
-                      <li key={idx} className="flex items-start gap-4 text-[#94A3B8] text-sm leading-relaxed">
-                        <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#4353FF]/40 flex-shrink-0" />
+                      <li key={idx} className="flex items-start gap-5 text-white/50 text-base font-medium leading-relaxed group/item">
+                        <div className="mt-2 w-2 h-2 rounded-full bg-[#4353FF]/30 group-hover/item:bg-[#4353FF] transition-colors duration-300 flex-shrink-0" />
                         {item}
                       </li>
                     ))}
                   </ul>
 
-                  <div className="flex flex-wrap gap-2 pt-6 border-t border-white/5">
+                  <div className="flex flex-wrap gap-3 pt-8 border-t border-white/5 relative z-10">
                     {exp.technologies.map((tech, idx) => (
-                      <span key={idx} className="px-3 py-1 rounded-full bg-white/5 border border-white/5 text-[#94A3B8] text-[10px] font-bold uppercase tracking-wider">
+                      <span key={idx} className="px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/30 text-[10px] font-black uppercase tracking-widest group-hover:text-[#4353FF] group-hover:border-[#4353FF]/20 transition-all duration-300">
                         {tech}
                       </span>
                     ))}
                   </div>
-                </div>
+                </SpotlightCard>
               </div>
             </motion.div>
           ))}

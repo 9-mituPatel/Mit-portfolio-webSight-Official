@@ -5,11 +5,10 @@ const ScrollProgress = () => {
 
   return (
     <motion.div
-      className="fixed top-0 left-0 right-0 h-1 bg-primary/20 z-50"
+      className="fixed top-0 left-0 right-0 h-1 bg-[#4353FF]/10 z-[100]"
       style={{ scaleX: scrollYProgress, transformOrigin: "0%" }}
-      initial={{ scaleX: 0 }}
     >
-      <div className="h-full bg-gradient-to-r from-primary via-primary/80 to-primary w-full" />
+      <div className="h-full bg-[#4353FF] shadow-[0_0_10px_rgba(67,83,255,0.8)]" />
     </motion.div>
   );
 };
