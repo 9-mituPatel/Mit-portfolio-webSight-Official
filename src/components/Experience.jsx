@@ -11,32 +11,49 @@ const Experience = () => {
     {
       title: "Full Stack Developer & Tech Lead",
       company: "Braincuber Technologies Pvt Ltd",
-      location: "Surat, Gujarat",
+      location: "Surat, Gujarat, India",
       period: "Aug 2024 - Present",
       type: "Full-time",
       description: [
-        "Architecting scalable systems with Node.js and React.js",
-        "Leading a mission-critical backend migration to microservices",
-        "Managing cloud infrastructure on AWS and DigitalOcean",
-        "Implementing advanced security protocols and JWT-based auth"
+        "Designed and developed scalable web applications using Node.js, Express.js, MongoDB, React.js, Next.js, and Tailwind CSS",
+        "Led a small team of developers, providing guidance, code reviews, and mentoring",
+        "Collaborated with clients to gather requirements, plan project timelines, and deliver high-quality solutions",
+        "Implemented CI/CD pipelines using Docker and managed deployments for zero-downtime releases",
+        "Integrated third-party services and optimized database operations for performance and scalability"
       ],
-      technologies: ["Node.js", "MongoDB", "Docker", "Redis", "AWS"],
+      technologies: ["Node.js", "Express.js", "MongoDB", "React.js", "Next.js", "Docker", "Redis", "Tailwind CSS"],
       color: "#4353FF",
       isCurrent: true
     },
     {
-      title: "Backend Specialist (Hybrid)",
-      company: "VNSGU & Freelance Projects",
+      title: "Backend Developer Intern",
+      company: "Silico Software Solutions",
+      location: "Surat, India",
+      period: "Jun 2024 - Aug 2024",
+      type: "Internship",
+      description: [
+        "Gained hands-on experience in web design and development during graduation",
+        "Built small to mid-scale projects using React.js and Bootstrap for frontend dashboards",
+        "Developed backend APIs with Node.js, SQL & MongoDB for data management",
+        "Learned end-to-end project development, client communication, and foundational full stack skills"
+      ],
+      technologies: ["Node.js", "React.js", "SQL", "MongoDB", "Bootstrap"],
+      color: "#22d3ee",
+      isCurrent: false
+    },
+    {
+      title: "Freelance Full Stack Developer",
+      company: "Freelance / Relatives' Companies",
       location: "Surat, India",
       period: "2022 - 2024",
-      type: "Freelance",
+      type: "Part-time",
       description: [
-        "Developed custom ERP solutions for local logistics firms",
-        "Built responsive frontend dashboards using React and Bootstrap",
-        "Optimized database queries for 40% faster load times",
-        "Successfully delivered 5+ full-stack freelance projects"
+        "Worked part-time during graduation, gaining hands-on experience in web design and development",
+        "Built small to mid-scale projects, including frontend dashboards using React.js and Bootstrap",
+        "Developed backend APIs with Node.js, SQL & MongoDB for various client requirements",
+        "Contributed to internships and small company projects, building a strong practical base over 2 years"
       ],
-      technologies: ["Node.js", "React.js", "MySQL", "MongoDB", "Nginx"],
+      technologies: ["Node.js", "React.js", "MySQL", "MongoDB", "Express.js", "Bootstrap"],
       color: "#6366f1",
       isCurrent: false
     }

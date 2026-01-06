@@ -163,10 +163,10 @@ const DevHero = () => {
                             transition={{ duration: 0.8, delay: 0.2 }}
                             className="heading-xl text-white mb-8"
                         >
-                            Software
+                            MERN Stack
                             <br />
                             <span className="relative inline-block">
-                                <span className="gradient-text-primary">Development</span>
+                                <span className="gradient-text-primary">Developer</span>
                                 <motion.span
                                     className="absolute -bottom-2 left-0 h-1 bg-gradient-to-r from-[#4353FF] to-[#6366f1] rounded-full"
                                     initial={{ width: 0 }}
@@ -175,7 +175,7 @@ const DevHero = () => {
                                 />
                             </span>
                             <br />
-                            Company
+                            & Tech Lead
                         </motion.h1>
 
                         <motion.p
@@ -184,9 +184,9 @@ const DevHero = () => {
                             transition={{ duration: 0.6, delay: 0.4 }}
                             className="body-lg mb-12 max-w-lg"
                         >
-                            We design, develop & deploy across the tech stack, maximizing your
-                            software development project team with expert technical talent. Get in
-                            touch regarding your next software or web development project!
+                            Results-driven Full Stack Developer with 2+ years of experience in building
+                            scalable, high-performance web applications using Node.js, Express.js, MongoDB,
+                            React.js, Next.js. Proficient in RESTful APIs and secure, maintainable systems.
                         </motion.p>
 
                         <motion.div
@@ -199,7 +199,7 @@ const DevHero = () => {
                                 onClick={() => scrollToSection('contact')}
                                 className="btn-primary group"
                             >
-                                Contact Us
+                                Contact Me
                                 <motion.span
                                     className="ml-2 inline-block"
                                     animate={{ x: [0, 4, 0] }}
@@ -211,10 +211,10 @@ const DevHero = () => {
 
                             <Button
                                 variant="ghost"
-                                onClick={() => scrollToSection('services')}
+                                onClick={() => scrollToSection('projects')}
                                 className="btn-secondary group"
                             >
-                                Learn More
+                                View Projects
                                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                             </Button>
                         </motion.div>
@@ -227,7 +227,7 @@ const DevHero = () => {
                             className="flex flex-wrap gap-8 mt-16 pt-8 border-t border-white/10"
                         >
                             {[
-                                { value: '10+', label: 'Projects' },
+                                { value: '14+', label: 'Projects' },
                                 { value: '2+', label: 'Years Exp.' },
                                 { value: '100%', label: 'Commitment' },
                             ].map((stat, index) => (

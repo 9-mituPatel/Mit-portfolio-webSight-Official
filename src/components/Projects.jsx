@@ -152,19 +152,29 @@ const Projects = () => {
 
   const projects = [
     {
+      title: "V-KYC Video Call System",
+      description: "Self-hosted Video-KYC (V-CIP) solution with mediasoup WebRTC SFU. Single-handedly developed with STUN/TURN server, video streaming, call recording service, and high-quality audio/video handling. Built for one-to-one sessions with minimum CPU usage.",
+      technologies: ["Node.js", "Angular.js", "Mediasoup", "coturn", "FFmpeg", "Redis", "MongoDB"],
+      liveUrl: "https://uat.agentportal.omnicard.co.in/",
+      category: "WebRTC",
+      icon: Layers,
+      color: "#f59e0b",
+      metric: "HD Video Quality"
+    },
+    {
       title: "OmniFastag",
-      description: "FastTag management system with role-based UI for admin, distributor, agent, and user dashboards. Implemented RESTful APIs with JWT authentication.",
-      technologies: ["Node.js", "Express.js", "MongoDB", "React.js", "Redis"],
-      liveUrl: "http://omnifastaguat.website.s3-website.ap-south-1.amazonaws.com/",
+      description: "FastTag management system with role-based UI for admin, distributor, agent, and user dashboards. Single-handedly developed and deployed with RESTful APIs and JWT authentication.",
+      technologies: ["React.js", "Node.js", "MongoDB", "Redis", "Express.js"],
+      liveUrl: "http://omnifastaguat.website.s3-website.ap-south-1.amazonaws.com/login",
       category: "Fintech",
       icon: Layers,
       color: "#4353FF",
       metric: "4 User Roles"
     },
     {
-      title: "YouthEducation",
-      description: "Scalable REST APIs supporting mobile and admin platforms with Redis caching optimization for NCERT paper generation.",
-      technologies: ["Node.js", "Express.js", "React.js", "Redis", "S3"],
+      title: "Youth Education - NCERT",
+      description: "Comprehensive education platform with paper generation service, backend APIs, web version, mobile applications, admin panel, and notification microservice. Scalable REST APIs with Redis caching optimization.",
+      technologies: ["Node.js", "Express.js", "React.js", "Redis", "Amazon S3", "SQL", "MongoDB"],
       liveUrl: "https://play.google.com/store/apps/details?id=youth.ncert.papergeneration&hl=en_IN",
       category: "EdTech",
       icon: Code,
@@ -173,17 +183,17 @@ const Projects = () => {
     },
     {
       title: "ECMS: Omni Card",
-      description: "High-performance backend system with Elasticsearch integration for lightning-fast search on customer card data.",
-      technologies: ["Node.js", "Express.js", "MongoDB", "Elasticsearch", "BullMQ"],
+      description: "High-performance backend system handling migrations for 50Cr+ records in single table. Integrated Elasticsearch for lightning-fast search on customer card data.",
+      technologies: ["Node.js", "Express.js", "MongoDB", "Elasticsearch", "BullMQ", "Redis", "PM2"],
       liveUrl: "https://ecms.omnicard.in/",
       category: "Enterprise",
       icon: Zap,
       color: "#22d3ee",
-      metric: "Sub-100ms Searches"
+      metric: "50Cr+ Records"
     },
     {
       title: "Study Master",
-      description: "Secure authentication system with JWT for student data protection. Integrated real-time lecture streaming with interactive chat.",
+      description: "Secure authentication system with JWT for student data protection. Integrated real-time lecture streaming with interactive features and video streaming service.",
       technologies: ["Node.js", "Express.js", "SQL", "JWT", "Socket.IO"],
       liveUrl: "https://play.google.com/store/apps/details?id=co.kevin.gnfgm&hl=en_IN",
       category: "EdTech",
@@ -192,24 +202,94 @@ const Projects = () => {
       metric: "Real-time Streaming"
     },
     {
-      title: "V-KYC Omni Card",
-      description: "Self-hosted Video-KYC (V-CIP) demo with mediasoup WebRTC SFU, client-side recording, and server-side ffmpeg processing.",
-      technologies: ["Angular", "Node.js", "Mediasoup", "coturn", "ffmpeg"],
-      liveUrl: "https://www.linkedin.com/company/boundev/",
+      title: "SoundBox Inventory",
+      description: "Payment-related SoundBox inventory management system. Single-handedly developed and deployed with complete inventory tracking and management features.",
+      technologies: ["Node.js", "React.js", "Express.js", "Redis", "MongoDB"],
+      liveUrl: "#",
       category: "Fintech",
       icon: Layers,
-      color: "#f59e0b",
-      metric: "HD Video Quality"
+      color: "#8b5cf6",
+      metric: "Single-hand Developed"
+    },
+    {
+      title: "Healthray",
+      description: "AI-powered hospital management system with automation tools and patient care systems. Enhances medical experience with real-time collaboration. Complete ERP product for healthcare.",
+      technologies: ["React.js", "Node.js", "SQL", "Redis"],
+      liveUrl: "https://healthray.com/",
+      category: "Healthcare ERP",
+      icon: Zap,
+      color: "#ef4444",
+      metric: "AI-Powered"
     },
     {
       title: "BounDev CMS",
       description: "Comprehensive blog management API with role-based access control and JWT authentication using Strapi CMS.",
-      technologies: ["Node.js", "Strapi", "JWT", "PostgreSQL"],
-      liveUrl: "https://www.linkedin.com/company/boundev/",
+      technologies: ["React.js", "Strapi", "Node.js", "JWT"],
+      liveUrl: "https://www.boundev.com/",
       category: "CMS",
       icon: Code,
-      color: "#ef4444",
+      color: "#ec4899",
       metric: "Custom CMS"
+    },
+    {
+      title: "Metawar (Omnicard)",
+      description: "Demo product for jewelry selling applications including payment service integration. Single-handedly implemented frontend and backend, deployed to production.",
+      technologies: ["React.js", "Node.js"],
+      liveUrl: "https://uat.metaver.website.s3-website.ap-south-1.amazonaws.com/",
+      category: "E-Commerce",
+      icon: Globe,
+      color: "#f97316",
+      metric: "Payment Integrated"
+    },
+    {
+      title: "SDB - Sparkle Diamond Boutique",
+      description: "Freelancing project for diamond-related buying and selling community. Complete platform for diamond trade and community engagement.",
+      technologies: ["Flutter", "Node.js", "React.js", "SQL"],
+      liveUrl: "#",
+      category: "Freelance",
+      icon: Layers,
+      color: "#06b6d4",
+      metric: "Diamond Trading"
+    },
+    {
+      title: "HevMed",
+      description: "Medical shop billing system with complete ERP functionality. Handled product communication with clients and requirement understanding as Tech Lead position at Webito Infotech.",
+      technologies: ["Node.js", "SQL", "ERP"],
+      liveUrl: "#",
+      category: "Healthcare ERP",
+      icon: Zap,
+      color: "#84cc16",
+      metric: "Complete ERP"
+    },
+    {
+      title: "Omni Website Redesign",
+      description: "Complete frontend redesign of the Omnicard website using Angular.js with modern UI/UX principles.",
+      technologies: ["Angular.js", "TypeScript", "CSS"],
+      liveUrl: "https://omnicard.in/",
+      category: "Frontend",
+      icon: Code,
+      color: "#a855f7",
+      metric: "UI Redesign"
+    },
+    {
+      title: "Odoo VIP Login System",
+      description: "Custom solution to bypass default Odoo login system with enhanced VIP login functionality for enterprise clients.",
+      technologies: ["Node.js", "Python", "Odoo"],
+      liveUrl: "#",
+      category: "Enterprise",
+      icon: Globe,
+      color: "#14b8a6",
+      metric: "Custom Auth"
+    },
+    {
+      title: "Solar Products Inventory",
+      description: "PowerPoint-based inventory management system for solar products with complete tracking and management features.",
+      technologies: ["Node.js", "React.js", "MongoDB"],
+      liveUrl: "#",
+      category: "Inventory",
+      icon: Layers,
+      color: "#eab308",
+      metric: "Solar Products"
     }
   ];
 

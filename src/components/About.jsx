@@ -10,9 +10,9 @@ const About = () => {
   const [hoveredStat, setHoveredStat] = useState(null);
 
   const stats = [
-    { icon: Trophy, number: 10, suffix: "+", label: "Projects Completed", color: "#4353FF" },
+    { icon: Trophy, number: 14, suffix: "+", label: "Projects Delivered", color: "#4353FF" },
     { icon: Calendar, number: 2, suffix: "+", label: "Years Experience", color: "#6366f1" },
-    { icon: Users, number: 5, suffix: "+", label: "Happy Clients", color: "#22d3ee" },
+    { icon: Users, number: 10, suffix: "+", label: "Happy Clients", color: "#22d3ee" },
     { icon: Star, number: 100, suffix: "%", label: "Commitment", color: "#10b981" }
   ];
 
@@ -32,7 +32,7 @@ const About = () => {
   ];
 
   const techLogos = [
-    "Node.js", "React", "MongoDB", "Redis", "Docker", "AWS"
+    "Node.js", "React.js", "MongoDB", "Redis", "Docker", "AWS", "Express.js", "Next.js"
   ];
 
   return (
@@ -121,10 +121,9 @@ const About = () => {
                 transition={{ delay: 0.2 }}
                 className="body-lg mb-12 max-w-lg"
               >
-                I am a specialized <span className="text-white font-semibold">Backend Architect</span> and{" "}
-                <span className="text-white font-semibold">MERN Stack Developer</span> with over 2 years of professional experience.
-                My focus lies in building the invisible engines that power modern web applications—ensuring they are fast,
-                secure, and infinitely scalable.
+                Results-driven <span className="text-white font-semibold">Full Stack Developer</span> with 2 years of hands-on experience
+                in designing and building scalable, high-performance web applications using Node.js, Express.js, MongoDB, SQL, React.js, Next.js.
+                Proficient in crafting <span className="text-white font-semibold">RESTful APIs</span>, optimizing database operations, and implementing secure, maintainable systems.
               </motion.p>
 
               {/* Stats Grid */}

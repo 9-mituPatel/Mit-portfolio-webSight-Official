@@ -25,28 +25,28 @@ const FAQ = () => {
 
     const faqs = [
         {
-            question: "What is Software Development?",
-            answer: "Software development is a process that can be used to create custom software for a customer or client. This process can be used to create custom applications, middleware, or even operating systems. A software development company can provide these services to businesses of all sizes, from small businesses to large enterprise organizations. Software development is a process that can be used to create custom software for a customer or client. This process can be used to create custom applications, middleware, or even operating systems."
+            question: "What technologies do you specialize in?",
+            answer: "I specialize in the MERN Stack (MongoDB, Express.js, React.js, Node.js) along with Next.js, TypeScript, Redis, Elasticsearch, and AWS. I'm proficient in building RESTful APIs, implementing real-time features with Socket.IO and WebRTC, and deploying applications using Docker and PM2. I also have experience with Angular, SQL databases (MySQL, PostgreSQL), and message queues like BullMQ."
         },
         {
-            question: "How Do You Choose the Best Software Development Company?",
-            answer: "Choosing the best software development company involves evaluating their technical expertise, portfolio, client testimonials, communication practices, and project management methodologies. Look for companies with experience in your industry and the specific technologies you need. Consider their team's qualifications, their approach to quality assurance, and their ability to scale with your project requirements."
+            question: "What types of projects have you worked on?",
+            answer: "I've worked on diverse projects including Video-KYC (V-CIP) systems with WebRTC and Mediasoup, FastTag management platforms (OmniFastag), education platforms (Youth Education - NCERT), healthcare ERP systems (Healthray, HevMed), e-commerce platforms, and enterprise-grade CMS solutions. My experience spans from payment systems handling soundbox inventory to migration services handling 50Cr+ records."
         },
         {
-            question: "What is Agile Software Development?",
-            answer: "Agile software development is an iterative approach to building software that emphasizes flexibility, collaboration, and customer feedback. It breaks projects into smaller sprints, allowing teams to adapt quickly to changes and deliver working software incrementally. This methodology promotes continuous improvement, close collaboration between developers and stakeholders, and rapid response to evolving requirements."
+            question: "Do you provide freelance services?",
+            answer: "Yes! I'm open to freelance projects, full-time opportunities, and interesting collaborations. I've successfully delivered freelance projects like Sparkle Diamond Boutique (SDB) - a diamond trading platform. Whether you need a full-stack application, API development, or technical consultation, feel free to reach out."
         },
         {
-            question: "How Much Do Your Custom Software Engineering Services Cost?",
-            answer: "The cost of custom software engineering services varies based on project complexity, technology requirements, team size, and timeline. We offer flexible engagement models including fixed-price projects, time and materials, and dedicated team arrangements. Contact us for a detailed quote tailored to your specific project needs and budget constraints."
+            question: "What is your approach to building scalable applications?",
+            answer: "I follow industry best practices including microservices architecture, efficient database design with proper indexing, caching strategies using Redis, and implementing message queues for heavy operations. I use CI/CD pipelines with Docker for zero-downtime deployments and PM2 for process management. I also integrate Elasticsearch for fast search capabilities when dealing with large datasets."
         },
         {
-            question: "What Are the Benefits of Custom Software Development?",
-            answer: "Custom software development offers numerous benefits including tailored solutions that fit your exact business requirements, competitive advantages through unique features, better scalability and flexibility, improved integration with existing systems, enhanced security measures, and long-term cost efficiency. Custom solutions grow with your business and can be continuously optimized."
+            question: "Can you lead a development team?",
+            answer: "Absolutely! At Braincuber Technologies, I currently serve as a Tech Lead where I lead a team of developers, provide code reviews, mentoring, and guidance. I collaborate with clients to gather requirements, plan project timelines, and deliver high-quality solutions. I believe in clean code practices, proper documentation, and effective communication."
         },
         {
-            question: "How Long Does it Take to Create and Build Custom Software?",
-            answer: "The timeline for custom software development depends on project scope, complexity, and requirements. Simple applications might take 2-4 months, while complex enterprise solutions can require 6-12+ months. Our agile methodology allows us to deliver working features incrementally, so you start seeing value early in the development process rather than waiting for the complete product."
+            question: "How can I contact you for a project?",
+            answer: "You can reach me via email at bharodiyamit@gmail.com or call me at +91-9409010977. I'm based in Surat, Gujarat, India. I usually respond within 24 hours. You can also connect with me on LinkedIn or check out my GitHub profile for my open-source contributions."
         }
     ];
 

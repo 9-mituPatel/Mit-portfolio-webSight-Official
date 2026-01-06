@@ -23,48 +23,48 @@ const TechSkillsGrid = () => {
     }, []);
 
     const techIcons = [
-        // Row 1
-        { name: 'HTML5', icon: '🌐', color: '#E44D26', row: 1 },
-        { name: 'React', icon: '⚛️', color: '#61DAFB', row: 1 },
-        { name: 'Next.js', icon: 'N', color: '#ffffff', row: 1 },
-        { name: 'Tailwind', icon: '💨', color: '#06B6D4', row: 1 },
+        // Row 1 - Languages & Core
+        { name: 'JavaScript', icon: 'JS', color: '#F7DF1E', row: 1 },
+        { name: 'TypeScript', icon: 'TS', color: '#3178C6', row: 1 },
         { name: 'Node.js', icon: '🟢', color: '#339933', row: 1 },
-        { name: 'PHP', icon: '🐘', color: '#777BB4', row: 1 },
-        { name: 'Python', icon: '🐍', color: '#3776AB', row: 1 },
-        { name: 'C#', icon: '#', color: '#239120', row: 1 },
-        { name: 'AWS', icon: '☁️', color: '#FF9900', row: 1 },
-        // Row 2
-        { name: 'Angular', icon: 'A', color: '#DD0031', row: 2 },
-        { name: 'iOS', icon: '🍎', color: '#ffffff', row: 2 },
-        { name: 'Android', icon: '🤖', color: '#3DDC84', row: 2 },
-        { name: 'Ruby', icon: '💎', color: '#CC342D', row: 2 },
-        { name: 'Oracle', icon: 'O', color: '#F80000', row: 2 },
-        { name: 'Nextcloud', icon: '☁', color: '#0082C9', row: 2 },
-        { name: 'Cobol', icon: 'C', color: '#ffffff', row: 2 },
-        { name: 'Power BI', icon: '📊', color: '#F2C811', row: 2 },
+        { name: 'React.js', icon: '⚛️', color: '#61DAFB', row: 1 },
+        { name: 'Next.js', icon: 'N', color: '#ffffff', row: 1 },
+        { name: 'Angular', icon: 'A', color: '#DD0031', row: 1 },
+        { name: 'Express.js', icon: 'Ex', color: '#ffffff', row: 1 },
+        { name: 'HTML5', icon: '🌐', color: '#E44D26', row: 1 },
+        { name: 'CSS3', icon: '🎨', color: '#1572B6', row: 1 },
+        // Row 2 - Databases & Storage
+        { name: 'MongoDB', icon: '🍃', color: '#47A248', row: 2 },
+        { name: 'MySQL', icon: '🐬', color: '#4479A1', row: 2 },
+        { name: 'Redis', icon: '🔴', color: '#DC382D', row: 2 },
+        { name: 'PostgreSQL', icon: '🐘', color: '#4169E1', row: 2 },
+        { name: 'Amazon RDS', icon: '☁️', color: '#FF9900', row: 2 },
+        { name: 'Elasticsearch', icon: '🔍', color: '#005571', row: 2 },
+        { name: 'SQL', icon: 'SQL', color: '#CC2927', row: 2 },
+        { name: 'BullMQ', icon: '🐂', color: '#E34C26', row: 2 },
         // Row 3 (center row with logo)
-        { name: 'Firebase', icon: '🔥', color: '#FFCA28', row: 3 },
-        { name: 'Vue', icon: 'V', color: '#4FC08D', row: 3 },
-        { name: 'Svelte', icon: 'S', color: '#FF3E00', row: 3 },
+        { name: 'Tailwind CSS', icon: '💨', color: '#06B6D4', row: 3 },
+        { name: 'Bootstrap', icon: 'B', color: '#7952B3', row: 3 },
+        { name: 'Mediasoup', icon: '📹', color: '#27ca40', row: 3 },
         { name: 'CENTER', icon: '</>', color: '#4353FF', row: 3, isCenter: true },
-        { name: 'PHP', icon: 'php', color: '#777BB4', row: 3 },
-        { name: 'Laravel', icon: 'L', color: '#FF2D20', row: 3 },
-        { name: 'MongoDB', icon: '🍃', color: '#47A248', row: 3 },
-        // Row 4
+        { name: 'Mongoose', icon: 'M', color: '#880000', row: 3 },
+        { name: 'Sequelize', icon: 'S', color: '#52B0E7', row: 3 },
+        { name: 'Strapi', icon: 'S', color: '#4945FF', row: 3 },
+        // Row 4 - DevOps & Cloud
         { name: 'Docker', icon: '🐳', color: '#2496ED', row: 4 },
-        { name: 'Kubernetes', icon: '☸️', color: '#326CE5', row: 4 },
-        { name: 'Jenkins', icon: 'J', color: '#D24939', row: 4 },
-        { name: 'Salesforce', icon: 'SF', color: '#00A1E0', row: 4 },
-        { name: 'GraphQL', icon: '◈', color: '#E10098', row: 4 },
-        { name: 'TypeScript', icon: 'TS', color: '#3178C6', row: 4 },
-        { name: 'Terraform', icon: 'T', color: '#7B42BC', row: 4 },
-        // Row 5
-        { name: 'Redis', icon: '🔴', color: '#DC382D', row: 5 },
-        { name: 'PostgreSQL', icon: '🐘', color: '#4169E1', row: 5 },
+        { name: 'AWS', icon: '☁️', color: '#FF9900', row: 4 },
+        { name: 'PM2', icon: 'PM2', color: '#2b037a', row: 4 },
+        { name: 'FFmpeg', icon: '🎬', color: '#007808', row: 4 },
+        { name: 'Nginx', icon: 'N', color: '#009639', row: 4 },
+        { name: 'Linux', icon: '🐧', color: '#FCC624', row: 4 },
+        { name: 'Ubuntu', icon: 'U', color: '#E95420', row: 4 },
+        // Row 5 - Tools & Others
         { name: 'Git', icon: '📂', color: '#F05032', row: 5 },
-        { name: 'Linux', icon: '🐧', color: '#FCC624', row: 5 },
-        { name: 'Rust', icon: '⚙️', color: '#000000', row: 5 },
-        { name: 'Go', icon: 'Go', color: '#00ADD8', row: 5 },
+        { name: 'Postman', icon: '📬', color: '#FF6C37', row: 5 },
+        { name: 'JWT', icon: '🔐', color: '#000000', row: 5 },
+        { name: 'Socket.IO', icon: '🔌', color: '#010101', row: 5 },
+        { name: 'WebRTC', icon: '📞', color: '#333333', row: 5 },
+        { name: 'Coturn', icon: '🔄', color: '#0099CC', row: 5 },
     ];
 
     return (
@@ -85,7 +85,7 @@ const TechSkillsGrid = () => {
                         <span className="text-xs font-bold uppercase tracking-widest text-white/60">Technology Stack</span>
                     </div>
                     <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">
-                        Our <span className="text-[#4353FF]">Technology</span> Expertise
+                        My <span className="text-[#4353FF]">Technology</span> Expertise
                     </h2>
                     <p className="text-white/50 text-lg max-w-2xl mx-auto">
                         Mastering cutting-edge technologies to build scalable, modern applications

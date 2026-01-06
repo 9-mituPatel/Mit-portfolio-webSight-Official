@@ -14,8 +14,8 @@ const ServicesFrameworks = () => {
     const frameworks = [
         { icon: Atom, label: "React.js", color: "#61DAFB" },
         { icon: Globe, label: "Next.js", color: "#FFFFFF" },
-        { icon: Hexagon, label: "Webflow", color: "#4353FF" },
-        { icon: ShoppingBag, label: "Shopify", color: "#96BF48" }
+        { icon: Hexagon, label: "Angular", color: "#DD0031" },
+        { icon: ShoppingBag, label: "Strapi", color: "#4945FF" }
     ];
 
     return (
@@ -38,8 +38,8 @@ const ServicesFrameworks = () => {
 
                         <h3 className="text-2xl font-bold text-white mb-3">Services</h3>
                         <p className="text-white/40 text-sm mb-8 leading-relaxed">
-                            We provide support for all of your custom
-                            software development projects.
+                            I provide end-to-end development support for
+                            your custom web application projects.
                         </p>
 
                         <div className="space-y-4">
@@ -83,9 +83,8 @@ const ServicesFrameworks = () => {
 
                         <h3 className="text-2xl font-bold text-white mb-3">Frameworks</h3>
                         <p className="text-white/40 text-sm mb-8 leading-relaxed">
-                            The best software development firms start
-                            their web development projects at the
-                            design phase.
+                            I work with modern frameworks to build
+                            scalable and performant applications.
                         </p>
 
                         <div className="space-y-4">

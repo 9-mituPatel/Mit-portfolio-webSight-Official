@@ -36,10 +36,9 @@ const DesignSection = () => {
                     >
                         <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">Design</h2>
                         <p className="text-white/50 text-lg leading-relaxed max-w-lg">
-                            The best custom software development companies include the best UX
-                            design. The best UX starts with strategic planning. By aligning our digital
-                            transformation solutions with your vision and goals, we become a true partner,
-                            starting at UX/UI design.
+                            I believe great software starts with exceptional design. By aligning my
+                            solutions with your vision and goals, I become a true partner in
+                            building user-centric interfaces that drive results.
                         </p>
                     </motion.div>
 
@@ -80,11 +79,11 @@ const DesignSection = () => {
                             <Compass className="w-6 h-6 text-[#4353FF]" />
                         </div>
 
-                        <h3 className="text-xl font-bold text-white mb-3">DEV.co design process</h3>
+                        <h3 className="text-xl font-bold text-white mb-3">My Design Process</h3>
                         <p className="text-white/40 text-sm mb-8 leading-relaxed">
-                            Website visitors who land on your site will
-                            be at varying points in the customer
-                            journey.
+                            I follow a systematic approach to understand
+                            your users and create experiences that
+                            convert visitors into customers.
                         </p>
 
                         <div className="space-y-4">
@@ -120,11 +119,11 @@ const DesignSection = () => {
                             <Globe className="w-6 h-6 text-[#4353FF]" />
                         </div>
 
-                        <h3 className="text-xl font-bold text-white mb-3">Why invest</h3>
+                        <h3 className="text-xl font-bold text-white mb-3">Why Choose Me</h3>
                         <p className="text-white/40 text-sm mb-8 leading-relaxed">
-                            When users can find what they came for,
-                            they'll develop a positive impression of your
-                            brand.
+                            I focus on creating intuitive interfaces that
+                            help users achieve their goals quickly and
+                            efficiently.
                         </p>
 
                         <div className="space-y-4">

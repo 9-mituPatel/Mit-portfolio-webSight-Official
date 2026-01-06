@@ -17,9 +17,9 @@ const DevelopSection = () => {
                     >
                         <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">Develop</h2>
                         <p className="text-white/50 text-lg leading-relaxed max-w-lg">
-                            Our development team brings designs to life with clean, efficient code.
-                            We specialize in modern frameworks and scalable architecture that powers
-                            enterprise applications worldwide.
+                            I bring designs to life with clean, efficient code. I specialize in
+                            modern frameworks and scalable architecture that powers enterprise
+                            applications, from MVP to production-ready systems.
                         </p>
                     </motion.div>
 

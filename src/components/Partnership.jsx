@@ -83,12 +83,11 @@ const Partnership = () => {
                 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}
               `}>
                                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight mb-6">
-                                    Software Development<br />
-                                    Staffing: <span className="text-[#4353FF]">A Partnership</span>
+                                    Let's Build Something<br /><span className="text-[#4353FF]">Amazing Together</span>
                                 </h2>
 
                                 <p className="text-white/50 text-lg leading-relaxed mb-8">
-                                    At DEV.co, we see software development and IT staffing as a partnership. It's our job to help you achieve your goals, whatever they may be. If you're interested in learning more about our staffing process, or if you're ready for a free quote on our IT staffing services, contact us today!
+                                    I believe in building long-term partnerships with my clients. Whether you need a full-stack application, API development, or technical consultation, I'm here to help you achieve your goals. Let's discuss your next project and create something extraordinary!
                                 </p>
 
                                 {/* CTA Button */}
