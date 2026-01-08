@@ -3,16 +3,24 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown, ArrowUpRight } from "lucide-react";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import ScrollProgress from "./ScrollProgress";
+import { useNavigate, useLocation } from "react-router-dom";
+import { seoRoutes } from "@/config/seoRoutes";
+import logo from "@/assets/logo.png";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
+<<<<<<< HEAD
   const { scrollY } = useScroll();
 
   // Transform for header blur based on scroll
   const headerBlur = useTransform(scrollY, [0, 100], [0, 20]);
   const headerBg = useTransform(scrollY, [0, 100], ["rgba(0, 1, 1, 0)", "rgba(0, 1, 1, 0.8)"]);
+=======
+  const navigate = useNavigate();
+  const location = useLocation();
+>>>>>>> ab60e23 (GoCodexa Commit)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,21 +31,58 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+  const handleNavigation = (id) => {
+    // Define which IDs belong to separate pages and their routes
+    const pageRoutes = {
+      projects: seoRoutes.projects.path,
+      about: seoRoutes.about.path,
+      contact: seoRoutes.contact.path,
+      skills: seoRoutes.skills.path,
+      home: "/",
+    };
+
+    if (pageRoutes[id]) {
+      navigate(pageRoutes[id]);
+      window.scrollTo(0, 0);
       setIsMobileMenuOpen(false);
       setActiveDropdown(null);
+      return;
     }
+
+    // Handle Home page sections (design, develop, tech-stack, services)
+    const element = document.getElementById(id);
+    if (location.pathname !== "/") {
+      // If not on home, navigate home then scroll
+      navigate("/");
+      // Use a timeout to allow navigation to complete before scrolling
+      // Ideally this is handled by a useEffect in Home listening for a state/hash,
+      // but simple timeout works for basic cases or just landing at top of Home is acceptable fallback.
+      setTimeout(() => {
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    } else {
+      // Already on home
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      } else if (id === "services") {
+        // Fallback for services if no exact ID, maybe scroll to ServicesFrameworks if it had an ID
+        // Assuming there is a section with id replaced by simple scroll top or specific section
+      }
+    }
+
+    setIsMobileMenuOpen(false);
+    setActiveDropdown(null);
   };
 
   const navItems = [
+    { label: "Home", id: "home", hasDropdown: false },
     {
-      label: 'Skills',
-      id: 'skills',
+      label: "Services",
+      id: "services",
       hasDropdown: true,
       dropdownItems: [
+<<<<<<< HEAD
         { label: 'Backend Core', id: 'skills', description: 'Node.js, Express, APIs' },
         { label: 'Frontend', id: 'skills', description: 'React, Next.js, UI/UX' },
         { label: 'DevOps', id: 'skills', description: 'Docker, AWS, CI/CD' }
@@ -66,14 +111,26 @@ const Header = () => {
     { label: 'Projects', id: 'projects', hasDropdown: false },
     { label: 'About', id: 'about', hasDropdown: false },
     { label: 'Contact', id: 'contact', hasDropdown: false },
+=======
+        { label: "Design", id: "design" },
+        { label: "Development", id: "develop" },
+        { label: "Consulting", id: "contact" },
+      ],
+    },
+    { label: "Technology", id: "tech-stack", hasDropdown: false },
+    { label: "Portfolio", id: "projects", hasDropdown: false },
+    { label: "About", id: "about", hasDropdown: false },
+    { label: "Contact", id: "contact", hasDropdown: false },
+>>>>>>> ab60e23 (GoCodexa Commit)
   ];
 
   return (
-    <>
+    <div>
       <ScrollProgress />
       <motion.header
         initial={{ y: -100 }}
         animate={{ y: 0 }}
+<<<<<<< HEAD
         transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
             ? 'py-3'
@@ -84,11 +141,20 @@ const Header = () => {
           backdropFilter: isScrolled ? 'blur(20px)' : 'none',
           borderBottom: isScrolled ? '1px solid rgba(255, 255, 255, 0.05)' : 'none',
         }}
+=======
+        transition={{ duration: 0.5 }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          isScrolled
+            ? "bg-[#000101]/80 backdrop-blur-2xl border-b border-white/5 py-3"
+            : "bg-transparent py-5"
+        }`}
+>>>>>>> ab60e23 (GoCodexa Commit)
       >
         <div className="container mx-auto px-6">
           <div className="flex items-center justify-between">
             {/* Logo */}
             <motion.div
+<<<<<<< HEAD
               className="flex items-center cursor-pointer group"
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               whileHover={{ scale: 1.02 }}
@@ -105,6 +171,17 @@ const Header = () => {
               >
                 Dev
               </motion.span>
+=======
+              className="flex items-center cursor-pointer"
+              onClick={() => handleNavigation("devhero")} // Or navigate to home
+              whileHover={{ scale: 1.05 }}
+            >
+              <img
+                src={logo}
+                alt="Logo"
+                className="h-12 w-auto object-contain"
+              />
+>>>>>>> ab60e23 (GoCodexa Commit)
             </motion.div>
 
             {/* Desktop Navigation */}
@@ -116,6 +193,7 @@ const Header = () => {
                   onMouseEnter={() => hasDropdown && setActiveDropdown(label)}
                   onMouseLeave={() => setActiveDropdown(null)}
                 >
+<<<<<<< HEAD
                   <motion.button
                     onClick={() => !hasDropdown && scrollToSection(id)}
                     className={`flex items-center gap-1.5 px-4 py-2.5 text-sm font-medium rounded-xl transition-all duration-300 ${activeDropdown === label
@@ -133,6 +211,19 @@ const Header = () => {
                       >
                         <ChevronDown className="w-4 h-4" />
                       </motion.span>
+=======
+                  <button
+                    onClick={() => !hasDropdown && handleNavigation(id)}
+                    className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-white/70 hover:text-[#3C74B1] transition-colors rounded-lg hover:bg-white/5"
+                  >
+                    {label}
+                    {hasDropdown && (
+                      <ChevronDown
+                        className={`w-4 h-4 transition-transform ${
+                          activeDropdown === label ? "rotate-180" : ""
+                        }`}
+                      />
+>>>>>>> ab60e23 (GoCodexa Commit)
                     )}
                   </motion.button>
 
@@ -146,6 +237,7 @@ const Header = () => {
                         transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
                         className="absolute top-full left-0 mt-2 w-64 bg-[#0a0a15]/95 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl overflow-hidden"
                       >
+<<<<<<< HEAD
                         <div className="p-2">
                           {dropdownItems?.map((item, idx) => (
                             <motion.button
@@ -164,6 +256,17 @@ const Header = () => {
                             </motion.button>
                           ))}
                         </div>
+=======
+                        {dropdownItems?.map((item, idx) => (
+                          <button
+                            key={idx}
+                            onClick={() => handleNavigation(item.id)}
+                            className="w-full text-left px-4 py-3 text-sm text-white/60 hover:text-[#3C74B1] hover:bg-white/5 transition-colors"
+                          >
+                            {item.label}
+                          </button>
+                        ))}
+>>>>>>> ab60e23 (GoCodexa Commit)
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -173,6 +276,7 @@ const Header = () => {
 
             {/* Right Side Buttons */}
             <div className="hidden lg:flex items-center gap-3">
+<<<<<<< HEAD
               <motion.a
                 href="https://github.com/9-mituPatel"
                 target="_blank"
@@ -191,6 +295,14 @@ const Header = () => {
                   Get in Touch
                 </Button>
               </motion.div>
+=======
+              <Button
+                onClick={() => handleNavigation("contact")}
+                className="bg-transparent border border-[#3C74B1] hover:bg-[#3C74B1] hover:text-white text-white rounded-lg px-5 h-10 text-sm font-medium transition-all duration-300"
+              >
+                Book a Demo
+              </Button>
+>>>>>>> ab60e23 (GoCodexa Commit)
             </div>
 
             {/* Mobile Menu Button */}
@@ -201,6 +313,7 @@ const Header = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
+<<<<<<< HEAD
                 <AnimatePresence mode="wait">
                   {isMobileMenuOpen ? (
                     <motion.div
@@ -225,6 +338,14 @@ const Header = () => {
                   )}
                 </AnimatePresence>
               </motion.button>
+=======
+                {isMobileMenuOpen ? (
+                  <X className="w-5 h-5" />
+                ) : (
+                  <Menu className="w-5 h-5" />
+                )}
+              </Button>
+>>>>>>> ab60e23 (GoCodexa Commit)
             </div>
           </div>
 
@@ -233,7 +354,7 @@ const Header = () => {
             {isMobileMenuOpen && (
               <motion.div
                 initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: 'auto' }}
+                animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
                 transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
                 className="lg:hidden absolute top-full left-0 right-0 bg-[#0a0a15]/98 backdrop-blur-2xl border-b border-white/10 overflow-hidden"
@@ -255,16 +376,21 @@ const Header = () => {
                       <motion.button
                         key={id + label}
                         onClick={() => scrollToSection(id)}
+<<<<<<< HEAD
                         className="text-left py-3 px-4 text-base font-medium text-white/70 hover:text-white hover:bg-white/5 rounded-xl transition-all duration-200"
                         variants={{
                           hidden: { opacity: 0, x: -20 },
                           visible: { opacity: 1, x: 0 }
                         }}
                         whileTap={{ scale: 0.98 }}
+=======
+                        className="text-left py-3 px-4 text-base font-medium text-white/70 hover:text-[#2D5190] hover:bg-white/5 rounded-lg transition-colors"
+>>>>>>> ab60e23 (GoCodexa Commit)
                       >
                         {label}
                       </motion.button>
                     ))}
+<<<<<<< HEAD
 
                     <motion.div
                       className="pt-4 mt-4 border-t border-white/10 space-y-3"
@@ -284,6 +410,12 @@ const Header = () => {
                       <Button
                         onClick={() => scrollToSection('contact')}
                         className="w-full bg-gradient-to-r from-[#4353FF] to-[#5a6aff] hover:from-[#3142e8] hover:to-[#4353FF] text-white rounded-xl py-6 font-semibold transition-all duration-300"
+=======
+                    <div className="pt-4 mt-4 border-t border-white/10 flex flex-col gap-3">
+                      <Button
+                        onClick={() => scrollToSection("contact")}
+                        className="bg-[#4C91C9] hover:bg-[#2D5190]/80 text-white"
+>>>>>>> ab60e23 (GoCodexa Commit)
                       >
                         Get in Touch
                       </Button>
@@ -295,7 +427,7 @@ const Header = () => {
           </AnimatePresence>
         </div>
       </motion.header>
-    </>
+    </div>
   );
 };
 

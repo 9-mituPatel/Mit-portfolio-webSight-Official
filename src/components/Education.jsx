@@ -13,21 +13,41 @@ const Education = () => {
       institution: "Utter Gujarat College, VNSGU",
       location: "Gujarat, India",
       period: "2021 - 2024",
+<<<<<<< HEAD
       grade: "First Division",
       description: "Focused on core programming principles, database management systems, and modern web application architecture. Specialized in MERN stack during the final years.",
       subjects: ["Data Structures", "DBMS", "Web Dev", "Software Engineering", "JavaScript", "SQL"],
       highlights: ["MERN Stack Specialization", "Project Lead for Final Year"]
+=======
+      description:
+        "Focused on core programming principles, database management systems, and modern web application architecture. Specialized in MERN stack during the final years.",
+      subjects: [
+        "Data Structures",
+        "DBMS",
+        "Web Dev",
+        "Software Engineering",
+        "JS",
+        "SQL",
+      ],
+>>>>>>> ab60e23 (GoCodexa Commit)
     },
     {
       degree: "Higher Secondary Education",
       institution: "Gopinath Gurukul, Surat",
       location: "Surat, Gujarat",
       period: "2019 - 2021",
+<<<<<<< HEAD
       grade: "Science Stream",
       description: "Foundational STEM education with a focus on Mathematics and Computer Science. Participated in various competitive coding events.",
       subjects: ["Mathematics", "Physics", "Computer Science"],
       highlights: ["Competitive Coding Events", "Science Olympiad"]
     }
+=======
+      description:
+        "Foundational STEM education with a focus on Mathematics and Computer Science. Participated in various competitive coding events.",
+      subjects: ["Math", "Physics", "Computer Science"],
+    },
+>>>>>>> ab60e23 (GoCodexa Commit)
   ];
 
   const containerVariants = {
@@ -53,6 +73,7 @@ const Education = () => {
   };
 
   return (
+<<<<<<< HEAD
     <section id="education" className="py-32 md:py-44 bg-[#000101] relative overflow-hidden" ref={ref}>
       {/* Background elements */}
       <div className="absolute inset-0 bg-grid-modern opacity-[0.06] pointer-events-none" />
@@ -90,6 +111,13 @@ const Education = () => {
           ease: "easeInOut",
         }}
       />
+=======
+    <section
+      id="education"
+      className="py-40 bg-[#000101] relative overflow-hidden"
+    >
+      <div className="absolute inset-0 bg-grid-modern opacity-10 pointer-events-none" />
+>>>>>>> ab60e23 (GoCodexa Commit)
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
@@ -100,9 +128,14 @@ const Education = () => {
             viewport={{ once: true }}
             className="inline-block mb-8"
           >
+<<<<<<< HEAD
             <span className="tag-primary flex items-center gap-2 justify-center">
               <BookOpen className="w-3 h-3" />
               Academic Background
+=======
+            <span className="text-[#4C91C9] font-black tracking-[0.4em] uppercase text-xs px-6 py-2 border border-[#4C91C9]/20 rounded-full bg-[#4C91C9]/5">
+              Academic
+>>>>>>> ab60e23 (GoCodexa Commit)
             </span>
           </motion.div>
 
@@ -114,6 +147,7 @@ const Education = () => {
             className="heading-xl text-white mb-8"
           >
             Scholastic{" "}
+<<<<<<< HEAD
             <span className="relative inline-block">
               <span className="gradient-text-primary">Journey</span>
               <motion.span
@@ -124,6 +158,16 @@ const Education = () => {
                 transition={{ duration: 0.8, delay: 0.6 }}
               />
             </span>
+=======
+            <motion.span
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="font-bold bg-gradient-to-r from-[#4C91C9] to-[#fbc72d] bg-clip-text text-transparent mb-4 pb-4"
+            >
+              Background
+            </motion.span>
+>>>>>>> ab60e23 (GoCodexa Commit)
           </motion.h2>
 
           <motion.p
@@ -133,8 +177,13 @@ const Education = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="body-lg max-w-2xl mx-auto"
           >
+<<<<<<< HEAD
             The foundation of my technical expertise and problem-solving mindset,
             built through rigorous academics and hands-on learning.
+=======
+            The foundation of my technical expertise and problem-solving
+            mindset.
+>>>>>>> ab60e23 (GoCodexa Commit)
           </motion.p>
         </div>
 
@@ -152,6 +201,7 @@ const Education = () => {
               variants={itemVariants}
               className="group relative"
             >
+<<<<<<< HEAD
               {/* Animated border glow on hover */}
               <motion.div
                 className="absolute -inset-[1px] bg-gradient-to-r from-[#4353FF]/50 via-[#6366f1]/30 to-[#4353FF]/50 rounded-[2rem] opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-500"
@@ -179,11 +229,24 @@ const Education = () => {
                       {edu.degree}
                     </h3>
                     <p className="text-[#4353FF] font-bold text-sm tracking-wide">
+=======
+              <SpotlightCard className="p-10 border-gradient h-full">
+                <div className="flex items-center gap-6 mb-10 relative z-10">
+                  <div className="w-16 h-16 bg-[#4C91C9]/10 rounded-2xl flex items-center justify-center border border-[#4C91C9]/20 group-hover:scale-110 transition-transform duration-500">
+                    <GraduationCap className="w-8 h-8 text-[#4C91C9]" />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-black text-white mb-2 group-hover:text-[#4C91C9] transition-colors leading-tight uppercase tracking-tight">
+                      {edu.degree}
+                    </h3>
+                    <p className="text-[#4C91C9] font-black text-[10px] tracking-[0.3em] uppercase">
+>>>>>>> ab60e23 (GoCodexa Commit)
                       {edu.institution}
                     </p>
                   </div>
                 </div>
 
+<<<<<<< HEAD
                 {/* Meta info */}
                 <div className="flex flex-wrap gap-3 mb-6 relative z-10">
                   <div className="flex items-center gap-2 text-white/40 text-xs font-semibold bg-white/5 px-3 py-1.5 rounded-full border border-white/10">
@@ -197,6 +260,14 @@ const Education = () => {
                   <div className="flex items-center gap-2 text-white/40 text-xs font-semibold bg-white/5 px-3 py-1.5 rounded-full border border-white/10">
                     <Award className="w-3 h-3 text-[#4353FF]" />
                     {edu.grade}
+=======
+                <div className="flex flex-wrap gap-4 text-white/30 text-[10px] font-black uppercase tracking-widest bg-white/5 px-4 py-2 rounded-full border border-white/10 mb-8 relative z-10 w-fit">
+                  <div className="flex items-center gap-2">
+                    <Calendar className="w-3 h-3 text-[#4C91C9]" /> {edu.period}
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <MapPin className="w-3 h-3 text-[#4C91C9]" /> {edu.location}
+>>>>>>> ab60e23 (GoCodexa Commit)
                   </div>
                 </div>
 
@@ -205,6 +276,7 @@ const Education = () => {
                   {edu.description}
                 </p>
 
+<<<<<<< HEAD
                 {/* Highlights */}
                 <div className="mb-8 relative z-10">
                   <div className="text-[10px] font-bold uppercase tracking-widest text-white/30 mb-3">
@@ -222,6 +294,17 @@ const Education = () => {
                       </motion.span>
                     ))}
                   </div>
+=======
+                <div className="flex flex-wrap gap-2.5 pt-8 border-t border-white/5 relative z-10">
+                  {edu.subjects.map((sub, idx) => (
+                    <span
+                      key={idx}
+                      className="px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/30 text-[10px] font-black uppercase tracking-widest group-hover:text-[#4C91C9] group-hover:border-[#4C91C9]/20 transition-all duration-300"
+                    >
+                      {sub}
+                    </span>
+                  ))}
+>>>>>>> ab60e23 (GoCodexa Commit)
                 </div>
 
                 {/* Subjects */}

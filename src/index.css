@@ -334,12 +334,21 @@
   }
 
   ::-webkit-scrollbar-thumb {
+<<<<<<< HEAD
     background: linear-gradient(180deg, #4353FF40, #6366f140);
     border-radius: 3px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(180deg, #4353FF60, #6366f160);
+=======
+    background: #4C91C940;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #4C91C960;
+>>>>>>> ab60e23 (GoCodexa Commit)
   }
 
   /* Code block styling */
