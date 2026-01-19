@@ -3,11 +3,16 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import ScrollProgress from "./ScrollProgress";
+import { useNavigate, useLocation } from "react-router-dom";
+import { seoRoutes } from "@/config/seoRoutes";
+import logo from "@/assets/logo.png";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,84 +23,94 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+  const handleNavigation = (id) => {
+    // Define which IDs belong to separate pages and their routes
+    const pageRoutes = {
+      projects: seoRoutes.projects.path,
+      about: seoRoutes.about.path,
+      contact: seoRoutes.contact.path,
+      skills: seoRoutes.skills.path,
+      home: "/",
+    };
+
+    if (pageRoutes[id]) {
+      navigate(pageRoutes[id]);
+      window.scrollTo(0, 0);
       setIsMobileMenuOpen(false);
       setActiveDropdown(null);
+      return;
     }
+
+    // Handle Home page sections (design, develop, tech-stack, services)
+    const element = document.getElementById(id);
+    if (location.pathname !== "/") {
+      // If not on home, navigate home then scroll
+      navigate("/");
+      // Use a timeout to allow navigation to complete before scrolling
+      // Ideally this is handled by a useEffect in Home listening for a state/hash,
+      // but simple timeout works for basic cases or just landing at top of Home is acceptable fallback.
+      setTimeout(() => {
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    } else {
+      // Already on home
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      } else if (id === "services") {
+        // Fallback for services if no exact ID, maybe scroll to ServicesFrameworks if it had an ID
+        // Assuming there is a section with id replaced by simple scroll top or specific section
+      }
+    }
+
+    setIsMobileMenuOpen(false);
+    setActiveDropdown(null);
   };
 
   const navItems = [
+    { label: "Home", id: "home", hasDropdown: false },
     {
-      label: 'Skills',
-      id: 'skills',
+      label: "Services",
+      id: "services",
       hasDropdown: true,
       dropdownItems: [
-        { label: 'Backend Core', id: 'skills' },
-        { label: 'Frontend', id: 'skills' },
-        { label: 'DevOps', id: 'skills' }
-      ]
+        { label: "Design", id: "design" },
+        { label: "Development", id: "develop" },
+        { label: "Consulting", id: "contact" },
+      ],
     },
-    {
-      label: 'Services',
-      id: 'services',
-      hasDropdown: true,
-      dropdownItems: [
-        { label: 'Design', id: 'design' },
-        { label: 'Development', id: 'develop' },
-        { label: 'Consulting', id: 'contact' }
-      ]
-    },
-    {
-      label: 'Industries',
-      id: 'projects',
-      hasDropdown: true,
-      dropdownItems: [
-        { label: 'Fintech', id: 'projects' },
-        { label: 'Healthcare', id: 'projects' },
-        { label: 'E-commerce', id: 'projects' }
-      ]
-    },
-    {
-      label: 'Technology',
-      id: 'tech-stack',
-      hasDropdown: true,
-      dropdownItems: [
-        { label: 'Node.js', id: 'tech-stack' },
-        { label: 'React', id: 'tech-stack' },
-        { label: 'Cloud Services', id: 'tech-stack' }
-      ]
-    },
-    { label: 'Our Work', id: 'projects', hasDropdown: false },
-    { label: 'About', id: 'about', hasDropdown: false },
-    { label: 'Contact', id: 'contact', hasDropdown: false },
+    { label: "Technology", id: "tech-stack", hasDropdown: false },
+    { label: "Portfolio", id: "projects", hasDropdown: false },
+    { label: "About", id: "about", hasDropdown: false },
+    { label: "Contact", id: "contact", hasDropdown: false },
   ];
 
   return (
-    <>
+    <div>
       <ScrollProgress />
       <motion.header
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
-          ? 'bg-[#000101]/80 backdrop-blur-2xl border-b border-white/5 py-3'
-          : 'bg-transparent py-5'
-          }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          isScrolled
+            ? "bg-[#000101]/80 backdrop-blur-2xl border-b border-white/5 py-3"
+            : "bg-transparent py-5"
+        }`}
       >
         <div className="container mx-auto px-6">
           <div className="flex items-center justify-between">
-            {/* Logo - dev.co style */}
+            {/* Logo */}
             <motion.div
-              className="flex items-center cursor-pointer group"
-              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-              whileHover={{ scale: 1.02 }}
+              className="flex items-center cursor-pointer"
+              onClick={() => handleNavigation("devhero")} // Or navigate to home
+              whileHover={{ scale: 1.05 }}
             >
-              <div className="w-10 h-10 bg-[#4353FF] rounded-lg flex items-center justify-center shadow-[0_0_20px_rgba(67,83,255,0.4)] group-hover:shadow-[0_0_30px_rgba(67,83,255,0.6)] transition-shadow">
-                <span className="text-white font-black text-lg">&lt;/&gt;</span>
-              </div>
+              <img
+                src={logo}
+                alt="Logo"
+                className="h-12 w-auto object-contain"
+              />
             </motion.div>
 
             {/* Desktop Navigation */}
@@ -108,12 +123,16 @@ const Header = () => {
                   onMouseLeave={() => setActiveDropdown(null)}
                 >
                   <button
-                    onClick={() => !hasDropdown && scrollToSection(id)}
-                    className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-white/70 hover:text-white transition-colors rounded-lg hover:bg-white/5"
+                    onClick={() => !hasDropdown && handleNavigation(id)}
+                    className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-white/70 hover:text-[#3C74B1] transition-colors rounded-lg hover:bg-white/5"
                   >
                     {label}
                     {hasDropdown && (
-                      <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === label ? 'rotate-180' : ''}`} />
+                      <ChevronDown
+                        className={`w-4 h-4 transition-transform ${
+                          activeDropdown === label ? "rotate-180" : ""
+                        }`}
+                      />
                     )}
                   </button>
 
@@ -130,8 +149,8 @@ const Header = () => {
                         {dropdownItems?.map((item, idx) => (
                           <button
                             key={idx}
-                            onClick={() => scrollToSection(item.id)}
-                            className="w-full text-left px-4 py-3 text-sm text-white/60 hover:text-white hover:bg-white/5 transition-colors"
+                            onClick={() => handleNavigation(item.id)}
+                            className="w-full text-left px-4 py-3 text-sm text-white/60 hover:text-[#3C74B1] hover:bg-white/5 transition-colors"
                           >
                             {item.label}
                           </button>
@@ -146,15 +165,8 @@ const Header = () => {
             {/* Right Side Buttons */}
             <div className="hidden lg:flex items-center gap-3">
               <Button
-                variant="ghost"
-                className="text-white/70 hover:text-white hover:bg-white/5 rounded-lg px-4 h-10 text-sm font-medium"
-                onClick={() => scrollToSection('about')}
-              >
-                Login
-              </Button>
-              <Button
-                onClick={() => scrollToSection('contact')}
-                className="bg-transparent border border-white/20 hover:bg-white hover:text-black text-white rounded-lg px-5 h-10 text-sm font-medium transition-all duration-300"
+                onClick={() => handleNavigation("contact")}
+                className="bg-transparent border border-[#3C74B1] hover:bg-[#3C74B1] hover:text-white text-white rounded-lg px-5 h-10 text-sm font-medium transition-all duration-300"
               >
                 Book a Demo
               </Button>
@@ -168,7 +180,11 @@ const Header = () => {
                 className="text-white hover:bg-white/10 h-10 w-10 rounded-lg"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               >
-                {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+                {isMobileMenuOpen ? (
+                  <X className="w-5 h-5" />
+                ) : (
+                  <Menu className="w-5 h-5" />
+                )}
               </Button>
             </div>
           </div>
@@ -178,7 +194,7 @@ const Header = () => {
             {isMobileMenuOpen && (
               <motion.div
                 initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: 'auto' }}
+                animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
                 className="lg:hidden absolute top-full left-0 right-0 bg-[#0a0a12] border-b border-white/10 overflow-hidden"
               >
@@ -188,22 +204,15 @@ const Header = () => {
                       <button
                         key={id + label}
                         onClick={() => scrollToSection(id)}
-                        className="text-left py-3 px-4 text-base font-medium text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
+                        className="text-left py-3 px-4 text-base font-medium text-white/70 hover:text-[#2D5190] hover:bg-white/5 rounded-lg transition-colors"
                       >
                         {label}
                       </button>
                     ))}
                     <div className="pt-4 mt-4 border-t border-white/10 flex flex-col gap-3">
                       <Button
-                        variant="ghost"
-                        className="justify-start text-white/70 hover:text-white"
-                        onClick={() => scrollToSection('about')}
-                      >
-                        Login
-                      </Button>
-                      <Button
-                        onClick={() => scrollToSection('contact')}
-                        className="bg-[#4353FF] hover:bg-[#4353FF]/80 text-white"
+                        onClick={() => scrollToSection("contact")}
+                        className="bg-[#4C91C9] hover:bg-[#2D5190]/80 text-white"
                       >
                         Book a Demo
                       </Button>
@@ -215,7 +224,7 @@ const Header = () => {
           </AnimatePresence>
         </div>
       </motion.header>
-    </>
+    </div>
   );
 };
 

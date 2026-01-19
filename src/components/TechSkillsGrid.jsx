@@ -1,144 +1,166 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 const TechSkillsGrid = () => {
-    const [hoveredIndex, setHoveredIndex] = useState(null);
-    const [isVisible, setIsVisible] = useState(false);
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [isVisible, setIsVisible] = useState(false);
 
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    setIsVisible(true);
-                }
-            },
-            { threshold: 0.1 }
-        );
-
-        const element = document.getElementById('tech-skills-grid');
-        if (element) {
-            observer.observe(element);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
         }
+      },
+      { threshold: 0.1 }
+    );
 
-        return () => observer.disconnect();
-    }, []);
+    const element = document.getElementById("tech-stack");
+    if (element) {
+      observer.observe(element);
+    }
 
-    const techIcons = [
-        // Row 1
-        { name: 'HTML5', icon: '🌐', color: '#E44D26', row: 1 },
-        { name: 'React', icon: '⚛️', color: '#61DAFB', row: 1 },
-        { name: 'Next.js', icon: 'N', color: '#ffffff', row: 1 },
-        { name: 'Tailwind', icon: '💨', color: '#06B6D4', row: 1 },
-        { name: 'Node.js', icon: '🟢', color: '#339933', row: 1 },
-        { name: 'PHP', icon: '🐘', color: '#777BB4', row: 1 },
-        { name: 'Python', icon: '🐍', color: '#3776AB', row: 1 },
-        { name: 'C#', icon: '#', color: '#239120', row: 1 },
-        { name: 'AWS', icon: '☁️', color: '#FF9900', row: 1 },
-        // Row 2
-        { name: 'Angular', icon: 'A', color: '#DD0031', row: 2 },
-        { name: 'iOS', icon: '🍎', color: '#ffffff', row: 2 },
-        { name: 'Android', icon: '🤖', color: '#3DDC84', row: 2 },
-        { name: 'Ruby', icon: '💎', color: '#CC342D', row: 2 },
-        { name: 'Oracle', icon: 'O', color: '#F80000', row: 2 },
-        { name: 'Nextcloud', icon: '☁', color: '#0082C9', row: 2 },
-        { name: 'Cobol', icon: 'C', color: '#ffffff', row: 2 },
-        { name: 'Power BI', icon: '📊', color: '#F2C811', row: 2 },
-        // Row 3 (center row with logo)
-        { name: 'Firebase', icon: '🔥', color: '#FFCA28', row: 3 },
-        { name: 'Vue', icon: 'V', color: '#4FC08D', row: 3 },
-        { name: 'Svelte', icon: 'S', color: '#FF3E00', row: 3 },
-        { name: 'CENTER', icon: '</>', color: '#4353FF', row: 3, isCenter: true },
-        { name: 'PHP', icon: 'php', color: '#777BB4', row: 3 },
-        { name: 'Laravel', icon: 'L', color: '#FF2D20', row: 3 },
-        { name: 'MongoDB', icon: '🍃', color: '#47A248', row: 3 },
-        // Row 4
-        { name: 'Docker', icon: '🐳', color: '#2496ED', row: 4 },
-        { name: 'Kubernetes', icon: '☸️', color: '#326CE5', row: 4 },
-        { name: 'Jenkins', icon: 'J', color: '#D24939', row: 4 },
-        { name: 'Salesforce', icon: 'SF', color: '#00A1E0', row: 4 },
-        { name: 'GraphQL', icon: '◈', color: '#E10098', row: 4 },
-        { name: 'TypeScript', icon: 'TS', color: '#3178C6', row: 4 },
-        { name: 'Terraform', icon: 'T', color: '#7B42BC', row: 4 },
-        // Row 5
-        { name: 'Redis', icon: '🔴', color: '#DC382D', row: 5 },
-        { name: 'PostgreSQL', icon: '🐘', color: '#4169E1', row: 5 },
-        { name: 'Git', icon: '📂', color: '#F05032', row: 5 },
-        { name: 'Linux', icon: '🐧', color: '#FCC624', row: 5 },
-        { name: 'Rust', icon: '⚙️', color: '#000000', row: 5 },
-        { name: 'Go', icon: 'Go', color: '#00ADD8', row: 5 },
-    ];
+    return () => observer.disconnect();
+  }, []);
 
-    return (
-        <section
-            id="tech-skills-grid"
-            className="relative py-32 overflow-hidden bg-[#000101]"
-        >
-            {/* Background gradient */}
-            <div className="absolute inset-0">
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(67,83,255,0.15),transparent_70%)]" />
-            </div>
+  const techIcons = [
+    // Row 1
+    { name: "HTML5", icon: "🌐", color: "#E44D26", row: 1 },
+    { name: "React", icon: "⚛️", color: "#61DAFB", row: 1 },
+    { name: "Next.js", icon: "N", color: "#ffffff", row: 1 },
+    { name: "Tailwind", icon: "💨", color: "#06B6D4", row: 1 },
+    { name: "Node.js", icon: "🟢", color: "#339933", row: 1 },
+    { name: "PHP", icon: "🐘", color: "#777BB4", row: 1 },
+    { name: "Python", icon: "🐍", color: "#3776AB", row: 1 },
+    { name: "C#", icon: "#", color: "#239120", row: 1 },
+    { name: "AWS", icon: "☁️", color: "#FF9900", row: 1 },
+    // Row 2
+    { name: "Angular", icon: "A", color: "#DD0031", row: 2 },
+    { name: "iOS", icon: "🍎", color: "#ffffff", row: 2 },
+    { name: "Android", icon: "🤖", color: "#3DDC84", row: 2 },
+    { name: "Ruby", icon: "💎", color: "#CC342D", row: 2 },
+    { name: "Oracle", icon: "O", color: "#F80000", row: 2 },
+    { name: "Nextcloud", icon: "☁", color: "#0082C9", row: 2 },
+    { name: "Cobol", icon: "C", color: "#ffffff", row: 2 },
+    { name: "Power BI", icon: "📊", color: "#F2C811", row: 2 },
+    // Row 3 (center row with logo)
+    { name: "Firebase", icon: "🔥", color: "#FFCA28", row: 3 },
+    { name: "Vue", icon: "V", color: "#4FC08D", row: 3 },
+    { name: "Svelte", icon: "S", color: "#FF3E00", row: 3 },
+    { name: "CENTER", icon: "</>", color: "#4C91C9", row: 3, isCenter: true },
+    { name: "PHP", icon: "php", color: "#777BB4", row: 3 },
+    { name: "Laravel", icon: "L", color: "#FF2D20", row: 3 },
+    { name: "MongoDB", icon: "🍃", color: "#47A248", row: 3 },
+    // Row 4
+    { name: "Docker", icon: "🐳", color: "#2496ED", row: 4 },
+    { name: "Kubernetes", icon: "☸️", color: "#326CE5", row: 4 },
+    { name: "Jenkins", icon: "J", color: "#D24939", row: 4 },
+    { name: "Salesforce", icon: "SF", color: "#00A1E0", row: 4 },
+    { name: "GraphQL", icon: "◈", color: "#E10098", row: 4 },
+    { name: "TypeScript", icon: "TS", color: "#3178C6", row: 4 },
+    { name: "Terraform", icon: "T", color: "#7B42BC", row: 4 },
+    // Row 5
+    { name: "Redis", icon: "🔴", color: "#DC382D", row: 5 },
+    { name: "PostgreSQL", icon: "🐘", color: "#4169E1", row: 5 },
+    { name: "Git", icon: "📂", color: "#F05032", row: 5 },
+    { name: "Linux", icon: "🐧", color: "#FCC624", row: 5 },
+    { name: "Rust", icon: "⚙️", color: "#000000", row: 5 },
+    { name: "Go", icon: "Go", color: "#00ADD8", row: 5 },
+  ];
 
-            <div className="container mx-auto px-4 sm:px-6 relative z-10">
-                {/* Section Header */}
-                <div className="text-center mb-16">
-                    <div className="inline-flex items-center gap-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-4 py-2 mb-6">
-                        <div className="w-2 h-2 rounded-full bg-[#4353FF] animate-pulse" />
-                        <span className="text-xs font-bold uppercase tracking-widest text-white/60">Technology Stack</span>
-                    </div>
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">
-                        Our <span className="text-[#4353FF]">Technology</span> Expertise
-                    </h2>
-                    <p className="text-white/50 text-lg max-w-2xl mx-auto">
-                        Mastering cutting-edge technologies to build scalable, modern applications
-                    </p>
-                </div>
+  return (
+    <section
+      id="tech-stack"
+      className="relative py-32 overflow-hidden bg-[#000101]"
+    >
+      {/* Background gradient */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(67,83,255,0.15),transparent_70%)]" />
+      </div>
 
-                {/* Tech Grid */}
-                <div className="max-w-6xl mx-auto">
-                    <div className="relative">
-                        {/* Grid Container */}
-                        <div className="grid gap-3 sm:gap-4">
-                            {[1, 2, 3, 4, 5].map((row) => (
-                                <div
-                                    key={row}
-                                    className={`flex justify-center gap-3 sm:gap-4 ${row % 2 === 0 ? 'ml-8' : ''
-                                        }`}
-                                    style={{
-                                        transform: `translateX(${row % 2 === 0 ? '20px' : '0'})`,
-                                    }}
-                                >
-                                    {techIcons
-                                        .filter(tech => tech.row === row)
-                                        .map((tech, index) => {
-                                            const globalIndex = techIcons.findIndex(t => t === tech);
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-4 py-2 mb-6">
+            <div className="w-2 h-2 rounded-full bg-[#4C91C9] animate-pulse" />
+            <span className="text-xs font-bold uppercase tracking-widest text-white/60">
+              Technology Stack
+            </span>
+          </div>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">
+            Our{" "}
+            <motion.span
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="font-bold bg-gradient-to-r from-[#4C91C9] to-[#fbc72d] bg-clip-text text-transparent mb-4 pb-4"
+            >
+              Technology
+            </motion.span>{" "}
+            Expertise
+          </h2>
+          <p className="text-white/50 text-lg max-w-2xl mx-auto">
+            Mastering cutting-edge technologies to build scalable, modern
+            applications
+          </p>
+        </div>
 
-                                            if (tech.isCenter) {
-                                                return (
-                                                    <div
-                                                        key={tech.name}
-                                                        className={`
+        {/* Tech Grid */}
+        <div className="max-w-6xl mx-auto">
+          <div className="relative">
+            {/* Grid Container */}
+            <div className="grid gap-3 sm:gap-4">
+              {[1, 2, 3, 4, 5].map((row) => (
+                <div
+                  key={row}
+                  className={`flex justify-center gap-3 sm:gap-4 ${
+                    row % 2 === 0 ? "ml-8" : ""
+                  }`}
+                  style={{
+                    transform: `translateX(${row % 2 === 0 ? "20px" : "0"})`,
+                  }}
+                >
+                  {techIcons
+                    .filter((tech) => tech.row === row)
+                    .map((tech, index) => {
+                      const globalIndex = techIcons.findIndex(
+                        (t) => t === tech
+                      );
+
+                      if (tech.isCenter) {
+                        return (
+                          <div
+                            key={tech.name}
+                            className={`
                               relative w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28
                               rounded-2xl
                               bg-gradient-to-br from-[#1a1f4d] to-[#0d1233]
-                              border-2 border-[#4353FF]/60
+                              border-2 border-[#4C91C9]/60
                               shadow-[0_0_60px_rgba(67,83,255,0.4),inset_0_1px_1px_rgba(255,255,255,0.1)]
                               flex items-center justify-center
                               transition-all duration-500
                               z-20
-                              ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}
+                              ${
+                                isVisible
+                                  ? "opacity-100 scale-100"
+                                  : "opacity-0 scale-90"
+                              }
                             `}
-                                                        style={{
-                                                            transitionDelay: `${globalIndex * 50}ms`,
-                                                        }}
-                                                    >
-                                                        <span className="text-4xl sm:text-5xl font-black text-[#4353FF]">&lt;/&gt;</span>
-                                                    </div>
-                                                );
-                                            }
+                            style={{
+                              transitionDelay: `${globalIndex * 50}ms`,
+                            }}
+                          >
+                            <span className="text-4xl sm:text-5xl font-black text-[#4C91C9]">
+                              &lt;/&gt;
+                            </span>
+                          </div>
+                        );
+                      }
 
-                                            return (
-                                                <div
-                                                    key={`${tech.name}-${index}`}
-                                                    className={`
+                      return (
+                        <div
+                          key={`${tech.name}-${index}`}
+                          className={`
                             relative w-14 h-14 sm:w-16 sm:h-16 lg:w-20 lg:h-20
                             rounded-xl sm:rounded-2xl
                             bg-gradient-to-br from-[#12163a] to-[#080b1f]
@@ -147,79 +169,93 @@ const TechSkillsGrid = () => {
                             flex items-center justify-center
                             cursor-pointer
                             transition-all duration-300
-                            hover:border-[#4353FF]/40
+                            hover:border-[#4C91C9]/40
                             hover:shadow-[0_0_30px_rgba(67,83,255,0.2),inset_0_1px_1px_rgba(255,255,255,0.1)]
                             hover:scale-105
                             group
-                            ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
+                            ${
+                              isVisible
+                                ? "opacity-100 translate-y-0"
+                                : "opacity-0 translate-y-4"
+                            }
                           `}
-                                                    style={{
-                                                        transitionDelay: `${globalIndex * 30}ms`,
-                                                    }}
-                                                    onMouseEnter={() => setHoveredIndex(globalIndex)}
-                                                    onMouseLeave={() => setHoveredIndex(null)}
-                                                >
-                                                    {/* Glow effect on hover */}
-                                                    <div
-                                                        className="absolute inset-0 rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                                                        style={{
-                                                            background: `radial-gradient(circle at center, ${tech.color}20 0%, transparent 70%)`,
-                                                        }}
-                                                    />
+                          style={{
+                            transitionDelay: `${globalIndex * 30}ms`,
+                          }}
+                          onMouseEnter={() => setHoveredIndex(globalIndex)}
+                          onMouseLeave={() => setHoveredIndex(null)}
+                        >
+                          {/* Glow effect on hover */}
+                          <div
+                            className="absolute inset-0 rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                            style={{
+                              background: `radial-gradient(circle at center, ${tech.color}20 0%, transparent 70%)`,
+                            }}
+                          />
 
-                                                    {/* Icon */}
-                                                    <span
-                                                        className="text-xl sm:text-2xl lg:text-3xl relative z-10 transition-transform duration-300 group-hover:scale-110"
-                                                        style={{
-                                                            color: tech.color,
-                                                            textShadow: hoveredIndex === globalIndex ? `0 0 20px ${tech.color}` : 'none'
-                                                        }}
-                                                    >
-                                                        {tech.icon}
-                                                    </span>
+                          {/* Icon */}
+                          <span
+                            className="text-xl sm:text-2xl lg:text-3xl relative z-10 transition-transform duration-300 group-hover:scale-110"
+                            style={{
+                              color: tech.color,
+                              textShadow:
+                                hoveredIndex === globalIndex
+                                  ? `0 0 20px ${tech.color}`
+                                  : "none",
+                            }}
+                          >
+                            {tech.icon}
+                          </span>
 
-                                                    {/* Tooltip */}
-                                                    <div className={`
+                          {/* Tooltip */}
+                          <div
+                            className={`
                             absolute -top-10 left-1/2 -translate-x-1/2
                             px-3 py-1.5 rounded-lg
                             bg-[#12163a] border border-white/10
                             text-xs font-bold text-white whitespace-nowrap
                             transition-all duration-200
-                            ${hoveredIndex === globalIndex ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}
+                            ${
+                              hoveredIndex === globalIndex
+                                ? "opacity-100 translate-y-0"
+                                : "opacity-0 translate-y-2"
+                            }
                             pointer-events-none
-                          `}>
-                                                        {tech.name}
-                                                        <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 rotate-45 bg-[#12163a] border-r border-b border-white/10" />
-                                                    </div>
-                                                </div>
-                                            );
-                                        })}
-                                </div>
-                            ))}
+                          `}
+                          >
+                            {tech.name}
+                            <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 rotate-45 bg-[#12163a] border-r border-b border-white/10" />
+                          </div>
                         </div>
-
-                        {/* Floating particles */}
-                        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-                            {[...Array(15)].map((_, i) => (
-                                <div
-                                    key={i}
-                                    className="absolute w-1 h-1 rounded-full bg-[#4353FF]/30 animate-float"
-                                    style={{
-                                        left: `${Math.random() * 100}%`,
-                                        top: `${Math.random() * 100}%`,
-                                        animationDelay: `${Math.random() * 5}s`,
-                                        animationDuration: `${3 + Math.random() * 4}s`,
-                                    }}
-                                />
-                            ))}
-                        </div>
-                    </div>
+                      );
+                    })}
                 </div>
+              ))}
             </div>
 
-            <style jsx>{`
+            {/* Floating particles */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden">
+              {[...Array(15)].map((_, i) => (
+                <div
+                  key={i}
+                  className="absolute w-1 h-1 rounded-full bg-[#4C91C9]/30 animate-float"
+                  style={{
+                    left: `${Math.random() * 100}%`,
+                    top: `${Math.random() * 100}%`,
+                    animationDelay: `${Math.random() * 5}s`,
+                    animationDuration: `${3 + Math.random() * 4}s`,
+                  }}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <style jsx>{`
         @keyframes float {
-          0%, 100% {
+          0%,
+          100% {
             transform: translateY(0) translateX(0);
             opacity: 0.3;
           }
@@ -232,8 +268,8 @@ const TechSkillsGrid = () => {
           animation: float ease-in-out infinite;
         }
       `}</style>
-        </section>
-    );
+    </section>
+  );
 };
 
 export default TechSkillsGrid;

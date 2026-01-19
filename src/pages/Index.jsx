@@ -1,6 +1,6 @@
 import Header from "@/components/Header";
 import DevHero from "@/components/DevHero";
-import TechStack from "@/components/TechStack";
+
 import DesignSection from "@/components/DesignSection";
 import ServicesFrameworks from "@/components/ServicesFrameworks";
 import DevelopSection from "@/components/DevelopSection";
@@ -13,6 +13,8 @@ import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
 import Education from "@/components/Education";
 import Contact from "@/components/Contact";
+import TransformVision from "@/components/TransformVision";
+import Newsletter from "@/components/Newsletter";
 import MegaFooter from "@/components/MegaFooter";
 import KeyboardNavigation from "@/components/KeyboardNavigation";
 import SimpleScrollButton from "@/components/SimpleScrollButton";
@@ -23,22 +25,16 @@ const Index = () => {
       <Header />
       {/* New dev.co style sections */}
       <DevHero />
-      <TechStack />
+
       <DesignSection />
       <ServicesFrameworks />
       <DevelopSection />
       {/* New premium sections */}
       <TechSkillsGrid />
       <Partnership />
-      {/* Original portfolio sections */}
-      <About />
-      <Experience />
-      <Projects />
-      <Skills />
-      <Education />
-      {/* FAQ & Contact */}
-      <FAQ />
-      <Contact />
+      {/*  */}
+      <TransformVision />
+      <Newsletter />
       <MegaFooter />
       <KeyboardNavigation />
       <SimpleScrollButton />

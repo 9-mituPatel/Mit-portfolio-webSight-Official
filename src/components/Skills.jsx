@@ -7,8 +7,10 @@ import { Database, Server, Code, Terminal, Cpu, Globe } from "lucide-react";
 const SkillBadge = ({ skill, level }) => (
   <div className="mb-6">
     <div className="flex justify-between items-end mb-2">
-      <span className="text-white font-bold text-sm tracking-wider uppercase">{skill}</span>
-      <span className="text-[#4353FF] font-mono text-xs">{level}%</span>
+      <span className="text-white font-bold text-sm tracking-wider uppercase">
+        {skill}
+      </span>
+      <span className="text-[#4C91C9] font-mono text-xs">{level}%</span>
     </div>
     <div className="h-1 w-full bg-white/5 rounded-full overflow-hidden">
       <motion.div
@@ -16,7 +18,7 @@ const SkillBadge = ({ skill, level }) => (
         whileInView={{ width: `${level}%` }}
         transition={{ duration: 1, ease: "easeOut" }}
         viewport={{ once: true }}
-        className="h-full bg-[#4353FF]"
+        className="h-full bg-[#4C91C9]"
       />
     </div>
   </div>
@@ -32,10 +34,12 @@ const SkillCategory = ({ title, icon: Icon, skills, delay }) => (
   >
     <SpotlightCard className="p-8 h-full border-gradient">
       <div className="flex items-center gap-4 mb-8 relative z-10">
-        <div className="w-12 h-12 bg-[#4353FF]/10 rounded-2xl flex items-center justify-center group-hover:bg-[#4353FF]/20 transition-colors">
-          <Icon className="w-6 h-6 text-[#4353FF]" />
+        <div className="w-12 h-12 bg-[#4C91C9]/10 rounded-2xl flex items-center justify-center group-hover:bg-[#4C91C9]/20 transition-colors">
+          <Icon className="w-6 h-6 text-[#4C91C9]" />
         </div>
-        <h3 className="text-xl font-bold text-white transition-colors">{title}</h3>
+        <h3 className="text-xl font-bold text-white transition-colors">
+          {title}
+        </h3>
       </div>
       <div className="relative z-10">
         {skills.map((s, i) => (
@@ -55,8 +59,8 @@ const Skills = () => {
         { name: "Node.js", level: 95 },
         { name: "Express.js", level: 90 },
         { name: "RESTful APIs", level: 92 },
-        { name: "Microservices", level: 85 }
-      ]
+        { name: "Microservices", level: 85 },
+      ],
     },
     {
       title: "Data Systems",
@@ -65,8 +69,8 @@ const Skills = () => {
         { name: "MongoDB", level: 90 },
         { name: "SQL / MySQL", level: 85 },
         { name: "Redis", level: 88 },
-        { name: "Elasticsearch", level: 80 }
-      ]
+        { name: "Elasticsearch", level: 80 },
+      ],
     },
     {
       title: "DevOps & Tools",
@@ -75,8 +79,8 @@ const Skills = () => {
         { name: "Docker", level: 82 },
         { name: "AWS S3", level: 85 },
         { name: "Git / GitHub", level: 90 },
-        { name: "Postman", level: 95 }
-      ]
+        { name: "Postman", level: 95 },
+      ],
     },
     {
       title: "Frontend Hybrid",
@@ -85,13 +89,16 @@ const Skills = () => {
         { name: "React.js", level: 85 },
         { name: "Angular", level: 75 },
         { name: "HTML5 / CSS3", level: 90 },
-        { name: "Tailwind CSS", level: 88 }
-      ]
-    }
+        { name: "Tailwind CSS", level: 88 },
+      ],
+    },
   ];
 
   return (
-    <section id="skills" className="py-40 bg-[#000101] relative overflow-hidden">
+    <section
+      id="skills"
+      className="py-40 bg-[#000101] relative overflow-hidden"
+    >
       <div className="absolute inset-0 bg-grid-modern opacity-10 pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
@@ -102,7 +109,7 @@ const Skills = () => {
             viewport={{ once: true }}
             className="inline-block mb-6"
           >
-            <span className="text-[#4353FF] font-black tracking-[0.4em] uppercase text-xs px-6 py-2 border border-[#4353FF]/20 rounded-full bg-[#4353FF]/5">
+            <span className="text-[#4C91C9] font-black tracking-[0.4em] uppercase text-xs px-6 py-2 border border-[#4C91C9]/20 rounded-full bg-[#4C91C9]/5">
               Expertise
             </span>
           </motion.div>
@@ -113,7 +120,15 @@ const Skills = () => {
             viewport={{ once: true }}
             className="text-6xl md:text-8xl font-black text-white mb-8 tracking-tighter"
           >
-            Technical <span className="text-[#4353FF] text-glow">Arsenal</span>
+            Technical{" "}
+            <motion.span
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-6xl md:text-8xl font-bold bg-gradient-to-r from-[#4C91C9] to-[#fbc72d] bg-clip-text text-transparent mb-4 pb-4"
+            >
+              Arsenal
+            </motion.span>
           </motion.h2>
 
           <motion.p
@@ -122,7 +137,8 @@ const Skills = () => {
             viewport={{ once: true }}
             className="text-white/50 text-xl font-medium max-w-2xl mx-auto"
           >
-            A comprehensive set of tools and technologies I've mastered to build enterprise-grade digital products.
+            A comprehensive set of tools and technologies I've mastered to build
+            enterprise-grade digital products.
           </motion.p>
         </div>
 
@@ -140,17 +156,38 @@ const Skills = () => {
           className="mt-20 p-12 bg-[#080809] border border-white/5 rounded-[2.5rem] text-center border-gradient relative overflow-hidden"
         >
           <div className="absolute inset-0 bg-grid-modern opacity-[0.05] pointer-events-none" />
-          <h3 className="text-white font-black text-2xl mb-10 tracking-tight uppercase">Infrastructure & <span className="text-[#4353FF]">Ecosystem</span></h3>
+          <h3 className="text-white font-black text-2xl mb-10 tracking-tight uppercase">
+            Infrastructure &{" "}
+            <motion.span
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="font-bold bg-gradient-to-r from-[#4C91C9] to-[#fbc72d] bg-clip-text text-transparent mb-4 pb-4"
+            >
+              Ecosystem
+            </motion.span>
+          </h3>
           <div className="flex flex-wrap justify-center gap-4 relative z-10">
-            {["Amazon S3", "Redis Labs", "BullMQ", "PM2 Runtime", "Elastic Cloud", "NGINX Reverse Proxy", "Docker Swarm", "Ubuntu Core"].map((item, i) => (
-              <span key={i} className="px-6 py-2.5 rounded-full border border-white/10 bg-white/5 text-white/40 text-xs font-black uppercase tracking-widest hover:border-[#4353FF]/30 hover:text-[#4353FF] hover:bg-[#4353FF]/5 transition-all duration-300">
+            {[
+              "Amazon S3",
+              "Redis Labs",
+              "BullMQ",
+              "PM2 Runtime",
+              "Elastic Cloud",
+              "NGINX Reverse Proxy",
+              "Docker Swarm",
+              "Ubuntu Core",
+            ].map((item, i) => (
+              <span
+                key={i}
+                className="px-6 py-2.5 rounded-full border border-white/10 bg-white/5 text-white/40 text-xs font-black uppercase tracking-widest hover:border-[#4C91C9]/30 hover:text-[#4C91C9] hover:bg-[#4C91C9]/5 transition-all duration-300"
+              >
                 {item}
               </span>
             ))}
           </div>
         </motion.div>
       </div>
-
     </section>
   );
 };
