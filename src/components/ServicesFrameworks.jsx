@@ -16,21 +16,12 @@ const ServicesFrameworks = () => {
     { icon: Braces, label: "JavaScript", color: "#F7DF1E" },
   ];
 
-<<<<<<< HEAD
     const frameworks = [
         { icon: Atom, label: "React.js", color: "#61DAFB" },
         { icon: Globe, label: "Next.js", color: "#FFFFFF" },
         { icon: Hexagon, label: "Angular", color: "#DD0031" },
         { icon: ShoppingBag, label: "Strapi", color: "#4945FF" }
     ];
-=======
-  const frameworks = [
-    { icon: Atom, label: "React.js", color: "#61DAFB" },
-    { icon: Globe, label: "Next.js", color: "#FFFFFF" },
-    { icon: Hexagon, label: "Webflow", color: "#4C91C9" },
-    { icon: ShoppingBag, label: "Shopify", color: "#96BF48" },
-  ];
->>>>>>> ab60e23 (GoCodexa Commit)
 
   return (
     <section
@@ -40,7 +31,6 @@ const ServicesFrameworks = () => {
       {/* Background */}
       <div className="absolute inset-0 bg-grid-modern opacity-5 pointer-events-none" />
 
-<<<<<<< HEAD
             <div className="container mx-auto px-6">
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {/* Services Card */}
@@ -228,19 +218,6 @@ const ServicesFrameworks = () => {
                         </div>
                     </motion.div>
                 </div>
-=======
-      <div className="container mx-auto px-6">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* Services Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="bg-[#0a0a12] border border-white/5 rounded-2xl p-8 hover:border-[#4C91C9]/30 transition-all duration-300 group"
-          >
-            <div className="w-12 h-12 bg-[#4C91C9]/10 rounded-xl flex items-center justify-center mb-6 border border-[#4C91C9]/20 group-hover:scale-110 transition-transform">
-              <FileCode className="w-6 h-6 text-[#4C91C9]" />
->>>>>>> ab60e23 (GoCodexa Commit)
             </div>
 
             <h3 className="text-2xl font-bold text-white mb-3">Services</h3>

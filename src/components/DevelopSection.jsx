@@ -3,86 +3,56 @@ import { Button } from "@/components/ui/button";
 
 const DevelopSection = () => {
   return (
-    <section
-      id="develop"
-      className="py-32 bg-[#000101] relative overflow-hidden"
-    >
+    <section id="develop" className="py-16 sm:py-24 md:py-32 bg-[#000101] relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-grid-modern opacity-5 pointer-events-none" />
 
-<<<<<<< HEAD
-            <div className="container mx-auto px-6">
-                {/* Section Header */}
-                <div className="grid lg:grid-cols-2 gap-16 mb-20">
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                    >
-                        <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">Develop</h2>
-                        <p className="text-white/50 text-lg leading-relaxed max-w-lg">
-                            I bring designs to life with clean, efficient code. I specialize in
-                            modern frameworks and scalable architecture that powers enterprise
-                            applications, from MVP to production-ready systems.
-                        </p>
-                    </motion.div>
-=======
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header */}
-        <div className="grid lg:grid-cols-2 gap-16 mb-20">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 mb-10 sm:mb-16 lg:mb-20">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
-              Develop
-            </h2>
-            <p className="text-white/50 text-lg leading-relaxed max-w-lg">
-              Our development team brings designs to life with clean, efficient
-              code. We specialize in modern frameworks and scalable architecture
-              that powers enterprise applications worldwide.
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6">Develop</h2>
+            <p className="text-white/50 text-sm sm:text-base lg:text-lg leading-relaxed max-w-lg">
+              I bring designs to life with clean, efficient code. I specialize in
+              modern frameworks and scalable architecture that powers enterprise
+              applications, from MVP to production-ready systems.
             </p>
           </motion.div>
->>>>>>> ab60e23 (GoCodexa Commit)
 
-          {/* Right side buttons */}
+          {/* Right side buttons - hide on mobile */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="flex items-center justify-end gap-4"
+            className="hidden sm:flex items-center justify-start lg:justify-end gap-4"
           >
             <span className="text-white/40 text-sm">Develop</span>
             <div className="flex gap-2">
-              <Button
-                variant="outline"
-                size="sm"
-                className="bg-white/5 border-white/10 text-white/70 rounded-full text-xs"
-              >
+              <Button variant="outline" size="sm" className="bg-white/5 border-white/10 text-white/70 rounded-full text-xs">
                 GitHub
               </Button>
-              <Button
-                size="sm"
-                className="bg-white text-black rounded-full text-xs"
-              >
-                Watch Video
+              <Button size="sm" className="bg-white text-black rounded-full text-xs">
+                View Code
               </Button>
             </div>
           </motion.div>
         </div>
 
-        {/* Code Editor Visual */}
+        {/* Code Editor Visual - Hidden on mobile for cleaner UX */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="relative"
+          className="relative hidden sm:block"
         >
           {/* 3D Perspective Container */}
           <div
             className="relative mx-auto max-w-6xl"
-            style={{ perspective: "2000px" }}
+            style={{ perspective: '2000px' }}
           >
             {/* Main Editor Window */}
             <motion.div
@@ -91,7 +61,7 @@ const DevelopSection = () => {
               viewport={{ once: true }}
               transition={{ duration: 1, ease: "easeOut" }}
               className="bg-[#12121f]/90 backdrop-blur-xl rounded-3xl border border-white/10 shadow-2xl overflow-hidden"
-              style={{ transformStyle: "preserve-3d" }}
+              style={{ transformStyle: 'preserve-3d' }}
             >
               {/* Editor Top Bar */}
               <div className="flex items-center justify-between px-6 py-4 bg-[#0a0a14] border-b border-white/5">
@@ -102,21 +72,11 @@ const DevelopSection = () => {
                     <div className="w-3 h-3 rounded-full bg-green-500/80" />
                   </div>
                   <div className="flex gap-4 text-xs text-white/40">
-                    <span className="hover:text-white/70 cursor-pointer">
-                      Scene
-                    </span>
-                    <span className="hover:text-white/70 cursor-pointer">
-                      Project
-                    </span>
-                    <span className="hover:text-white/70 cursor-pointer">
-                      Debug
-                    </span>
-                    <span className="hover:text-white/70 cursor-pointer">
-                      Editor
-                    </span>
-                    <span className="hover:text-white/70 cursor-pointer">
-                      Help
-                    </span>
+                    <span className="hover:text-white/70 cursor-pointer">Scene</span>
+                    <span className="hover:text-white/70 cursor-pointer">Project</span>
+                    <span className="hover:text-white/70 cursor-pointer">Debug</span>
+                    <span className="hover:text-white/70 cursor-pointer">Editor</span>
+                    <span className="hover:text-white/70 cursor-pointer">Help</span>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
@@ -129,18 +89,14 @@ const DevelopSection = () => {
               <div className="flex">
                 {/* Left Sidebar - File Tree */}
                 <div className="w-56 border-r border-white/5 p-4 bg-[#0a0a14]/50">
-                  <div className="text-xs text-white/30 uppercase tracking-wider mb-4">
-                    Scene
-                  </div>
+                  <div className="text-xs text-white/30 uppercase tracking-wider mb-4">Scene</div>
                   <div className="space-y-2">
                     <div className="flex items-center gap-2 text-sm text-white/70">
                       <span className="text-red-400">●</span> Node3D
                     </div>
                   </div>
 
-                  <div className="text-xs text-white/30 uppercase tracking-wider mt-8 mb-4">
-                    FileSystem
-                  </div>
+                  <div className="text-xs text-white/30 uppercase tracking-wider mt-8 mb-4">FileSystem</div>
                   <div className="space-y-1 text-xs text-white/50">
                     <div className="flex items-center gap-2">
                       <span>📁</span> res://
@@ -148,7 +104,7 @@ const DevelopSection = () => {
                     <div className="flex items-center gap-2 pl-4">
                       <span>📄</span> Node3D.tscn
                     </div>
-                    <div className="flex items-center gap-2 pl-4 text-[#4C91C9]">
+                    <div className="flex items-center gap-2 pl-4 text-[#4353FF]">
                       <span>📄</span> Node3D.gd
                     </div>
                   </div>
@@ -158,90 +114,50 @@ const DevelopSection = () => {
                 <div className="flex-1 p-6">
                   <div className="flex gap-4 font-mono text-sm">
                     {/* Line Numbers */}
-                    <div className="text-white/20 text-right select-none w-8">
+                    <div className="text-white/20 text-right select-none w-8 hidden sm:block">
                       {Array.from({ length: 18 }, (_, i) => (
-                        <div key={i} className="leading-7">
-                          {i + 1}
-                        </div>
+                        <div key={i} className="leading-7">{i + 1}</div>
                       ))}
                     </div>
 
-                    {/* Code Content */}
+                    {/* Code Content - Node.js/Express API */}
                     <div className="flex-1 overflow-x-auto">
-                      <div className="leading-7">
-                        <span className="text-pink-400">extends</span>{" "}
-                        <span className="text-green-400">Node3D</span>
-                      </div>
+                      <div className="leading-7"><span className="text-pink-400">const</span> <span className="text-blue-400">express</span> = <span className="text-yellow-400">require</span>(<span className="text-green-400">'express'</span>);</div>
+                      <div className="leading-7"><span className="text-pink-400">const</span> <span className="text-blue-400">app</span> = <span className="text-yellow-400">express</span>();</div>
                       <div className="leading-7">&nbsp;</div>
-                      <div className="leading-7 text-white/30">
-                        # Declare member variables here. Examples:
-                      </div>
-                      <div className="leading-7 text-white/30"># var a = 2</div>
-                      <div className="leading-7 text-white/30">
-                        # var b = "text"
-                      </div>
+                      <div className="leading-7 text-white/30">// Middleware setup</div>
+                      <div className="leading-7"><span className="text-blue-400">app</span>.<span className="text-yellow-400">use</span>(<span className="text-blue-400">express</span>.<span className="text-yellow-400">json</span>());</div>
                       <div className="leading-7">&nbsp;</div>
-                      <div className="leading-7 text-white/30">
-                        # Called when the node enters the scene tree for the
-                        first time.
-                      </div>
-                      <div className="leading-7">
-                        <span className="text-pink-400">func</span>{" "}
-                        <span className="text-yellow-400">_ready</span>
-                        <span className="text-white/60">()</span>
-                        <span className="text-white/60">:</span>
+                      <div className="leading-7 text-white/30">// API Routes</div>
+                      <div className="leading-7 bg-[#4353FF]/10 -mx-2 px-2 border-l-2 border-[#4353FF]">
+                        <span className="text-blue-400">app</span>.<span className="text-yellow-400">get</span>(<span className="text-green-400">'/api/users'</span>, <span className="text-pink-400">async</span> (<span className="text-orange-400">req</span>, <span className="text-orange-400">res</span>) =&gt; {"{"}
                       </div>
                       <div className="leading-7 pl-6">
-                        <span className="text-pink-400">pass</span>
-                        <span className="text-white/30">
-                          {" "}
-                          # Replace with function body.
-                        </span>
-                      </div>
-                      <div className="leading-7">&nbsp;</div>
-                      <div className="leading-7 text-white/30">
-                        # Called every frame. 'delta' is the elapsed time since
-                        the previous frame.
-                      </div>
-                      <div className="leading-7">
-                        <span className="text-pink-400">func</span>{" "}
-                        <span className="text-yellow-400">_process</span>
-                        <span className="text-white/60">(delta)</span>
-                        <span className="text-white/60">:</span>
+                        <span className="text-pink-400">const</span> <span className="text-blue-400">users</span> = <span className="text-pink-400">await</span> <span className="text-blue-400">User</span>.<span className="text-yellow-400">find</span>();
                       </div>
                       <div className="leading-7 pl-6">
-                        <span className="text-pink-400">pass</span>
+                        <span className="text-orange-400">res</span>.<span className="text-yellow-400">json</span>({"{"} <span className="text-blue-400">success</span>: <span className="text-pink-400">true</span>, <span className="text-blue-400">data</span>: <span className="text-blue-400">users</span> {"}"});
                       </div>
+                      <div className="leading-7">{"}"});</div>
                       <div className="leading-7">&nbsp;</div>
-                      <div className="leading-7 bg-[#4C91C9]/10 -mx-2 px-2 border-l-2 border-[#4C91C9]">
-                        <span className="text-pink-400">func</span>{" "}
-                        <span className="text-yellow-400">_process</span>
-                        <span className="text-white/60">(delta)</span>
-                        <span className="text-white/60">:</span>
-                      </div>
-                      <div className="leading-7 pl-6">
-                        <span className="text-pink-400">pass</span>
-                      </div>
-                      <div className="leading-7">&nbsp;</div>
-                      <div className="leading-7">&nbsp;</div>
+                      <div className="leading-7 text-white/30">// Start server</div>
+                      <div className="leading-7"><span className="text-blue-400">app</span>.<span className="text-yellow-400">listen</span>(<span className="text-purple-400">3000</span>, () =&gt; {"{"};</div>
+                      <div className="leading-7 pl-6"><span className="text-blue-400">console</span>.<span className="text-yellow-400">log</span>(<span className="text-green-400">'Server running'</span>);</div>
+                      <div className="leading-7">{"}"});</div>
                     </div>
                   </div>
                 </div>
 
                 {/* Right Sidebar */}
                 <div className="w-48 border-l border-white/5 p-4 bg-[#0a0a14]/50 hidden xl:block">
-                  <div className="text-xs text-white/30 uppercase tracking-wider mb-4">
-                    Node3D.gd
-                  </div>
-                  <div className="text-xs text-white/30 uppercase tracking-wider mb-2">
-                    Filter methods
-                  </div>
+                  <div className="text-xs text-white/30 uppercase tracking-wider mb-4">server.js</div>
+                  <div className="text-xs text-white/30 uppercase tracking-wider mb-2">Exports</div>
                   <div className="space-y-2 text-xs text-white/50">
                     <div className="flex items-center gap-2">
-                      <span className="text-[#4C91C9]">ƒ</span> _ready
+                      <span className="text-[#4353FF]">ƒ</span> getUsers
                     </div>
                     <div className="flex items-center gap-2">
-                      <span className="text-[#4C91C9]">ƒ</span> _process
+                      <span className="text-[#4353FF]">ƒ</span> createUser
                     </div>
                   </div>
                 </div>
@@ -261,7 +177,7 @@ const DevelopSection = () => {
             </motion.div>
 
             {/* Floating Glow */}
-            <div className="absolute -inset-8 bg-[#4C91C9]/5 blur-[80px] rounded-full pointer-events-none -z-10" />
+            <div className="absolute -inset-8 bg-[#4353FF]/5 blur-[80px] rounded-full pointer-events-none -z-10" />
           </div>
         </motion.div>
       </div>

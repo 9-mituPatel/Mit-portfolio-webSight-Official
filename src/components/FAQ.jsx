@@ -25,37 +25,9 @@ const FAQ = () => {
       observer.observe(element);
     }
 
-<<<<<<< HEAD
-    const faqs = [
-        {
-            question: "What technologies do you specialize in?",
-            answer: "I specialize in the MERN Stack (MongoDB, Express.js, React.js, Node.js) along with Next.js, TypeScript, Redis, Elasticsearch, and AWS. I'm proficient in building RESTful APIs, implementing real-time features with Socket.IO and WebRTC, and deploying applications using Docker and PM2. I also have experience with Angular, SQL databases (MySQL, PostgreSQL), and message queues like BullMQ."
-        },
-        {
-            question: "What types of projects have you worked on?",
-            answer: "I've worked on diverse projects including Video-KYC (V-CIP) systems with WebRTC and Mediasoup, FastTag management platforms (OmniFastag), education platforms (Youth Education - NCERT), healthcare ERP systems (Healthray, HevMed), e-commerce platforms, and enterprise-grade CMS solutions. My experience spans from payment systems handling soundbox inventory to migration services handling 50Cr+ records."
-        },
-        {
-            question: "Do you provide freelance services?",
-            answer: "Yes! I'm open to freelance projects, full-time opportunities, and interesting collaborations. I've successfully delivered freelance projects like Sparkle Diamond Boutique (SDB) - a diamond trading platform. Whether you need a full-stack application, API development, or technical consultation, feel free to reach out."
-        },
-        {
-            question: "What is your approach to building scalable applications?",
-            answer: "I follow industry best practices including microservices architecture, efficient database design with proper indexing, caching strategies using Redis, and implementing message queues for heavy operations. I use CI/CD pipelines with Docker for zero-downtime deployments and PM2 for process management. I also integrate Elasticsearch for fast search capabilities when dealing with large datasets."
-        },
-        {
-            question: "Can you lead a development team?",
-            answer: "Absolutely! At Braincuber Technologies, I currently serve as a Tech Lead where I lead a team of developers, provide code reviews, mentoring, and guidance. I collaborate with clients to gather requirements, plan project timelines, and deliver high-quality solutions. I believe in clean code practices, proper documentation, and effective communication."
-        },
-        {
-            question: "How can I contact you for a project?",
-            answer: "You can reach me via email at bharodiyamit@gmail.com or call me at +91-9409010977. I'm based in Surat, Gujarat, India. I usually respond within 24 hours. You can also connect with me on LinkedIn or check out my GitHub profile for my open-source contributions."
-        }
-    ];
-=======
     return () => observer.disconnect();
   }, []);
->>>>>>> ab60e23 (GoCodexa Commit)
+
 
   const faqs = [
     {
@@ -145,10 +117,9 @@ const FAQ = () => {
                 className={`
                   border-b border-white/10
                   transition-all duration-500
-                  ${
-                    isVisible
-                      ? "opacity-100 translate-y-0"
-                      : "opacity-0 translate-y-4"
+                  ${isVisible
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-4"
                   }
                 `}
                 style={{ transitionDelay: `${300 + index * 100}ms` }}
@@ -161,11 +132,10 @@ const FAQ = () => {
                     className={`
                     text-lg sm:text-xl font-bold pr-8
                     transition-colors duration-300
-                    ${
-                      openIndex === index
+                    ${openIndex === index
                         ? "text-white"
                         : "text-white/70 group-hover:text-white"
-                    }
+                      }
                   `}
                   >
                     {faq.question}
@@ -175,11 +145,10 @@ const FAQ = () => {
                     flex-shrink-0 w-8 h-8 rounded-lg
                     flex items-center justify-center
                     transition-all duration-300
-                    ${
-                      openIndex === index
+                    ${openIndex === index
                         ? "bg-[#4C91C9]/20 text-[#4C91C9]"
                         : "bg-white/5 text-white/40 group-hover:text-white/70"
-                    }
+                      }
                   `}
                   >
                     <ChevronDown
@@ -195,11 +164,10 @@ const FAQ = () => {
                 <div
                   className={`
                   overflow-hidden transition-all duration-500 ease-in-out
-                  ${
-                    openIndex === index
+                  ${openIndex === index
                       ? "max-h-96 opacity-100 pb-6 sm:pb-8"
                       : "max-h-0 opacity-0"
-                  }
+                    }
                 `}
                 >
                   <p className="text-white/50 text-base leading-relaxed pr-16">

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import { SpotlightCard } from "@/components/ui/spotlight-card";
 import {
   Mail,
   Phone,
@@ -88,12 +89,44 @@ const Contact = () => {
   ];
 
   return (
-    <section
-      id="contact"
-      className="py-3 bg-[#000101] min-h-screen flex items-center justify-center relative overflow-hidden"
-    >
-      {/* Background Decor */}
-      <div className="absolute inset-0 bg-grid-modern opacity-[0.03] pointer-events-none" />
+    <section id="contact" className="py-16 sm:py-24 md:py-32 lg:py-44 bg-[#000101] relative overflow-hidden">
+      {/* Background elements */}
+      <div className="absolute inset-0 bg-grid-modern opacity-[0.06] pointer-events-none" />
+
+      {/* Animated gradient orbs */}
+      <motion.div
+        className="absolute top-0 left-1/4 w-[600px] h-[600px] rounded-full pointer-events-none"
+        style={{
+          background: 'radial-gradient(circle, rgba(67, 83, 255, 0.12) 0%, transparent 70%)',
+          filter: 'blur(100px)',
+        }}
+        animate={{
+          y: [0, 40, 0],
+          x: [0, -20, 0],
+        }}
+        transition={{
+          duration: 10,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
+
+      <motion.div
+        className="absolute bottom-0 right-1/4 w-[500px] h-[500px] rounded-full pointer-events-none"
+        style={{
+          background: 'radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 70%)',
+          filter: 'blur(80px)',
+        }}
+        animate={{
+          y: [0, -30, 0],
+          scale: [1, 1.1, 1],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-6xl mx-auto">

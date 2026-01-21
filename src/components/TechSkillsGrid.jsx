@@ -20,7 +20,6 @@ const TechSkillsGrid = () => {
       observer.observe(element);
     }
 
-<<<<<<< HEAD
     const techIcons = [
         // Row 1 - Languages & Core
         { name: 'JavaScript', icon: 'JS', color: '#F7DF1E', row: 1 },
@@ -65,10 +64,6 @@ const TechSkillsGrid = () => {
         { name: 'WebRTC', icon: '📞', color: '#333333', row: 5 },
         { name: 'Coturn', icon: '🔄', color: '#0099CC', row: 5 },
     ];
-=======
-    return () => observer.disconnect();
-  }, []);
->>>>>>> ab60e23 (GoCodexa Commit)
 
   const techIcons = [
     // Row 1
@@ -115,32 +110,20 @@ const TechSkillsGrid = () => {
     { name: "Go", icon: "Go", color: "#00ADD8", row: 5 },
   ];
 
-<<<<<<< HEAD
             <div className="container mx-auto px-4 sm:px-6 relative z-10">
                 {/* Section Header */}
-                <div className="text-center mb-16">
-                    <div className="inline-flex items-center gap-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-4 py-2 mb-6">
+                <div className="text-center mb-10 sm:mb-16">
+                    <div className="inline-flex items-center gap-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-3 sm:px-4 py-2 mb-4 sm:mb-6">
                         <div className="w-2 h-2 rounded-full bg-[#4353FF] animate-pulse" />
-                        <span className="text-xs font-bold uppercase tracking-widest text-white/60">Technology Stack</span>
+                        <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-white/60">Technology Stack</span>
                     </div>
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black text-white mb-4 sm:mb-6">
                         My <span className="text-[#4353FF]">Technology</span> Expertise
                     </h2>
-                    <p className="text-white/50 text-lg max-w-2xl mx-auto">
+                    <p className="text-white/50 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto px-4">
                         Mastering cutting-edge technologies to build scalable, modern applications
                     </p>
                 </div>
-=======
-  return (
-    <section
-      id="tech-stack"
-      className="relative py-32 overflow-hidden bg-[#000101]"
-    >
-      {/* Background gradient */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(67,83,255,0.15),transparent_70%)]" />
-      </div>
->>>>>>> ab60e23 (GoCodexa Commit)
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         {/* Section Header */}

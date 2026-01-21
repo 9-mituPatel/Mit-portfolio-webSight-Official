@@ -15,7 +15,6 @@ const Experience = () => {
       period: "Aug 2024 - Present",
       type: "Full-time",
       description: [
-<<<<<<< HEAD
         "Designed and developed scalable web applications using Node.js, Express.js, MongoDB, React.js, Next.js, and Tailwind CSS",
         "Led a small team of developers, providing guidance, code reviews, and mentoring",
         "Collaborated with clients to gather requirements, plan project timelines, and deliver high-quality solutions",
@@ -25,14 +24,6 @@ const Experience = () => {
       technologies: ["Node.js", "Express.js", "MongoDB", "React.js", "Next.js", "Docker", "Redis", "Tailwind CSS"],
       color: "#4353FF",
       isCurrent: true
-=======
-        "Architecting scalable systems with Node.js and React.js",
-        "Leading a mission-critical backend migration to microservices",
-        "Managing cloud infrastructure on AWS and DigitalOcean",
-        "Implementing advanced security protocols and JWT-based auth",
-      ],
-      technologies: ["Node.js", "MongoDB", "Docker", "Redis", "AWS"],
->>>>>>> ab60e23 (GoCodexa Commit)
     },
     {
       title: "Backend Developer Intern",
@@ -57,7 +48,6 @@ const Experience = () => {
       period: "2022 - 2024",
       type: "Part-time",
       description: [
-<<<<<<< HEAD
         "Worked part-time during graduation, gaining hands-on experience in web design and development",
         "Built small to mid-scale projects, including frontend dashboards using React.js and Bootstrap",
         "Developed backend APIs with Node.js, SQL & MongoDB for various client requirements",
@@ -78,23 +68,6 @@ const Experience = () => {
       }
     }
   };
-=======
-        "Developed custom ERP solutions for local logistics firms",
-        "Built responsive frontend dashboards using React and Bootstrap",
-        "Optimized database queries for 40% faster load times",
-        "Successfully delivered 5+ full-stack freelance projects",
-      ],
-      technologies: ["Node.js", "React.js", "MySQL", "MongoDB", "Nginx"],
-    },
-  ];
-
-  return (
-    <section
-      id="experience"
-      className="py-40 bg-[#000101] relative overflow-hidden"
-    >
-      <div className="absolute inset-0 bg-grid-modern opacity-10 pointer-events-none" />
->>>>>>> ab60e23 (GoCodexa Commit)
 
   const itemVariants = {
     hidden: { opacity: 0, y: 50 },
@@ -109,7 +82,7 @@ const Experience = () => {
   };
 
   return (
-    <section id="experience" className="py-32 md:py-44 bg-[#000101] relative overflow-hidden" ref={ref}>
+    <section id="experience" className="py-16 sm:py-24 md:py-32 lg:py-44 bg-[#000101] relative overflow-hidden" ref={ref}>
       {/* Background elements */}
       <div className="absolute inset-0 bg-grid-modern opacity-[0.06] pointer-events-none" />
 
@@ -149,23 +122,18 @@ const Experience = () => {
         }}
       />
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         {/* Section Header */}
-        <div className="max-w-4xl mx-auto text-center mb-20 md:mb-28">
+        <div className="max-w-4xl mx-auto text-center mb-12 sm:mb-16 md:mb-28">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             className="inline-block mb-8"
           >
-<<<<<<< HEAD
             <span className="tag-primary flex items-center gap-2">
               <Briefcase className="w-3 h-3" />
               Career Path
-=======
-            <span className="text-[#4C91C9] font-black tracking-[0.4em] uppercase text-xs px-6 py-2 border border-[#4C91C9]/20 rounded-full bg-[#4C91C9]/5">
-              Path
->>>>>>> ab60e23 (GoCodexa Commit)
             </span>
           </motion.div>
 
@@ -177,7 +145,6 @@ const Experience = () => {
             className="heading-xl text-white mb-8"
           >
             Professional{" "}
-<<<<<<< HEAD
             <span className="relative inline-block">
               <span className="gradient-text-primary">Journey</span>
               <motion.span
@@ -188,9 +155,6 @@ const Experience = () => {
                 transition={{ duration: 0.8, delay: 0.5 }}
               />
             </span>
-=======
-            <span className="text-[#4C91C9] text-glow">Journey</span>
->>>>>>> ab60e23 (GoCodexa Commit)
           </motion.h2>
 
           <motion.p
@@ -216,25 +180,14 @@ const Experience = () => {
           {experiences.map((exp, index) => (
             <motion.div
               key={index}
-<<<<<<< HEAD
               variants={itemVariants}
               className={`flex flex-col lg:flex-row gap-8 lg:gap-16 items-center lg:mb-24 
                 ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}
-=======
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className={`flex flex-col md:flex-row gap-8 items-center ${
-                index % 2 === 1 ? "md:flex-row-reverse" : ""
-              }`}
->>>>>>> ab60e23 (GoCodexa Commit)
             >
               {/* Spacer for timeline effect */}
               <div className="flex-1 hidden lg:block" />
 
               {/* Timeline Center Point */}
-<<<<<<< HEAD
               <div className="relative z-20 hidden lg:flex items-center justify-center">
                 <motion.div
                   className="w-6 h-6 rounded-full border-4 border-[#000101] shadow-[0_0_30px_rgba(67,83,255,0.5)]"
@@ -251,10 +204,6 @@ const Experience = () => {
                   viewport={{ once: true }}
                   transition={{ delay: 0.3 }}
                 />
-=======
-              <div className="relative z-10 hidden md:block">
-                <div className="w-6 h-6 rounded-full bg-[#4C91C9] border-[6px] border-[#000101] shadow-[0_0_20px_rgba(67,83,255,0.6)] group-hover:scale-125 transition-transform duration-500" />
->>>>>>> ab60e23 (GoCodexa Commit)
               </div>
 
               {/* Card Content */}
@@ -272,7 +221,6 @@ const Experience = () => {
                     }}
                   />
 
-<<<<<<< HEAD
                   <SpotlightCard className="relative p-8 lg:p-10 border-gradient rounded-[2rem] overflow-hidden">
                     {/* Background pattern */}
                     <div className="absolute inset-0 bg-grid-modern opacity-[0.04] pointer-events-none" />
@@ -308,31 +256,11 @@ const Experience = () => {
                         </div>
                         <div className="flex items-center gap-2 text-white/40 text-xs font-semibold bg-white/5 px-3 py-1.5 rounded-full border border-white/10">
                           <MapPin className="w-3 h-3" style={{ color: exp.color }} />
-=======
-                  <div className="flex flex-col mb-10 gap-6 relative z-10">
-                    <div className="flex flex-col sm:flex-row justify-between items-start gap-4">
-                      <div className="space-y-2">
-                        <h3 className="text-3xl font-black text-white group-hover:text-[#4C91C9] transition-colors duration-300 tracking-tight leading-none uppercase">
-                          {exp.title}
-                        </h3>
-                        <p className="text-[#4C91C9] font-black text-xs tracking-[0.3em] uppercase">
-                          {exp.company}
-                        </p>
-                      </div>
-                      <div className="flex flex-wrap gap-4 text-white/30 text-[10px] font-black uppercase tracking-widest bg-white/5 px-4 py-2 rounded-full border border-white/10">
-                        <div className="flex items-center gap-2">
-                          <Calendar className="w-3 h-3 text-[#4C91C9]" />{" "}
-                          {exp.period}
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <MapPin className="w-3 h-3 text-[#4C91C9]" />{" "}
->>>>>>> ab60e23 (GoCodexa Commit)
                           {exp.location}
                         </div>
                       </div>
                     </div>
 
-<<<<<<< HEAD
                     {/* Description list */}
                     <ul className="space-y-4 mb-10 relative z-10">
                       {exp.description.map((item, idx) => (
@@ -387,31 +315,6 @@ const Experience = () => {
                     />
                   </SpotlightCard>
                 </motion.div>
-=======
-                  <ul className="space-y-5 mb-12 relative z-10">
-                    {exp.description.map((item, idx) => (
-                      <li
-                        key={idx}
-                        className="flex items-start gap-5 text-white/50 text-base font-medium leading-relaxed group/item"
-                      >
-                        <div className="mt-2 w-2 h-2 rounded-full bg-[#4C91C9]/30 group-hover/item:bg-[#4C91C9] transition-colors duration-300 flex-shrink-0" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-
-                  <div className="flex flex-wrap gap-3 pt-8 border-t border-white/5 relative z-10">
-                    {exp.technologies.map((tech, idx) => (
-                      <span
-                        key={idx}
-                        className="px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/30 text-[10px] font-black uppercase tracking-widest group-hover:text-[#4C91C9] group-hover:border-[#4C91C9]/20 transition-all duration-300"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </SpotlightCard>
->>>>>>> ab60e23 (GoCodexa Commit)
               </div>
             </motion.div>
           ))}

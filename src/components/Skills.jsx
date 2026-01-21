@@ -101,13 +101,13 @@ const Skills = () => {
     >
       <div className="absolute inset-0 bg-grid-modern opacity-10 pointer-events-none" />
 
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-5xl mx-auto text-center mb-32">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        <div className="max-w-5xl mx-auto text-center mb-12 sm:mb-20 md:mb-32">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="inline-block mb-6"
+            className="inline-block mb-4 sm:mb-6"
           >
             <span className="text-[#4C91C9] font-black tracking-[0.4em] uppercase text-xs px-6 py-2 border border-[#4C91C9]/20 rounded-full bg-[#4C91C9]/5">
               Expertise
@@ -118,7 +118,7 @@ const Skills = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-6xl md:text-8xl font-black text-white mb-8 tracking-tighter"
+            className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-black text-white mb-4 sm:mb-8 tracking-tighter"
           >
             Technical{" "}
             <motion.span
@@ -135,14 +135,14 @@ const Skills = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-white/50 text-xl font-medium max-w-2xl mx-auto"
+            className="text-white/50 text-base sm:text-lg md:text-xl font-medium max-w-2xl mx-auto"
           >
             A comprehensive set of tools and technologies I've mastered to build
             enterprise-grade digital products.
           </motion.p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 lg:gap-8">
           {skillCategories.map((cat, i) => (
             <SkillCategory key={i} {...cat} delay={i * 0.1} />
           ))}

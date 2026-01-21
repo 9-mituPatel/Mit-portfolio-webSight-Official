@@ -334,21 +334,12 @@
   }
 
   ::-webkit-scrollbar-thumb {
-<<<<<<< HEAD
     background: linear-gradient(180deg, #4353FF40, #6366f140);
     border-radius: 3px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(180deg, #4353FF60, #6366f160);
-=======
-    background: #4C91C940;
-    border-radius: 4px;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: #4C91C960;
->>>>>>> ab60e23 (GoCodexa Commit)
   }
 
   /* Code block styling */
@@ -386,24 +377,24 @@
 
   /* Section spacing */
   .section-spacing {
-    @apply py-28 md:py-36 lg:py-44;
+    @apply py-16 sm:py-24 md:py-32 lg:py-44;
   }
 
-  /* Heading styles */
+  /* Heading styles - Mobile First */
   .heading-xl {
-    @apply text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tighter leading-[0.95];
+    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tighter leading-[1.1];
   }
 
   .heading-lg {
-    @apply text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight;
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-tight leading-tight;
   }
 
   .heading-md {
-    @apply text-3xl md:text-4xl font-bold tracking-tight;
+    @apply text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight;
   }
 
   .body-lg {
-    @apply text-lg md:text-xl text-white/60 leading-relaxed font-medium;
+    @apply text-base sm:text-lg md:text-xl text-white/60 leading-relaxed font-medium;
   }
 
   /* Premium button styles */
@@ -653,4 +644,133 @@
 
 .animate-rotate-in {
   animation: rotateIn 0.8s ease-out;
+}
+
+/* =====================================================
+   MOBILE RESPONSIVE ENHANCEMENTS
+   ===================================================== */
+
+/* Mobile-first responsive breakpoints */
+@media (max-width: 640px) {
+
+  /* Reduce section padding on mobile */
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Make buttons full-width on mobile when needed */
+  .btn-primary,
+  .btn-secondary {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    font-size: 0.875rem;
+  }
+
+  /* Reduce card padding on mobile */
+  .border-gradient {
+    padding: 1.25rem;
+  }
+
+  /* Ensure images don't overflow */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Prevent horizontal scroll */
+  section {
+    overflow-x: hidden;
+  }
+
+  /* Adjust grid gaps for mobile */
+  .grid {
+    gap: 1rem;
+  }
+
+  /* Better touch targets for mobile */
+  button,
+  a {
+    min-height: 44px;
+  }
+
+  /* Reduce font sizes for very small screens */
+  .heading-xl {
+    font-size: 1.75rem;
+    line-height: 1.2;
+  }
+
+  .heading-lg {
+    font-size: 1.5rem;
+    line-height: 1.25;
+  }
+
+  /* Hide decorative elements on mobile for performance */
+  .floating-element-mobile-hide {
+    display: none;
+  }
+}
+
+/* Tablet adjustments */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .heading-xl {
+    font-size: 2.5rem;
+  }
+
+  .heading-lg {
+    font-size: 2rem;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+
+  /* Increase touch target sizes */
+  button,
+  a,
+  .tag-primary,
+  .tag-secondary {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Remove hover effects that don't work on touch */
+  .group:hover .group-hover\:scale-110 {
+    transform: none;
+  }
+}
+
+/* Landscape mobile handling */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero-section {
+    min-height: auto;
+    padding-top: 80px;
+    padding-bottom: 40px;
+  }
+}
+
+/* Safe area insets for notched devices */
+@supports (padding: env(safe-area-inset-bottom)) {
+  .footer-section {
+    padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+  }
+
+  .mobile-nav {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* Improved text rendering on mobile */
+@media (max-width: 768px) {
+  body {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  /* Ensure readable text on mobile */
+  p,
+  li,
+  span {
+    font-size: max(14px, 1em);
+  }
 }

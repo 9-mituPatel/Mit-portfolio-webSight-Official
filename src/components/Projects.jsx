@@ -24,13 +24,12 @@ const ProjectCard = ({ project, index }) => {
         }}
       />
 
-      <SpotlightCard className="relative p-8 lg:p-10 flex flex-col h-full border-gradient rounded-[2rem] overflow-hidden">
+      <SpotlightCard className="relative p-5 sm:p-6 lg:p-10 flex flex-col h-full border-gradient rounded-2xl sm:rounded-[2rem] overflow-hidden">
         {/* Background pattern */}
         <div className="absolute inset-0 bg-grid-modern opacity-[0.04] pointer-events-none" />
 
         {/* Header */}
         <div className="flex justify-between items-start mb-8 relative z-10">
-<<<<<<< HEAD
           <motion.div
             className="w-14 h-14 rounded-2xl flex items-center justify-center shadow-lg"
             style={{
@@ -40,17 +39,6 @@ const ProjectCard = ({ project, index }) => {
             }}
             whileHover={{ scale: 1.1, rotate: 5 }}
             transition={{ duration: 0.3 }}
-=======
-          <div className="p-4 bg-[#4C91C9]/10 rounded-2xl border border-[#4C91C9]/20 group-hover:scale-110 transition-transform duration-500">
-            <Code className="w-8 h-8 text-[#4C91C9]" />
-          </div>
-          <motion.a
-            href={project.liveUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-3 bg-white/5 hover:bg-white/10 rounded-full text-white/40 hover:text-white transition-all duration-300 pointer-events-auto"
-            whileHover={{ rotate: 45, scale: 1.1 }}
->>>>>>> ab60e23 (GoCodexa Commit)
           >
             <project.icon className="w-7 h-7" style={{ color: project.color }} />
           </motion.div>
@@ -81,7 +69,6 @@ const ProjectCard = ({ project, index }) => {
           </div>
         </div>
 
-<<<<<<< HEAD
         {/* Category badge */}
         <div className="mb-4 relative z-10">
           <span
@@ -99,9 +86,6 @@ const ProjectCard = ({ project, index }) => {
 
         {/* Title */}
         <h3 className="text-2xl lg:text-3xl font-black text-white mb-4 group-hover:text-[#4353FF] transition-colors duration-300 leading-tight relative z-10">
-=======
-        <h3 className="text-3xl font-bold text-white mb-4 group-hover:text-[#4C91C9] transition-colors duration-300 tracking-tight relative z-10">
->>>>>>> ab60e23 (GoCodexa Commit)
           {project.title}
         </h3>
 
@@ -110,20 +94,12 @@ const ProjectCard = ({ project, index }) => {
           {project.description}
         </p>
 
-<<<<<<< HEAD
         {/* Key metric */}
         {project.metric && (
           <div className="mb-6 relative z-10">
             <motion.div
               className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#27ca40]/10 border border-[#27ca40]/20"
               whileHover={{ scale: 1.02 }}
-=======
-        <div className="flex flex-wrap gap-2.5 pt-6 border-t border-white/5 relative z-10">
-          {project.technologies.map((tech, idx) => (
-            <span
-              key={idx}
-              className="text-[11px] font-black uppercase tracking-widest text-white/40 bg-white/5 px-4 py-1.5 rounded-full border border-white/10 group-hover:border-[#4C91C9]/20 group-hover:text-[#4C91C9] transition-all duration-300"
->>>>>>> ab60e23 (GoCodexa Commit)
             >
               <Zap className="w-4 h-4 text-[#27ca40]" />
               <span className="text-[#27ca40] text-sm font-semibold">{project.metric}</span>
@@ -176,7 +152,6 @@ const Projects = () => {
 
   const projects = [
     {
-<<<<<<< HEAD
       title: "V-KYC Video Call System",
       description: "Self-hosted Video-KYC (V-CIP) solution with mediasoup WebRTC SFU. Single-handedly developed with STUN/TURN server, video streaming, call recording service, and high-quality audio/video handling. Built for one-to-one sessions with minimum CPU usage.",
       technologies: ["Node.js", "Angular.js", "Mediasoup", "coturn", "FFmpeg", "Redis", "MongoDB"],
@@ -319,7 +294,7 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-32 md:py-44 bg-[#000101] relative overflow-hidden" ref={ref}>
+    <section id="projects" className="py-16 sm:py-24 md:py-32 lg:py-44 bg-[#000101] relative overflow-hidden" ref={ref}>
       {/* Background elements */}
       <div className="absolute inset-0 bg-grid-modern opacity-[0.06] pointer-events-none" />
 
@@ -356,84 +331,19 @@ const Projects = () => {
           ease: "easeInOut",
         }}
       />
-=======
-      title: "OmniFastag",
-      description:
-        "FastTag management system with role-based UI for admin, distributor, agent, and user dashboards. Implemented RESTful APIs with JWT authentication.",
-      technologies: ["Node.js", "Express.js", "MongoDB", "React.js", "Redis"],
-      liveUrl:
-        "http://omnifastaguat.website.s3-website.ap-south-1.amazonaws.com/",
-    },
-    {
-      title: "YouthEducation",
-      description:
-        "Scalable REST APIs supporting mobile and admin platforms with Redis caching optimization for NCERT paper generation.",
-      technologies: ["Node.js", "Express.js", "react.js", "Redis", "Amazon S3"],
-      liveUrl:
-        "https://play.google.com/store/apps/details?id=youth.ncert.papergeneration&hl=en_IN",
-    },
-    {
-      title: "ECMS: Omni Card",
-      description:
-        "High-performance backend system with Elasticsearch integration for lightning-fast search on customer card data.",
-      technologies: [
-        "Node.js",
-        "Express.js",
-        "MongoDB",
-        "Elasticsearch",
-        "BullMQ",
-      ],
-      liveUrl: "https://ecms.omnicard.in/",
-    },
-    {
-      title: "Study Master",
-      description:
-        "Secure authentication system with JWT for student data protection. Integrated real-time lecture streaming with interactive chat.",
-      technologies: ["Node.js", "Express.js", "SQL", "JWT", "Socket.IO"],
-      liveUrl:
-        "https://play.google.com/store/apps/details?id=co.kevin.gnfgm&hl=en_IN",
-    },
-    {
-      title: "V-KYC Omni Card",
-      description:
-        "Self-hosted Video-KYC (V-CIP) demo with mediasoup WebRTC SFU, client-side recording, and server-side ffmpeg processing.",
-      technologies: ["Angular", "Node.js", "Mediasoup", "coturn", "ffmpeg"],
-      liveUrl: "https://www.linkedin.com/company/boundev/",
-    },
-    {
-      title: "BounDev CMS",
-      description:
-        "Comprehensive blog management API with role-based access control and JWT authentication using Strapi CMS.",
-      technologies: ["Node.js", "Strapi", "JWT", "PostgreSQL"],
-      liveUrl: "https://www.linkedin.com/company/boundev/",
-    },
-  ];
 
-  return (
-    <section
-      id="projects"
-      className="py-20 bg-[#000101] relative overflow-hidden"
-    >
-      <div className="absolute inset-0 bg-grid-modern opacity-10 pointer-events-none" />
->>>>>>> ab60e23 (GoCodexa Commit)
-
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         {/* Section Header */}
-        <div className="max-w-4xl mx-auto text-center mb-20 md:mb-28">
+        <div className="max-w-4xl mx-auto text-center mb-12 sm:mb-16 md:mb-28">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             className="inline-block mb-8"
           >
-<<<<<<< HEAD
             <span className="tag-primary flex items-center gap-2">
               <Sparkles className="w-3 h-3" />
               Featured Work
-=======
-            <span className="text-[#4C91C9] font-black tracking-[0.3em] uppercase text-sm px-6 py-2 border border-[#4C91C9]/20 rounded-full bg-[#4C91C9]/5">
-              Our Portfolio
->>>>>>> ab60e23 (GoCodexa Commit)
             </span>
           </motion.div>
 
@@ -445,7 +355,6 @@ const Projects = () => {
             className="heading-xl text-white mb-8"
           >
             Selected{" "}
-<<<<<<< HEAD
             <span className="relative inline-block">
               <span className="gradient-text-primary">Projects</span>
               <motion.span
@@ -456,16 +365,6 @@ const Projects = () => {
                 transition={{ duration: 0.8, delay: 0.5 }}
               />
             </span>
-=======
-            <motion.span
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="font-bold bg-gradient-to-r from-[#4C91C9] to-[#fbc72d] bg-clip-text text-transparent mb-4 pb-4"
-            >
-              Projects
-            </motion.span>
->>>>>>> ab60e23 (GoCodexa Commit)
           </motion.h2>
 
           <motion.p
@@ -481,13 +380,12 @@ const Projects = () => {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-7xl mx-auto">
           {projects.map((project, index) => (
             <ProjectCard key={index} project={project} index={index} />
           ))}
         </div>
 
-<<<<<<< HEAD
         {/* View More CTA */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -510,17 +408,8 @@ const Projects = () => {
           </motion.a>
         </motion.div>
       </div>
-=======
-      {/* Decorative glows */}
-      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-1/4 h-1/2 bg-[#4C91C9]/5 blur-[120px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-1/4 h-1/2 bg-[#4C91C9]/5 blur-[120px] rounded-full pointer-events-none" />
->>>>>>> ab60e23 (GoCodexa Commit)
     </section>
   );
 };
 
-<<<<<<< HEAD
 export default Projects;
-=======
-export default Projects;
->>>>>>> ab60e23 (GoCodexa Commit)
